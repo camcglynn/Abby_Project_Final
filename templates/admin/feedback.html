@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback Dashboard | Reproductive Health Chatbot</title>
+    <link rel="stylesheet" href="https://cdn.replit.com/agent/bootstrap-agent-dark-theme.min.css">
+    <style>
+        body {
+            padding-top: 2rem;
+            padding-bottom: 2rem;
+        }
+        .header {
+            margin-bottom: 2rem;
+        }
+        .stats-card {
+            margin-bottom: 1rem;
+        }
+        .feedback-list {
+            margin-top: 2rem;
+        }
+        .feedback-item {
+            margin-bottom: 1rem;
+            padding: 1rem;
+            border-radius: 0.5rem;
+        }
+        .positive {
+            border-left: 5px solid var(--bs-success);
+        }
+        .negative {
+            border-left: 5px solid var(--bs-danger);
+        }
+        .feedback-meta {
+            font-size: 0.85rem;
+            color: var(--bs-secondary);
+        }
+        .comment {
+            margin-top: 0.5rem;
+            font-style: italic;
+        }
+        .chart-container {
+            margin: 2rem 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header d-flex justify-content-between align-items-center">
+            <div>
+                <h1>Feedback Dashboard</h1>
+                <p class="lead">Monitor and analyze user feedback for the reproductive health chatbot</p>
+            </div>
+            <div>
+                <a href="{{ url_for('view_metrics') }}" class="btn btn-primary">
+                    <i class="bi bi-graph-up"></i> Performance Metrics
+                </a>
+                <a href="{{ url_for('index') }}" class="btn btn-outline-secondary ms-2">
+                    <i class="bi bi-chat"></i> Chat Interface
+                </a>
+            </div>
+        </div>
+
+        <!-- Stats Overview -->
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card stats-card">
+                    <div class="card-body">
+                        <h5 class="card-title">Total Feedback</h5>
+                        <h2 class="card-text">{{ stats.total }}</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card stats-card">
+                    <div class="card-body">
+                        <h5 class="card-title">Positive Feedback</h5>
+                        <h2 class="card-text text-success">{{ stats.positive }} ({{ stats.positive_percentage }}%)</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card stats-card">
+                    <div class="card-body">
+                        <h5 class="card-title">Negative Feedback</h5>
+                        <h2 class="card-text text-danger">{{ stats.negative }} ({{ stats.negative_percentage }}%)</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Visualization -->
+        <div class="chart-container">
+            <h3>Feedback Distribution</h3>
+            <div class="progress" style="height: 30px;">
+                <div class="progress-bar bg-success" role="progressbar" style="width: {{ stats.positive_percentage }}%;" 
+                     aria-valuenow="{{ stats.positive_percentage }}" aria-valuemin="0" aria-valuemax="100">
+                    {{ stats.positive_percentage }}% Positive
+                </div>
+                <div class="progress-bar bg-danger" role="progressbar" style="width: {{ stats.negative_percentage }}%;" 
+                     aria-valuenow="{{ stats.negative_percentage }}" aria-valuemin="0" aria-valuemax="100">
+                    {{ stats.negative_percentage }}% Negative
+                </div>
+            </div>
+        </div>
+
+        <!-- Feedback List -->
+        <div class="feedback-list">
+            <h3>Recent Feedback</h3>
+            {% if feedback|length == 0 %}
+                <div class="alert alert-info">No feedback has been submitted yet.</div>
+            {% else %}
+                {% for item in feedback|sort(attribute='timestamp', reverse=true) %}
+                    <div class="card feedback-item {% if item.rating > 0 %}positive{% else %}negative{% endif %}">
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                {% if item.rating > 0 %}
+                                    <i class="bi bi-hand-thumbs-up-fill text-success"></i> Positive Feedback
+                                {% else %}
+                                    <i class="bi bi-hand-thumbs-down-fill text-danger"></i> Negative Feedback
+                                {% endif %}
+                            </h5>
+                            <div class="feedback-meta">
+                                <strong>Message ID:</strong> {{ item.message_id }}<br>
+                                <strong>Timestamp:</strong> {{ item.timestamp }}
+                            </div>
+                            {% if item.comment %}
+                                <div class="comment">
+                                    <strong>Comment:</strong> {{ item.comment }}
+                                </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                {% endfor %}
+            {% endif %}
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
