@@ -1,0 +1,22 @@
+{
+  "session_id": "test-links2",
+  "created_at": 1742544866.2740722,
+  "last_active": 1742544872.9702559,
+  "messages": [
+    {
+      "message_id": "e6de6c07-decb-4883-a5e8-1284569f20fc",
+      "session_id": "test-links2",
+      "role": "user",
+      "content": "What are the emotional effects after an abortion?",
+      "timestamp": 1742544866.274084
+    },
+    {
+      "message_id": "9e092b1d-80c8-4381-b76e-058a3d634221",
+      "session_id": "test-links2",
+      "role": "assistant",
+      "content": "It's completely understandable to have a range of emotions after an abortion, and it's important to know that you're not alone in feeling this way. Many people experience a mix of feelings, including relief, sadness, guilt, or even anxiety. These emotions can be influenced by personal beliefs, circumstances surrounding the pregnancy, and the support system you have in place. It's normal to feel a sense of loss or grief, even if the decision was made for reasons that align with your values and circumstances. Allowing yourself to process these emotions without judgment is crucial. Remember, it's okay to feel whatever you\u2019re feeling right now. If you find that your emotions are overwhelming or persistent, talking to someone\u2014whether it's a friend, family member, or a mental health professional\u2014can be very helpful. They can provide a safe space for you to explore your feelings and help you find ways to cope. You deserve support and understanding during this time, so please take care of yourself and reach out if you need someone to talk to. Your feelings are valid, and it's okay to seek help when you need it.",
+      "timestamp": 1742544872.9702551,
+      "citations": []
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "session_id": "d6bf69a0-4c32-43b3-a5eb-32fe860d406f",
+  "created_at": 1742955397.788265,
+  "last_active": 1742955428.83652,
+  "messages": [
+    {
+      "message_id": "96e6c45f-0377-41b3-99ab-2060d490b152",
+      "session_id": "d6bf69a0-4c32-43b3-a5eb-32fe860d406f",
+      "role": "user",
+      "content": "what is an aboriton",
+      "timestamp": 1742955397.788296
+    },
+    {
+      "message_id": "cbd4d121-0a91-4c96-bdcc-07fc10a7349a",
+      "session_id": "d6bf69a0-4c32-43b3-a5eb-32fe860d406f",
+      "role": "assistant",
+      "content": "Abortion is a medical procedure that ends a pregnancy. It can be performed in different ways, depending on how far along the pregnancy is. The two main types of abortion are: 1. **Medication Abortion**: This involves taking medication to end a pregnancy. It is typically used in the early stages of pregnancy, usually up to 10 weeks. The process usually involves taking two different medications: the first one (mifepristone) is taken at a healthcare provider's office, and the second one (misoprostol) is taken at home. 2. **In-Clinic Abortion**: This is a surgical procedure performed by a healthcare provider in a clinic or hospital. There are different methods of surgical abortion, including suction aspiration and dilation and evacuation (D&E), depending on how far along the pregnancy is. Abortion is a safe medical procedure when performed by qualified healthcare professionals. It is important for individuals considering abortion to consult with a healthcare provider to discuss their options, understand the procedure, and receive appropriate care. If you have more specific questions about the process, safety, or implications of abortion, please feel free to ask.",
+      "timestamp": 1742955428.8365078,
+      "citations": [
+        "Planned Parenthood",
+        "Planned Parenthood"
+      ],
+      "citation_objects": [
+        {
+          "source": "Planned Parenthood",
+          "title": "Abstinence And Outercourse",
+          "url": "https://www.plannedparenthood.org/learn/birth-control/abstinence-and-outercourse",
+          "accessed_date": "2025-03-25"
+        },
+        {
+          "source": "Planned Parenthood",
+          "title": "Sexual Orientation",
+          "url": "https://www.plannedparenthood.org/learn/sexual-orientation/sexual-orientation",
+          "accessed_date": "2025-03-25"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "session_id": "test-links4",
+  "created_at": 1742545157.2654269,
+  "last_active": 1742545163.056046,
+  "messages": [
+    {
+      "message_id": "438e6450-7214-4894-babd-c0d3e4f58720",
+      "session_id": "test-links4",
+      "role": "user",
+      "content": "Is it normal to feel both relief and sadness after an abortion?",
+      "timestamp": 1742545157.265444
+    },
+    {
+      "message_id": "c4cfc2aa-5a71-4cc5-828b-fb8c53dd3b50",
+      "session_id": "test-links4",
+      "role": "assistant",
+      "content": "It's completely normal to feel a mix of relief and sadness after an abortion. Many people experience a range of emotions during this time, and it's important to acknowledge that both feelings are valid. Relief can come from the decision you made, knowing it aligns with your current circumstances and future plans. At the same time, sadness is a natural response, as this experience can involve loss and grief, regardless of the reasons behind your decision. Allow yourself to feel these emotions without judgment. It's okay to take time to process what you're going through, and reaching out to others who have had similar experiences can be very helpful. If you ever feel overwhelmed by your feelings, consider talking to a counselor or therapist who specializes in reproductive health; they can provide support tailored to your needs. Remember, you\u2019re not alone in this, and it's perfectly okay to seek help when you need it. Your feelings are important, and taking care of your emotional well-being is just as crucial as your physical health.",
+      "timestamp": 1742545163.056045,
+      "citations": []
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "session_id": "6456dca3-7086-4cd8-be39-a6a6cddbbf5d",
+  "created_at": 1742543839.164264,
+  "last_active": 1742543851.828811,
+  "messages": [
+    {
+      "message_id": "e831ab81-8c9a-4d74-b81f-d37c3cb83e91",
+      "session_id": "6456dca3-7086-4cd8-be39-a6a6cddbbf5d",
+      "role": "user",
+      "content": "what is abortion policy in texas? im stressed",
+      "timestamp": 1742543839.164294
+    },
+    {
+      "message_id": "37711e58-5533-42bc-81e5-9aa5557f217d",
+      "session_id": "6456dca3-7086-4cd8-be39-a6a6cddbbf5d",
+      "role": "assistant",
+      "content": "In Texas, the abortion policy includes the following key points: 1. **Waiting Periods:** - A 24-hour waiting period is required between counseling and the abortion procedure. - Two counseling visits are required. - The waiting period can be waived if the patient lives more than 100 miles from an abortion provider, or if the pregnancy is due to rape, incest, or involves a fetus with a lethal anomaly. 2. **Insurance Coverage:** - Private insurance and insurance through the exchange cover abortion only in cases where the life of the woman is at risk or there is a major bodily function impairment. - Medicaid covers abortion in cases where the life of the woman is at risk or in cases of rape or incest. 3. **Gestational Limits:** - Abortion is banned at all stages of pregnancy (0 weeks since the last menstrual period) with exceptions only to save the life of the woman. 4. **Minors:** - Minors under the age of 18 require the consent of one parent and parental notification. - A judicial bypass is available, allowing minors to seek permission from a court instead of obtaining parental consent. These policies reflect the current legal framework for abortion in Texas as per the latest available data. Many people experience various emotions when considering these policies. I\u2019m really sorry to hear that you\u2019re feeling stressed about this situation. It's completely understandable to feel anxious when dealing with complex and sensitive topics like abortion policy, especially in Texas, where the laws can be particularly confusing and change frequently. Your feelings are valid, and it\u2019s important to take the time to process them. If you\u2019re comfortable, I\u2019m here to listen and support you through this. If you have specific questions about the policy or your options, I can provide some information as well. Remember, you\u2019re not alone in this, and it\u2019s okay to seek help or talk to someone you trust about how you\u2019re feeling. Take a deep breath, and let\u2019s take this one step at a time.",
+      "timestamp": 1742543851.82881,
+      "citations": [
+        {
+          "source": "Abortion Policy API",
+          "url": "https://www.abortionpolicyapi.com/",
+          "accessed_date": "2025-03-21"
+        },
+        {
+          "source": "Planned Parenthood",
+          "url": "https://www.plannedparenthood.org/learn/abortion/abortion-laws-by-state",
+          "accessed_date": "2025-03-21"
+        },
+        {
+          "source": "Abortion Finder",
+          "url": "https://www.abortionfinder.org/",
+          "accessed_date": "2025-03-21"
+        }
+      ]
+    }
+  ]
+}

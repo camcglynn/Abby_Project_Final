@@ -1,0 +1,67 @@
+# Core dependencies
+fastapi==0.104.1
+uvicorn==0.23.2
+pydantic==2.4.2
+python-dotenv==1.0.0
+jinja2==3.1.2
+gunicorn==21.2.0
+
+# API communication
+httpx==0.25.0
+requests==2.31.0
+openai==1.6.1
+
+# Vector search and ML
+faiss-cpu==1.7.4
+scikit-learn==1.3.2
+sentence-transformers==2.2.2
+transformers==4.35.2
+
+# NLP and text processing
+spacy==3.7.2
+nltk==3.8.1
+regex==2023.10.3
+langdetect==1.0.9
+symspellpy==6.7.7
+
+# Data handling
+pandas==2.1.1
+numpy==1.24.4
+markdown==3.5
+markupsafe==2.1.3
+
+# Utilities
+python-dateutil==2.8.2
+pytz==2023.3.post1
+uuid==1.30
+email-validator==2.1.0
+zipcodes==1.2.0
+us==3.1.1
+psutil==7.0.0
+
+# AWS Integration
+boto3==1.34.69
+botocore==1.34.69
+aws-xray-sdk==2.12.1
+
+# Monitoring and Logging
+watchtower==3.0.1
+python-json-logger==2.0.7
+
+# Language models and chains
+langchain-community==0.0.27
+langchain==0.1.9
+
+# Web Framework
+flask==3.0.2
+
+# Health checks and metrics
+prometheus-client==0.20.0
+statsd==4.0.1
+
+# Remove evaluation packages from production
+# rouge-score==0.1.2
+# ragas==0.1.0
+# trulens_eval==0.22.0
+# bert-score==0.3.13
+# sacrebleu==2.4.0 

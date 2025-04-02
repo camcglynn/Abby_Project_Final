@@ -1,0 +1,78 @@
+{
+  "session_id": "03bf1d22-9f38-4ed6-ba52-cb633c30bcf0",
+  "created_at": 1742954587.711756,
+  "last_active": 1742954656.0144708,
+  "messages": [
+    {
+      "message_id": "c1d11572-0fcc-4c7a-b542-6bf733bbb368",
+      "session_id": "03bf1d22-9f38-4ed6-ba52-cb633c30bcf0",
+      "role": "user",
+      "content": "Can I get an abortion in my state?",
+      "timestamp": 1742954587.711759
+    },
+    {
+      "message_id": "ecd04430-0508-419a-a474-df136ce2481f",
+      "session_id": "03bf1d22-9f38-4ed6-ba52-cb633c30bcf0",
+      "role": "assistant",
+      "content": "I'll need to know which state you're in to answer that question. Could you please tell me your state, so I can provide accurate information about abortion policies that apply to you?",
+      "timestamp": 1742954590.9038022,
+      "citations": [],
+      "citation_objects": []
+    },
+    {
+      "message_id": "79d768c2-2d33-4979-92b1-0b509604c010",
+      "session_id": "03bf1d22-9f38-4ed6-ba52-cb633c30bcf0",
+      "role": "user",
+      "content": "california",
+      "timestamp": 1742954595.7676108
+    },
+    {
+      "message_id": "34511ea7-d66d-4db9-a139-d25c0e8d5892",
+      "session_id": "03bf1d22-9f38-4ed6-ba52-cb633c30bcf0",
+      "role": "assistant",
+      "content": "Here's abortion policy information for California:\n\n\u2022 Insurance Coverage: Private insurance must cover abortion services; Medicaid provides coverage for abortion in certain circumstances.\n\u2022 Abortion is legal in California until viability or with medical necessity.\n\u2022 Exceptions are allowed to save the life of the pregnant person, for health reasons.\n\nThis information is based on the most recent data available, but laws may have changed. For the most up-to-date information, please contact Planned Parenthood or visit abortionfinder.org.",
+      "timestamp": 1742954597.9390562,
+      "citations": [],
+      "citation_objects": []
+    },
+    {
+      "message_id": "261fc4f4-1171-4682-bb3c-6a06bdb00b20",
+      "session_id": "03bf1d22-9f38-4ed6-ba52-cb633c30bcf0",
+      "role": "user",
+      "content": "what is an abortion",
+      "timestamp": 1742954647.146589
+    },
+    {
+      "message_id": "83503c63-d442-4a80-a5b0-70d96fb741b4",
+      "session_id": "03bf1d22-9f38-4ed6-ba52-cb633c30bcf0",
+      "role": "assistant",
+      "content": "An abortion is a medical procedure that ends a pregnancy. There are two primary methods for obtaining an abortion: in-clinic (surgical) abortion and medication abortion. 1. **In-Clinic Abortion**: This procedure is typically performed in a healthcare setting where a doctor or nurse uses medical instruments and gentle suction to remove the pregnancy tissue from the uterus through the vagina. The procedure usually takes about 5 to 10 minutes, but the entire appointment may take longer due to pre-procedure examinations and recovery time. 2. **Medication Abortion**: Often referred to as the \"abortion pill,\" this method involves taking two different medications\u2014mifepristone and misoprostol. Mifepristone blocks the hormone progesterone, which is necessary for the pregnancy to continue. After taking mifepristone, misoprostol is taken either immediately or within 48 hours, causing cramping and bleeding to expel the pregnancy tissue from the uterus. This process is similar to experiencing an early miscarriage. It's important to note that the legality of abortion varies by location. In some areas, there are restrictions or bans, while in others, it remains legal. If you are considering an abortion, it's advisable to consult local resources or healthcare providers for specific information regarding your options and legal rights. If you have further questions or need support, please consider reaching out to a healthcare provider or a reproductive health specialist.",
+      "timestamp": 1742954656.014464,
+      "citations": [
+        "Planned Parenthood",
+        "Planned Parenthood",
+        "Planned Parenthood"
+      ],
+      "citation_objects": [
+        {
+          "source": "Planned Parenthood",
+          "title": "In Clinic Abortion Procedures",
+          "url": "https://www.plannedparenthood.org/learn/abortion/in-clinic-abortion-procedures",
+          "accessed_date": "2025-03-25"
+        },
+        {
+          "source": "Planned Parenthood",
+          "title": "What Facts About Abortion Do I Need Know",
+          "url": "https://www.plannedparenthood.org/learn/abortion/considering-abortion/what-facts-about-abortion-do-i-need-know",
+          "accessed_date": "2025-03-25"
+        },
+        {
+          "source": "Planned Parenthood",
+          "title": "What Happens During An In Clinic Abortion",
+          "url": "https://www.plannedparenthood.org/learn/abortion/in-clinic-abortion-procedures/what-happens-during-an-in-clinic-abortion",
+          "accessed_date": "2025-03-25"
+        }
+      ]
+    }
+  ]
+}
