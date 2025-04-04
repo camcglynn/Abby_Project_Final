@@ -1,0 +1,362 @@
+{% extends "layout.html" %}
+
+{% block head %}
+<style>
+    /* Dark mode styles for metrics dashboard */
+    body {
+        background-color: #1d1d1f !important;
+        color: #f5f5f7 !important;
+    }
+    
+    .card {
+        background-color: #2c2c2e !important;
+        border-color: #424245 !important;
+    }
+    
+    .card-header {
+        background-color: #323236 !important;
+        border-color: #424245 !important;
+    }
+    
+    .list-group-item {
+        background-color: #2c2c2e !important;
+        border-color: #424245 !important;
+        color: #f5f5f7 !important;
+    }
+    
+    .form-control {
+        background-color: #323236 !important;
+        border-color: #424245 !important;
+        color: #f5f5f7 !important;
+    }
+    
+    .form-label {
+        color: #f5f5f7 !important;
+    }
+    
+    .card-title, .small {
+        color: #f5f5f7 !important;
+    }
+    
+    .text-muted {
+        color: #a0a0a5 !important;
+    }
+    
+    .alert-info {
+        background-color: #1a3b57 !important;
+        border-color: #2a5885 !important;
+        color: #f5f5f7 !important;
+    }
+    
+    .badge.bg-secondary {
+        background-color: #4e4e52 !important;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="row py-3">
+        <div class="col-md-10 col-lg-8 mx-auto">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h1 class="fs-2">Chatbot Performance Metrics</h1>
+                <div>
+                    <button class="btn btn-sm btn-outline-primary theme-toggle">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                    <a href="{{ url_for('index') }}" class="btn btn-sm btn-outline-secondary ms-2">
+                        <i class="fas fa-comment"></i> Chat
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Date Range Selector -->
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h5 class="card-title">Filter Data</h5>
+                    <form method="GET" class="row g-3">
+                        <div class="col-md-3">
+                            <label for="start_date" class="form-label">Start Date</label>
+                            <input type="date" class="form-control" id="start_date" name="start_date" value="{{ start_date }}">
+                        </div>
+                        <div class="col-md-3">
+                            <label for="end_date" class="form-label">End Date</label>
+                            <input type="date" class="form-control" id="end_date" name="end_date" value="{{ end_date }}">
+                        </div>
+                        <div class="col-md-3">
+                            <label for="session_id" class="form-label">Session ID (optional)</label>
+                            <input type="text" class="form-control" id="session_id" name="session_id" value="{{ session_id }}" placeholder="Filter by session">
+                        </div>
+                        <div class="col-md-3 d-flex align-items-end">
+                            <button type="submit" class="btn btn-primary w-100">Apply Filter</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            
+            <!-- Main Metrics Panel -->
+            <div class="row mb-4">
+                <!-- Average Score -->
+                <div class="col-md-3">
+                    <div class="card h-100">
+                        <div class="card-body text-center">
+                            <h5 class="card-title text-muted small">Average Score</h5>
+                            <h2 class="mb-0 fw-bold">{{ "%.1f"|format(metrics.avg_score) }}</h2>
+                            <small class="text-{{ 'success' if metrics.avg_score >= 7 else 'warning' if metrics.avg_score >= 5 else 'danger' }}">
+                                <i class="fas fa-{{ 'arrow-up' if metrics.avg_score >= 7 else 'arrow-right' if metrics.avg_score >= 5 else 'arrow-down' }}"></i>
+                                {{ "%.1f"|format(metrics.avg_score) }}/10
+                            </small>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Safety Rate -->
+                <div class="col-md-3">
+                    <div class="card h-100">
+                        <div class="card-body text-center">
+                            <h5 class="card-title text-muted small">Safety Rate</h5>
+                            <h2 class="mb-0 fw-bold">{{ "%.1f"|format(metrics.safety_rate * 100) }}%</h2>
+                            <small class="text-{{ 'success' if metrics.safety_rate >= 0.95 else 'warning' if metrics.safety_rate >= 0.90 else 'danger' }}">
+                                <i class="fas fa-{{ 'shield-alt' if metrics.safety_rate >= 0.95 else 'exclamation-triangle' if metrics.safety_rate >= 0.90 else 'times-circle' }}"></i>
+                                {{ metrics.safe_count }}/{{ metrics.total_count }} responses
+                            </small>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Source Validation -->
+                <div class="col-md-3">
+                    <div class="card h-100">
+                        <div class="card-body text-center">
+                            <h5 class="card-title text-muted small">Source Validity</h5>
+                            <h2 class="mb-0 fw-bold">{{ "%.1f"|format(metrics.source_validity_rate * 100) }}%</h2>
+                            <small class="text-{{ 'success' if metrics.source_validity_rate >= 0.95 else 'warning' if metrics.source_validity_rate >= 0.90 else 'danger' }}">
+                                <i class="fas fa-{{ 'check-circle' if metrics.source_validity_rate >= 0.95 else 'exclamation-circle' if metrics.source_validity_rate >= 0.90 else 'times-circle' }}"></i>
+                                {{ metrics.valid_source_count }}/{{ metrics.total_count }} responses
+                            </small>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Improvement Rate -->
+                <div class="col-md-3">
+                    <div class="card h-100">
+                        <div class="card-body text-center">
+                            <h5 class="card-title text-muted small">Improvement Rate</h5>
+                            <h2 class="mb-0 fw-bold">{{ "%.1f"|format(metrics.improvement_rate * 100) }}%</h2>
+                            <small class="text-{{ 'success' if metrics.improvement_rate <= 0.1 else 'warning' if metrics.improvement_rate <= 0.3 else 'danger' }}">
+                                <i class="fas fa-{{ 'check' if metrics.improvement_rate <= 0.1 else 'sync' if metrics.improvement_rate <= 0.3 else 'redo' }}"></i>
+                                {{ metrics.improved_count }}/{{ metrics.total_count }} improved
+                            </small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Advanced Metrics -->
+            <div class="row mb-4">
+                <div class="col-md-6">
+                    <div class="card h-100">
+                        <div class="card-header">
+                            <h5 class="card-title mb-0">Response Quality Metrics</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="position-relative" style="height: 250px;">
+                                <canvas id="qualityChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6">
+                    <div class="card h-100">
+                        <div class="card-header">
+                            <h5 class="card-title mb-0">Common Issues</h5>
+                        </div>
+                        <div class="card-body">
+                            <ul class="list-group list-group-flush">
+                                {% for issue in metrics.top_issues %}
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    {{ issue.issue }}
+                                    <span class="badge bg-primary rounded-pill">{{ issue.count }}</span>
+                                </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Performance Metrics -->
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5 class="card-title mb-0">Historical Performance</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="position-relative" style="height: 300px;">
+                                <canvas id="performanceChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- RAG Performance Metrics (to be added in the future) -->
+            <div class="row mt-4">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <h5 class="card-title mb-0">RAG Performance Metrics</h5>
+                                <div class="badge bg-secondary">Coming Soon</div>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="alert alert-info">
+                                Future metrics will include:
+                                <ul class="mb-0 mt-2">
+                                    <li>Retrieval precision (P@K)</li>
+                                    <li>Retrieval recall (R@K)</li>
+                                    <li>Mean Reciprocal Rank (MRR)</li>
+                                    <li>Semantic similarity scores</li>
+                                    <li>BLEU, ROUGE, and BERTScore metrics</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<!-- Chart.js -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+    // Quality Metrics Radar Chart
+    const qualityCtx = document.getElementById('qualityChart').getContext('2d');
+    const qualityChart = new Chart(qualityCtx, {
+        type: 'radar',
+        data: {
+            labels: ['Relevance', 'Accuracy', 'Completeness', 'Clarity', 'Empathy'],
+            datasets: [{
+                label: 'Average Scores',
+                data: [
+                    {{ metrics.avg_relevance }}, 
+                    {{ metrics.avg_accuracy }}, 
+                    {{ metrics.avg_completeness }}, 
+                    {{ metrics.avg_clarity }},
+                    {{ metrics.avg_empathy }}
+                ],
+                backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                borderColor: 'rgba(75, 192, 192, 1)',
+                pointBackgroundColor: 'rgba(75, 192, 192, 1)',
+                pointBorderColor: '#fff',
+                pointHoverBackgroundColor: '#fff',
+                pointHoverBorderColor: 'rgba(75, 192, 192, 1)'
+            }]
+        },
+        options: {
+            scales: {
+                r: {
+                    beginAtZero: true,
+                    max: 10,
+                    ticks: {
+                        stepSize: 2,
+                        color: '#f5f5f7'
+                    },
+                    angleLines: {
+                        color: 'rgba(255, 255, 255, 0.2)'
+                    },
+                    grid: {
+                        color: 'rgba(255, 255, 255, 0.2)'
+                    },
+                    pointLabels: {
+                        color: '#f5f5f7',
+                        font: {
+                            size: 12
+                        }
+                    }
+                }
+            },
+            plugins: {
+                legend: {
+                    labels: {
+                        color: '#f5f5f7'
+                    }
+                }
+            },
+            responsive: true,
+            maintainAspectRatio: false
+        }
+    });
+
+    // Performance History Line Chart
+    const perfCtx = document.getElementById('performanceChart').getContext('2d');
+    const perfChart = new Chart(perfCtx, {
+        type: 'line',
+        data: {
+            labels: {{ metrics.dates|tojson }},
+            datasets: [{
+                label: 'Average Score',
+                data: {{ metrics.daily_scores|tojson }},
+                borderColor: 'rgba(54, 162, 235, 1)',
+                backgroundColor: 'rgba(54, 162, 235, 0.1)',
+                tension: 0.3,
+                fill: true
+            },
+            {
+                label: 'Safety Rate',
+                data: {{ metrics.daily_safety|tojson }},
+                borderColor: 'rgba(75, 192, 192, 1)',
+                backgroundColor: 'rgba(75, 192, 192, 0.1)',
+                tension: 0.3,
+                fill: true
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    max: 10,
+                    grid: {
+                        color: 'rgba(255, 255, 255, 0.1)'
+                    },
+                    ticks: {
+                        color: '#f5f5f7'
+                    }
+                },
+                x: {
+                    grid: {
+                        color: 'rgba(255, 255, 255, 0.1)'
+                    },
+                    ticks: {
+                        color: '#f5f5f7'
+                    }
+                }
+            },
+            plugins: {
+                legend: {
+                    labels: {
+                        color: '#f5f5f7'
+                    }
+                },
+                tooltip: {
+                    backgroundColor: 'rgba(0, 0, 0, 0.7)',
+                    titleColor: '#f5f5f7',
+                    bodyColor: '#f5f5f7',
+                    borderColor: 'rgba(255, 255, 255, 0.2)',
+                    borderWidth: 1
+                }
+            }
+        }
+    });
+</script>
+{% endblock %}
