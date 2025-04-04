@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbot Admin Dashboard</title>
+    <!-- Using Bootstrap for styling -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Optional: Add custom CSS link if you have one -->
+    <!-- <link href="/static/css/admin-style.css" rel="stylesheet"> -->
+    <style>
+        /* Basic styling additions (can be moved to CSS file) */
+        body { background-color: #f8f9fa; }
+        .metrics-card {
+            background-color: white;
+            border: 1px solid #dee2e6;
+            border-radius: .375rem;
+            padding: 1.25rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 0.125rem 0.25rem rgba(0,0,0,.075);
+        }
+        .metric-value { font-size: 2em; font-weight: bold; margin: 0.5rem 0; color: #212529; }
+        .metric-title { color: #6c757d; font-size: 0.9em; text-transform: uppercase; }
+        .chart-container { position: relative; height: 300px; width: 100%; } /* Default height */
+        .quality-score-display span { /* Updated selector for better targeting */
+             display: inline-block;
+             margin: 5px 10px 5px 0;
+             font-size: 0.95em;
+             color: #495057;
+        }
+         .quality-score-display .badge { /* Specific badge styling */
+             font-size: 1em;
+             padding: 0.4em 0.6em;
+             margin-left: 5px;
+             vertical-align: middle;
+         }
+        .filters .filter-group { margin-right: 1rem; margin-bottom: 0.5rem; }
+         /* Added Style for subtext */
+         .metric-subtext { font-size: 0.8rem; color: #6c757d; }
+         /* Added Styles for Loading/Error */
+        #loadingIndicator { padding: 2rem; text-align: center; }
+        #errorMessage { margin-top: 1rem; }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/admin">Chatbot Admin Dashboard</a> <!-- Link back to self -->
+             <!-- Optional: Add other nav items like back to chat -->
+             <div class="collapse navbar-collapse">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">Back to Chat</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid">
+        <!-- Filters -->
+        <div class="metrics-card filters mb-4"> <!-- Added mb-4 -->
+             <form id="filter-form" class="row g-3 align-items-end"> <!-- Renamed ID slightly -->
+                 <div class="filter-group col-md-auto">
+                     <label for="start-date" class="form-label">Start Date</label>
+                     <input type="date" class="form-control" id="start-date" name="start_date"> <!-- Added name attributes -->
+                 </div>
+                 <div class="filter-group col-md-auto">
+                     <label for="end-date" class="form-label">End Date</label>
+                     <input type="date" class="form-control" id="end-date" name="end_date"> <!-- Added name attributes -->
+                 </div>
+                 <div class="filter-group col-md-auto">
+                     <label for="session-id" class="form-label">Session ID</label>
+                     <input type="text" class="form-control" id="session-id" name="session_id" placeholder="Optional"> <!-- Added name attributes -->
+                 </div>
+                 <div class="col-md-auto">
+                     <button type="submit" class="btn btn-primary" id="apply-filters">Apply Filters</button>
+                 </div>
+            </form>
+        </div>
+
+        <!-- Loading Indicator -->
+        <div id="loadingIndicator" class="text-center my-5" style="display: none;">
+            <div class="spinner-border text-primary" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+            <p class="mt-2">Loading dashboard data...</p>
+        </div>
+
+        <!-- Error Message Area -->
+        <div id="errorMessage" class="alert alert-danger my-3" style="display: none;">
+            <!-- Error text will be set by JS -->
+        </div>
+
+        <!-- Dashboard Content Area (Initially hidden) -->
+        <div id="dashboardContent" style="display: none;">
+
+            <!-- Overview -->
+            <div class="metrics-section mb-4"> <!-- Added mb-4 -->
+                <h2>Overview</h2>
+                <div class="row">
+                    <div class="col-lg-3 col-md-6">
+                        <div class="metrics-card text-center h-100"> <!-- Added h-100 -->
+                            <div class="metric-title">Total Evaluations</div>
+                            <div class="metric-value" id="total-evaluations">0</div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="metrics-card text-center h-100"> <!-- Added h-100 -->
+                            <div class="metric-title">Total Conversations</div>
+                            <div class="metric-value" id="total-conversations">0</div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="metrics-card text-center h-100"> <!-- Added h-100 -->
+                            <div class="metric-title">Avg Messages/Conversation</div>
+                            <div class="metric-value" id="avg-messages">0.0</div> <!-- Matched HTML ID -->
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="metrics-card text-center h-100"> <!-- Added h-100 -->
+                            <div class="metric-title">Improvement Rate</div>
+                            <div class="metric-value" id="improvement-rate">0.0%</div>
+                            <!-- Added subtext span -->
+                            <div class="metric-subtext" id="improvement-rate-subtext">(0/0 Positive Feedback)</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quality Metrics -->
+             <div class="metrics-section mb-4"> <!-- Added mb-4 -->
+                <h2>Quality Metrics</h2>
+                <div class="metrics-card"> <!-- Use consistent card class -->
+                    <h5 class="card-title">Average Scores (Text Display)</h5>
+                    <p id="quality_score_display" class="quality-score-display">
+                        <span>Safety: <span class="badge bg-secondary">0.000</span></span>
+                        <span>Empathy: <span class="badge bg-secondary">0.000</span></span>
+                    </p>
+                    <h5 class="card-title mt-4">Response Quality Breakdown (Chart)</h5>
+                    <div class="chart-container" style="height: 250px;"> <!-- Use consistent class -->
+                        <canvas id="qualityChart"></canvas>
+                    </div>
+                 </div>
+            </div>
+
+            <!-- Performance Metrics -->
+            <div class="metrics-section mb-4"> <!-- Added mb-4 -->
+                <h2>Performance Metrics</h2>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="metrics-card">
+                            <h5>Response Time</h5>
+                            <div>Average: <span id="avg-response-time">0ms</span></div>
+                            <div>Min: <span id="min-response-time">0ms</span></div>
+                            <div>Max: <span id="max-response-time">0ms</span></div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="metrics-card">
+                            <h5>Token Usage</h5>
+                            <div>Average: <span id="avg-token-usage">0</span></div>
+                            <div>Total: <span id="max-token-usage">0</span></div> <!-- Changed Max label to Total -->
+                             <!-- Removed Min as it's always 0 from backend -->
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="metrics-card">
+                            <h5>Memory Usage</h5>
+                            <div>Average: <span id="avg-memory-usage">0.00 MB</span></div> <!-- Added units -->
+                            <div>Min: <span id="min-memory-usage">0.00 MB</span></div> <!-- Added units -->
+                            <div>Max: <span id="max-memory-usage">0.00 MB</span></div> <!-- Added units -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Daily Metrics Chart -->
+            <div class="metrics-section mb-4"> <!-- Added mb-4 -->
+                <h2>Daily Metrics Trend</h2>
+                <div class="metrics-card">
+                    <div class="chart-container" style="height:350px;">
+                         <canvas id="daily-metrics-chart"></canvas> <!-- Correct ID -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Added Top Issues Placeholder -->
+             <div class="metrics-section mb-4">
+                <h2>Top Issues (From Feedback)</h2>
+                 <div class="metrics-card">
+                     <ul id="top_issues_list" class="list-group list-group-flush">
+                         <li class="list-group-item">Loading feedback issues...</li>
+                     </ul>
+                 </div>
+            </div>
+
+        </div> <!-- End #dashboardContent -->
+    </div>
+
+    <!-- Include JS libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
+
+    <script>
+        // Get references to elements AFTER the DOM is loaded
+        let loadingIndicator, dashboardContent, errorMessage, filterForm;
+        let qualityChart = null; // Chart instances
+        let trendChart = null;
+
+        // --- Helper function to safely get element text content ---
+        function setText(elementId, value, defaultValue = 'N/A') {
+            const element = document.getElementById(elementId);
+            if (element) {
+                element.textContent = value ?? defaultValue;
+            } else {
+                console.warn(`Element with ID '${elementId}' not found.`);
+            }
+        }
+
+        // --- Function to update dashboard elements ---
+        function updateDashboardUI(data) {
+            if (!data) {
+                 console.error("updateDashboardUI received null or undefined data.");
+                 // Optionally display an error message here
+                 setText('errorMessage', 'Failed to process dashboard data.');
+                 errorMessage.style.display = 'block';
+                 return;
+             }
+
+            // Summary Cards
+            setText('total-evaluations', data.summary?.total_evaluations, '0');
+            setText('total-conversations', data.summary?.total_conversations, '0');
+            setText('avg-messages', data.summary?.avg_messages_per_conversation?.toFixed(1), '0.0'); // Use HTML ID
+            setText('improvement-rate', `${data.summary?.improvement_rate?.toFixed(1) ?? '0.0'}%`);
+            // Update subtext for improvement rate
+            const improvementSubtextEl = document.getElementById('improvement-rate-subtext');
+            if (improvementSubtextEl) {
+                 improvementSubtextEl.textContent = `(${data.feedback_summary?.positive ?? 0}/${data.feedback_summary?.total ?? 0} Positive Feedback)`;
+             }
+
+            // Quality Metrics Text
+            const qualityDisplay = document.getElementById('quality_score_display');
+            if (qualityDisplay) {
+                const safeScore = data.quality_metrics?.avg_safety_score ?? 0;
+                const empathyScore = data.quality_metrics?.avg_empathy_score ?? 0;
+                qualityDisplay.innerHTML = `
+                    <span>Safety: <span class="badge ${safeScore >= 0.9 ? 'bg-success' : safeScore >= 0.7 ? 'bg-warning text-dark' : 'bg-danger'}">${safeScore.toFixed(3)}</span></span>
+                    <span>Empathy: <span class="badge ${empathyScore >= 0.7 ? 'bg-success' : empathyScore >= 0.4 ? 'bg-warning text-dark' : 'bg-danger'}">${empathyScore.toFixed(3)}</span></span>
+                `;
+            } else {
+                console.warn("Element 'quality_score_display' not found.");
+            }
+
+
+            // Performance Metrics - Target individual spans correctly
+            const respTimes = data.performance_metrics?.response_times_ms;
+            setText('avg-response-time', `${respTimes?.average ?? 0}ms`); // Use HTML ID
+            setText('min-response-time', `${respTimes?.min ?? 0}ms`);     // Use HTML ID
+            setText('max-response-time', `${respTimes?.max ?? 0}ms`);     // Use HTML ID
+
+            const tokenUsage = data.performance_metrics?.token_usage;
+            setText('avg-token-usage', tokenUsage?.average ?? 0);        // Use HTML ID
+            setText('max-token-usage', tokenUsage?.max ?? 0); // Use HTML ID (Total)
+            // Min token usage span is removed from HTML as backend sends 0
+
+            const memUsage = data.performance_metrics?.memory_usage_mb;
+            setText('avg-memory-usage', `${memUsage?.average?.toFixed(2) ?? '0.00'} MB`); // Use HTML ID
+            setText('min-memory-usage', `${memUsage?.min?.toFixed(2) ?? '0.00'} MB`);     // Use HTML ID
+            setText('max-memory-usage', `${memUsage?.max?.toFixed(2) ?? '0.00'} MB`);     // Use HTML ID
+
+            // Top Issues (if available)
+            const issuesList = document.getElementById('top_issues_list');
+            if (issuesList) {
+                 if (data.top_issues && data.top_issues.length > 0) {
+                    issuesList.innerHTML = ''; // Clear default/previous
+                    data.top_issues.forEach(issue => {
+                        const li = document.createElement('li');
+                        li.className = 'list-group-item d-flex justify-content-between align-items-center';
+                        li.textContent = issue.issue || 'Unknown issue'; // Assuming structure {issue: '...', count: ...}
+                        const badge = document.createElement('span');
+                        badge.className = 'badge bg-primary rounded-pill';
+                        badge.textContent = issue.count || 0;
+                        li.appendChild(badge);
+                        issuesList.appendChild(li);
+                    });
+                } else {
+                    // Keep or set default message if no issues
+                     issuesList.innerHTML = '<li class="list-group-item">No feedback comments processed for top issues.</li>';
+                 }
+             } else {
+                 console.warn("Element 'top_issues_list' not found.");
+            }
+
+
+            // --- Update Charts ---
+            updateQualityChart(data.quality_metrics);
+            updateTrendChart(data.daily_metrics_trend);
+        }
+
+        // --- Function to update Quality Radar Chart ---
+        function updateQualityChart(qualityData) {
+            const canvas = document.getElementById('qualityChart');
+             if (!canvas) {
+                 console.error("Canvas element 'qualityChart' not found.");
+                 return;
+             }
+             const ctx = canvas.getContext('2d');
+            const labels = ['Safety', 'Empathy'];
+            const scores = [
+                (qualityData?.avg_safety_score ?? 0) * 10,
+                (qualityData?.avg_empathy_score ?? 0) * 10
+            ];
+
+            if (qualityChart) {
+                qualityChart.data.labels = labels;
+                qualityChart.data.datasets[0].data = scores;
+                qualityChart.update();
+            } else {
+                qualityChart = new Chart(ctx, {
+                    type: 'radar',
+                    data: {
+                        labels: labels,
+                        datasets: [{
+                            label: 'Average Scores (0-10)',
+                            data: scores,
+                            backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                            borderColor: 'rgba(75, 192, 192, 1)',
+                            pointBackgroundColor: 'rgba(75, 192, 192, 1)',
+                            pointBorderColor: '#fff',
+                            pointHoverBackgroundColor: '#fff',
+                            pointHoverBorderColor: 'rgba(75, 192, 192, 1)'
+                        }]
+                    },
+                    options: { // Simplified options for brevity, ensure dark mode colors if needed
+                        scales: { r: { beginAtZero: true, max: 10, ticks: { stepSize: 2 } } },
+                        plugins: { legend: { display: true } }, // Ensure legend is shown
+                        responsive: true, maintainAspectRatio: false
+                    }
+                });
+            }
+        }
+
+        // --- Function to update Daily Trend Line Chart ---
+        function updateTrendChart(trendData) {
+            const canvas = document.getElementById('daily-metrics-chart'); // Corrected ID
+            if (!canvas) {
+                 console.error("Canvas element 'daily-metrics-chart' not found.");
+                 return;
+             }
+             const ctx = canvas.getContext('2d');
+            const dates = trendData?.dates ?? [];
+            const safetyData = trendData?.avg_safety ?? [];
+            const responseTimeData = trendData?.avg_response_time_ms ?? [];
+
+            if (trendChart) {
+                trendChart.data.labels = dates;
+                trendChart.data.datasets[0].data = safetyData;
+                trendChart.data.datasets[1].data = responseTimeData;
+                trendChart.update();
+            } else {
+                trendChart = new Chart(ctx, {
+                    type: 'line',
+                    data: {
+                        labels: dates,
+                        datasets: [
+                            {
+                                label: 'Safety Rate (%)',
+                                data: safetyData,
+                                borderColor: 'rgba(75, 192, 192, 1)',
+                                backgroundColor: 'rgba(75, 192, 192, 0.1)',
+                                tension: 0.3, fill: false, yAxisID: 'yPercentage'
+                            },
+                            {
+                                label: 'Avg Response Time (ms)',
+                                data: responseTimeData,
+                                borderColor: 'rgba(255, 159, 64, 1)',
+                                backgroundColor: 'rgba(255, 159, 64, 0.1)',
+                                tension: 0.3, fill: false, yAxisID: 'yTime'
+                            }
+                        ]
+                    },
+                    options: {
+                        responsive: true, maintainAspectRatio: false, interaction: { mode: 'index', intersect: false },
+                        scales: {
+                            x: { type: 'time', time: { unit: 'day', tooltipFormat: 'MMM d, yyyy' }, grid: { color: 'rgba(0, 0, 0, 0.1)' }, ticks: { color: '#333', maxRotation: 45, minRotation: 45 } }, // Adjusted colors for light mode
+                            yPercentage: { type: 'linear', display: true, position: 'left', beginAtZero: true, max: 100, grid: { color: 'rgba(0, 0, 0, 0.1)' }, ticks: { color: '#333', callback: function(value) { return value + "%" } }, title: { display: true, text: 'Rate (%)', color: '#333' } },
+                            yTime: { type: 'linear', display: true, position: 'right', beginAtZero: true, grid: { drawOnChartArea: false, }, ticks: { color: '#333', callback: function(value) { return value + "ms" } }, title: { display: true, text: 'Time (ms)', color: '#333' } }
+                        },
+                        plugins: { legend: { labels: { color: '#333' } }, tooltip: { /* Default tooltip */ } }
+                    }
+                });
+            }
+        }
+
+
+        // --- Function to fetch data ---
+        async function fetchDashboardData(params = {}) {
+             // Ensure elements are available before manipulating style
+             if (!loadingIndicator || !dashboardContent || !errorMessage) {
+                 console.error("Essential UI elements (loading/content/error) not found. Aborting fetch.");
+                 return;
+             }
+            loadingIndicator.style.display = 'block';
+            dashboardContent.style.display = 'none';
+            errorMessage.style.display = 'none';
+
+            const url = new URL("{{ url_for('get_dashboard_metrics') }}", window.location.origin); // Relies on Jinja rendering
+            Object.keys(params).forEach(key => {
+                // Ensure name attributes are set on form inputs for this to work
+                if (params[key]) { url.searchParams.append(key, params[key]) }
+            });
+            url.searchParams.append('_t', Date.now()); // Cache buster
+
+            try {
+                const response = await fetch(url);
+                if (!response.ok) {
+                    let errorDetail = `HTTP error! status: ${response.status}`;
+                    try { const errorData = await response.json(); if (errorData.detail) { errorDetail += ` - ${errorData.detail}`; } } catch (jsonError) {}
+                    throw new Error(errorDetail);
+                }
+                const data = await response.json();
+                console.log("Fetched dashboard data:", data);
+                if (data) {
+                    updateDashboardUI(data);
+                    dashboardContent.style.display = 'block'; // Show content
+                } else { throw new Error("Received empty data from server."); }
+            } catch (error) {
+                console.error('Error fetching or processing dashboard data:', error);
+                 // Ensure errorMessage element exists before setting text
+                 if(errorMessage) {
+                    errorMessage.textContent = `Could not load dashboard data: ${error.message}. Please check filters/server logs.`;
+                    errorMessage.style.display = 'block';
+                }
+            } finally {
+                // Ensure loadingIndicator exists
+                 if(loadingIndicator) {
+                    loadingIndicator.style.display = 'none';
+                }
+            }
+        }
+
+        // --- Initial data load and event listeners ---
+        document.addEventListener('DOMContentLoaded', () => {
+            // Assign element references now that DOM is ready
+             loadingIndicator = document.getElementById('loadingIndicator');
+             dashboardContent = document.getElementById('dashboardContent');
+             errorMessage = document.getElementById('errorMessage');
+             filterForm = document.getElementById('filter-form'); // Corrected form ID
+
+            // Check if all required elements exist before proceeding
+            if (!loadingIndicator || !dashboardContent || !errorMessage || !filterForm) {
+                 console.error("Dashboard initialization failed: One or more essential HTML elements are missing.");
+                 // Display a user-friendly error in a known location if possible
+                 const body = document.querySelector('body');
+                 if (body) {
+                     const errorDiv = document.createElement('div');
+                     errorDiv.className = 'alert alert-danger';
+                     errorDiv.textContent = 'Error initializing dashboard: Required elements missing. Please check the HTML template.';
+                     body.prepend(errorDiv); // Add error at the top
+                 }
+                 return; // Stop further execution
+             }
+
+
+            // Set default dates
+            const endDate = new Date();
+            const startDate = new Date();
+            startDate.setDate(endDate.getDate() - 6);
+            const formatDate = (date) => date.toISOString().split('T')[0];
+
+            // Use name attributes for FormData later, but set initial values by ID
+            const startDateInput = document.getElementById('start-date');
+            const endDateInput = document.getElementById('end-date');
+            if(startDateInput) startDateInput.value = formatDate(startDate);
+            if(endDateInput) endDateInput.value = formatDate(endDate);
+
+
+            // Initial fetch
+            fetchDashboardData({
+                start_date: formatDate(startDate),
+                end_date: formatDate(endDate)
+            });
+
+            // Form submit listener
+            filterForm.addEventListener('submit', (event) => {
+                event.preventDefault();
+                const formData = new FormData(filterForm);
+                const params = {};
+                // Manually construct params from named inputs
+                if(formData.get('start_date')) params.start_date = formData.get('start_date');
+                if(formData.get('end_date')) params.end_date = formData.get('end_date');
+                if(formData.get('session_id')) params.session_id = formData.get('session_id');
+
+                fetchDashboardData(params);
+            });
+        });
+
+    </script>
+
+</body>
+</html>
