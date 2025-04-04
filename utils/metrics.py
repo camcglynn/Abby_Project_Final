@@ -1,534 +1,356 @@
-"""
-Metrics tracking system for the reproductive health chatbot.
+print("--- LOADING utils/metrics.py ---") # <--- ADD THIS AT THE VERY TOP
 
-This module provides functionality to track and report various metrics 
-about the chatbot's performance, usage patterns, and feedback.
-It is designed to work locally for development and send metrics to 
-AWS CloudWatch when deployed.
-"""
-
+# utils/metrics.py
 import os
 import time
 import json
 import logging
 import threading
 from datetime import datetime
-from collections import defaultdict
+from collections import defaultdict # Keep for potential future use, but not core storage
 from typing import Dict, List, Any, Optional, Union
 
-# Import boto3 conditionally to work in environments without AWS
+# Import boto3 conditionally (optional for raw logging)
 try:
     import boto3
     BOTO3_AVAILABLE = True
 except ImportError:
     BOTO3_AVAILABLE = False
 
+# Import psutil conditionally
+try:
+    import psutil
+    PSUTIL_AVAILABLE = True
+except ImportError:
+    PSUTIL_AVAILABLE = False
+
 logger = logging.getLogger(__name__)
 
 class MetricsTracker:
     """
-    Tracks various metrics about the chatbot's usage and performance.
-    
-    This class provides methods to record metrics and periodically 
-    flush them to different destinations (local file, CloudWatch).
+    Tracks raw metric events about the chatbot's usage and performance.
+    Events are periodically flushed to a JSON file.
     """
-    
-    def __init__(self, 
-                 app_name: str = "ReproductiveHealthChatbot",
+    def __init__(self,
+                 app_name: str = "ReproductiveHealthChatbot", # Still useful for potential CW
                  metrics_file: str = "metrics.json",
-                 auto_flush_interval: int = 300, 
-                 enable_cloudwatch: bool = None):
+                 auto_flush_interval: Optional[int] = 300, # Can be None to disable auto-flush
+                 enable_cloudwatch: bool = False): # Defaulting CW to False for raw logs
         """
-        Initialize the metrics tracker
-        
+        Initialize the metrics tracker for raw event logging.
+
         Args:
-            app_name (str): Application name for CloudWatch namespace
-            metrics_file (str): Path to metrics file for local storage
-            auto_flush_interval (int): Seconds between auto-flush to storage
-            enable_cloudwatch (bool): Whether to send metrics to CloudWatch
-                                     (defaults to True if AWS_REGION is set)
+            app_name (str): Application name (e.g., for CloudWatch namespace).
+            metrics_file (str): Path to metrics file for local storage (list of events).
+            auto_flush_interval (Optional[int]): Seconds between auto-flush to storage.
+                                                  Set to None or 0 to disable.
+            enable_cloudwatch (bool): Whether to attempt sending raw events to CloudWatch
+                                      (Complex, potentially high volume, default False).
         """
         self.app_name = app_name
         self.metrics_file = metrics_file
         self.auto_flush_interval = auto_flush_interval
-        
-        # Determine if CloudWatch should be enabled based on environment
-        if enable_cloudwatch is None:
-            # Auto-detect if we're running on AWS
-            self.enable_cloudwatch = bool(os.environ.get('AWS_REGION')) and BOTO3_AVAILABLE
-        else:
-            self.enable_cloudwatch = enable_cloudwatch and BOTO3_AVAILABLE
-            
-        # Initialize CloudWatch client if needed
+        self.enable_cloudwatch = enable_cloudwatch and BOTO3_AVAILABLE # Keep check
+
         self.cloudwatch = None
-        if self.enable_cloudwatch and BOTO3_AVAILABLE:
+        if self.enable_cloudwatch:
             region = os.environ.get('AWS_REGION', 'us-east-1')
             try:
                 self.cloudwatch = boto3.client('cloudwatch', region_name=region)
-                logger.info(f"CloudWatch metrics enabled (region: {region})")
+                logger.info(f"CloudWatch metrics enabled (region: {region}) - Note: Sending raw events.")
             except Exception as e:
                 logger.warning(f"Failed to initialize CloudWatch client: {str(e)}")
                 self.enable_cloudwatch = False
-                
-        # Metrics storage 
+
+        # Store pending events in memory before flushing
         self._metrics_lock = threading.Lock()
-        self.reset_metrics()
-        
-        # Set up auto-flushing if interval > 0
-        if auto_flush_interval > 0:
+        self._pending_events: List[Dict[str, Any]] = []
+
+        # Set up auto-flushing if interval is valid
+        if auto_flush_interval and auto_flush_interval > 0:
             self._setup_auto_flush()
-            
-        logger.info(f"Metrics tracker initialized: cloudwatch={self.enable_cloudwatch}")
-        
-    def reset_metrics(self):
-        """Reset all metrics to initial state"""
+        elif auto_flush_interval is not None:
+             logger.info("Auto-flush disabled (interval <= 0). Manual flush needed.")
+
+
+        if not PSUTIL_AVAILABLE:
+             logger.warning("psutil not installed. Memory usage tracking disabled.")
+
+        logger.info(f"Metrics tracker initialized for raw event logging: file='{self.metrics_file}', auto_flush={self.auto_flush_interval}s, cloudwatch={self.enable_cloudwatch}")
+
+    def _add_event(self, event_data: Dict[str, Any]):
+        """Internal method to add an event dictionary to the pending list."""
+        # Ensure timestamp exists
+        if 'timestamp' not in event_data:
+            event_data['timestamp'] = datetime.now().isoformat()
+
         with self._metrics_lock:
-            # Counters for different events
-            self._counters = defaultdict(int)
-            
-            # Timers for performance measurements
-            self._timers = defaultdict(list)
-            
-            # Categorized timers for tracking by question type
-            self._category_timers = defaultdict(lambda: defaultdict(list))
-            
-            # API usage tracking
-            self._api_calls = defaultdict(int)
-            self._api_tokens = defaultdict(int)
-            
-            # Feedback tracking
-            self._feedback = {
-                "positive": 0,
-                "negative": 0
-            }
-            
-            # Real-time ROUGE metrics
-            self._rouge_metrics = {
-                "rouge1": [],
-                "rouge2": [],
-                "rougeL": []
-            }
-            
-            # Store last reset time
-            self._last_reset = time.time()
-    
+            self._pending_events.append(event_data)
+
     def _setup_auto_flush(self):
-        """Set up a timer to periodically flush metrics"""
-        def auto_flush():
+        """Set up a timer to periodically flush metrics."""
+        if not self.auto_flush_interval or self.auto_flush_interval <= 0:
+             return
+
+        def auto_flush_job():
+            logger.debug("Auto-flush triggered.")
             self.flush_metrics()
-            # Schedule the next flush
-            timer = threading.Timer(self.auto_flush_interval, auto_flush)
-            timer.daemon = True
-            timer.start()
-            
+            # Schedule the next flush using a new Timer thread
+            if self.auto_flush_interval and self.auto_flush_interval > 0:
+                timer = threading.Timer(self.auto_flush_interval, auto_flush_job)
+                timer.daemon = True # Allow program to exit even if timer is pending
+                timer.start()
+
         # Start the first timer
-        timer = threading.Timer(self.auto_flush_interval, auto_flush)
-        timer.daemon = True
-        timer.start()
-        logger.debug(f"Auto-flush enabled (interval: {self.auto_flush_interval}s)")
-    
-    def increment_counter(self, metric_name: str, value: int = 1):
-        """
-        Increment a counter metric
-        
-        Args:
-            metric_name (str): Name of the counter to increment
-            value (int): Amount to increment by (default: 1)
-        """
-        with self._metrics_lock:
-            self._counters[metric_name] += value
-    
-    def record_time(self, metric_name: str, elapsed_time: float, category: str = None):
-        """
-        Record a timing metric, optionally with a category
-        
-        Args:
-            metric_name (str): Name of the timing metric
-            elapsed_time (float): Time in seconds
-            category (str, optional): Category for the metric (e.g., question type)
-        """
-        with self._metrics_lock:
-            # Record in the general timers
-            self._timers[metric_name].append(elapsed_time)
-            
-            # If a category is provided, record in category-specific timers as well
-            if category:
-                self._category_timers[metric_name][category].append(elapsed_time)
-    
-    def time_function(self, metric_name: str, category_func=None):
-        """
-        Decorator to time a function and record the elapsed time
-        
-        Args:
-            metric_name (str): Name of the timing metric
-            category_func (callable, optional): Function that extracts category from args/kwargs
-            
-        Returns:
-            Decorated function
-        """
-        def decorator(func):
-            def wrapper(*args, **kwargs):
-                start_time = time.time()
-                result = func(*args, **kwargs)
-                elapsed_time = time.time() - start_time
-                
-                # Extract category if a category function is provided
-                category = None
-                if category_func:
-                    try:
-                        category = category_func(*args, **kwargs)
-                    except Exception as e:
-                        logger.warning(f"Error extracting category: {str(e)}")
-                
-                self.record_time(metric_name, elapsed_time, category)
-                return result
-            return wrapper
-        return decorator
-        
-    def record_category_time(self, metric_name: str, category: str, elapsed_time: float):
-        """
-        Record a timing metric specifically for a category
-        
-        Args:
-            metric_name (str): Name of the timing metric
-            category (str): Category for the metric (e.g., question type)
-            elapsed_time (float): Time in seconds
-        """
-        with self._metrics_lock:
-            self._category_timers[metric_name][category].append(elapsed_time)
-            
-    def record_rouge_metrics(self, rouge1: float, rouge2: float, rougeL: float):
-        """
-        Record ROUGE metrics for real-time evaluation
-        
-        Args:
-            rouge1 (float): ROUGE-1 F1 score
-            rouge2 (float): ROUGE-2 F1 score
-            rougeL (float): ROUGE-L F1 score
-        """
-        with self._metrics_lock:
-            self._rouge_metrics["rouge1"].append(rouge1)
-            self._rouge_metrics["rouge2"].append(rouge2)
-            self._rouge_metrics["rougeL"].append(rougeL)
-    
-    def record_api_call(self, api_name: str, tokens_used: int = 0):
-        """
-        Record an API call with optional token usage
-        
-        Args:
-            api_name (str): Name of the API called
-            tokens_used (int): Number of tokens used in this call
-        """
-        with self._metrics_lock:
-            self._api_calls[api_name] += 1
-            if tokens_used > 0:
-                self._api_tokens[api_name] += tokens_used
-    
-    def record_feedback(self, positive: bool = True):
-        """
-        Record user feedback
-        
-        Args:
-            positive (bool): Whether the feedback was positive
-        """
-        with self._metrics_lock:
-            if positive:
-                self._feedback["positive"] += 1
-            else:
-                self._feedback["negative"] += 1
-    
-    def get_metrics(self) -> Dict[str, Any]:
-        """
-        Get the current metrics
-        
-        Returns:
-            Dict[str, Any]: Dictionary of all metrics
-        """
-        with self._metrics_lock:
-            # Process timer data to get statistics
-            timer_stats = {}
-            for name, values in self._timers.items():
-                if values:
-                    timer_stats[name] = {
-                        "count": len(values),
-                        "total": sum(values),
-                        "average": sum(values) / len(values),
-                        "min": min(values),
-                        "max": max(values)
-                    }
-                else:
-                    timer_stats[name] = {
-                        "count": 0,
-                        "total": 0,
-                        "average": 0,
-                        "min": 0,
-                        "max": 0
-                    }
-            
-            # Process category-specific timers
-            category_timer_stats = {}
-            for metric_name, categories in self._category_timers.items():
-                category_timer_stats[metric_name] = {}
-                for category, values in categories.items():
-                    if values:
-                        category_timer_stats[metric_name][category] = {
-                            "count": len(values),
-                            "total": sum(values),
-                            "average": sum(values) / len(values),
-                            "min": min(values),
-                            "max": max(values)
-                        }
-                    else:
-                        category_timer_stats[metric_name][category] = {
-                            "count": 0,
-                            "total": 0,
-                            "average": 0,
-                            "min": 0,
-                            "max": 0
-                        }
-            
-            # Process ROUGE metrics
-            rouge_metrics = {}
-            for rouge_type, values in self._rouge_metrics.items():
-                if values:
-                    rouge_metrics[rouge_type] = {
-                        "count": len(values),
-                        "average": sum(values) / len(values),
-                        "min": min(values),
-                        "max": max(values),
-                        "latest": values[-1] if values else 0
-                    }
-                else:
-                    rouge_metrics[rouge_type] = {
-                        "count": 0,
-                        "average": 0,
-                        "min": 0,
-                        "max": 0,
-                        "latest": 0
-                    }
-            
-            # Calculate feedback percentages
-            total_feedback = self._feedback["positive"] + self._feedback["negative"]
-            pos_pct = (self._feedback["positive"] / total_feedback * 100) if total_feedback > 0 else 0
-            neg_pct = (self._feedback["negative"] / total_feedback * 100) if total_feedback > 0 else 0
-            
-            return {
-                "timestamp": datetime.now().isoformat(),
-                "duration_seconds": time.time() - self._last_reset,
-                "counters": dict(self._counters),
-                "timers": timer_stats,
-                "category_timers": category_timer_stats,
-                "rouge_metrics": rouge_metrics,
-                "api_calls": dict(self._api_calls),
-                "api_tokens": dict(self._api_tokens),
-                "feedback": {
-                    "positive": self._feedback["positive"],
-                    "negative": self._feedback["negative"],
-                    "total": total_feedback,
-                    "positive_percentage": round(pos_pct, 2),
-                    "negative_percentage": round(neg_pct, 2)
-                }
-            }
-    
-    def flush_metrics(self, reset: bool = True) -> Dict[str, Any]:
-        """
-        Flush metrics to storage and optionally reset
-        
-        Args:
-            reset (bool): Whether to reset metrics after flushing
-            
-        Returns:
-            Dict[str, Any]: The metrics that were flushed
-        """
-        metrics = self.get_metrics()
-        
-        # Save to local file
+        logger.info(f"Auto-flush enabled (interval: {self.auto_flush_interval}s)")
+        initial_timer = threading.Timer(self.auto_flush_interval, auto_flush_job)
+        initial_timer.daemon = True
+        initial_timer.start()
+
+    # --- Raw Event Recording Methods ---
+
+    def increment_counter(self, metric_name: str, value: int = 1, session_id: Optional[str] = None):
+        """Record a counter event."""
+        event = {
+            "timestamp": datetime.now().isoformat(),
+            "event_type": "counter",
+            "metric_name": metric_name,
+            "value": value,
+            "session_id": session_id
+        }
+        self._add_event(event)
+
+    def record_time(self, metric_name: str, elapsed_time: float, session_id: Optional[str] = None, category: Optional[str] = None):
+        """Record a timing event."""
+        event = {
+            "timestamp": datetime.now().isoformat(),
+            "event_type": "timer",
+            "metric_name": metric_name,
+            "value": elapsed_time, # Store the raw time
+            "session_id": session_id,
+            "category": category # Optional category
+        }
+        self._add_event(event)
+
+    def record_api_call(self, api_name: str, tokens_used: int = 0, session_id: Optional[str] = None):
+         """Record an API call event with token usage."""
+         event = {
+             "timestamp": datetime.now().isoformat(),
+             "event_type": "api_call",
+             "metric_name": api_name,
+             "value": 1, # Represents one call
+             "tokens_used": tokens_used, # Specific metadata
+             "session_id": session_id
+         }
+         self._add_event(event)
+
+    def record_feedback(self, positive: bool = True, message_id: Optional[str] = None, session_id: Optional[str] = None, rating: Optional[int] = None, comment: Optional[str] = None):
+        """Record a feedback event."""
+        event = {
+            "timestamp": datetime.now().isoformat(),
+            "event_type": "feedback",
+            "metric_name": "user_feedback",
+            "value": 1 if positive else 0, # 1 for positive, 0 for negative
+            "message_id": message_id, # Specific metadata
+            "rating": rating,
+            "comment": comment,
+            "session_id": session_id
+        }
+        self._add_event(event)
+
+    def record_safety_score(self, score: float, session_id: Optional[str] = None, message_id: Optional[str] = None):
+        """Record a safety score event."""
+        if not isinstance(score, (int, float)): return
+        event = {
+            "timestamp": datetime.now().isoformat(),
+            "event_type": "score",
+            "metric_name": "safety_score",
+            "value": score,
+            "session_id": session_id,
+            "message_id": message_id
+        }
+        self._add_event(event)
+
+    def record_empathy_score(self, score: float, session_id: Optional[str] = None, message_id: Optional[str] = None):
+        """Record an empathy score event."""
+        if not isinstance(score, (int, float)): return
+        event = {
+            "timestamp": datetime.now().isoformat(),
+            "event_type": "score",
+            "metric_name": "empathy_score",
+            "value": score,
+            "session_id": session_id,
+            "message_id": message_id
+        }
+        self._add_event(event)
+
+    def record_memory_usage(self, session_id: Optional[str] = None):
+        """Record the current process's memory usage (RSS) in MB."""
+        if not PSUTIL_AVAILABLE: return
         try:
-            # Create file with empty list if it doesn't exist
-            if not os.path.exists(self.metrics_file):
-                with open(self.metrics_file, 'w') as f:
-                    f.write("[]")
-            
-            # Read existing metrics
-            with open(self.metrics_file, 'r') as f:
-                try:
-                    existing_metrics = json.load(f)
-                except json.JSONDecodeError:
-                    logger.warning(f"Invalid JSON in metrics file, starting new file")
-                    existing_metrics = []
-            
-            # Append new metrics and write back
-            existing_metrics.append(metrics)
-            with open(self.metrics_file, 'w') as f:
-                json.dump(existing_metrics, f, indent=2)
-                
-            logger.debug(f"Flushed metrics to {self.metrics_file}")
-        except Exception as e:
-            logger.error(f"Error saving metrics to file: {str(e)}")
-        
-        # Send to CloudWatch if enabled
-        if self.enable_cloudwatch and self.cloudwatch:
-            try:
-                self._send_to_cloudwatch(metrics)
-                logger.debug("Flushed metrics to CloudWatch")
-            except Exception as e:
-                logger.error(f"Error sending metrics to CloudWatch: {str(e)}")
-        
-        # Reset metrics if requested
-        if reset:
-            self.reset_metrics()
-            
-        return metrics
-    
-    def _send_to_cloudwatch(self, metrics: Dict[str, Any]):
-        """
-        Send metrics to CloudWatch
-        
-        Args:
-            metrics (Dict[str, Any]): Metrics to send
-        """
-        if not self.cloudwatch:
-            return
-            
-        # Prepare CloudWatch metrics
-        cw_metrics = []
-        
-        # Add counter metrics
-        for name, value in metrics["counters"].items():
-            cw_metrics.append({
-                'MetricName': f"Counter_{name}",
-                'Value': value,
-                'Unit': 'Count'
-            })
-        
-        # Add timer metrics (average and count)
-        for name, stats in metrics["timers"].items():
-            if stats["count"] > 0:
-                cw_metrics.append({
-                    'MetricName': f"Timer_{name}_Average",
-                    'Value': stats["average"],
-                    'Unit': 'Seconds'
-                })
-                cw_metrics.append({
-                    'MetricName': f"Timer_{name}_Count",
-                    'Value': stats["count"],
-                    'Unit': 'Count'
-                })
-        
-        # Add API call metrics
-        for name, count in metrics["api_calls"].items():
-            cw_metrics.append({
-                'MetricName': f"API_{name}_Calls",
-                'Value': count,
-                'Unit': 'Count'
-            })
-        
-        # Add token usage metrics
-        for name, tokens in metrics["api_tokens"].items():
-            cw_metrics.append({
-                'MetricName': f"API_{name}_Tokens",
-                'Value': tokens,
-                'Unit': 'Count'
-            })
-        
-        # Add feedback metrics
-        feedback = metrics["feedback"]
-        cw_metrics.extend([
-            {
-                'MetricName': 'Feedback_Positive',
-                'Value': feedback["positive"],
-                'Unit': 'Count'
-            },
-            {
-                'MetricName': 'Feedback_Negative',
-                'Value': feedback["negative"],
-                'Unit': 'Count'
-            },
-            {
-                'MetricName': 'Feedback_PositivePercentage',
-                'Value': feedback["positive_percentage"],
-                'Unit': 'Percent'
+            process = psutil.Process(os.getpid())
+            memory_mb = process.memory_info().rss / (1024 * 1024)
+            event = {
+                "timestamp": datetime.now().isoformat(),
+                "event_type": "measurement",
+                "metric_name": "memory_usage_mb",
+                "value": memory_mb,
+                "session_id": session_id
             }
-        ])
-        
-        # Send metrics in batches (CloudWatch limit is 20 per call)
-        batch_size = 20
-        for i in range(0, len(cw_metrics), batch_size):
-            batch = cw_metrics[i:i+batch_size]
-            self.cloudwatch.put_metric_data(
-                Namespace=self.app_name,
-                MetricData=batch
-            )
+            self._add_event(event)
+        except Exception as e:
+            logger.warning(f"Could not record memory usage: {e}")
 
-
-# Global instance for easy access
-metrics = MetricsTracker()
-
-
-# Utility functions for easy access to the global metrics instance
-
-def increment_counter(metric_name: str, value: int = 1):
-    """Increment a counter metric"""
-    metrics.increment_counter(metric_name, value)
-
-def record_time(metric_name: str, elapsed_time: float, category: str = None):
-    """
-    Record a timing metric, optionally with a category
+    def record_measurement(self, metric_name: str, value: Union[int, float], session_id: Optional[str] = None, message_id: Optional[str] = None):
+        """Record a generic measurement event."""
+        if not isinstance(value, (int, float)):
+            logger.warning(f"Invalid measurement value type for {metric_name}: {type(value)}. Expected float or int.")
+            return
+        event = {
+            "timestamp": datetime.now().isoformat(),
+            "event_type": "measurement",
+            "metric_name": metric_name,
+            "value": value,
+            "session_id": session_id,
+            "message_id": message_id # Optional context
+        }
+        self._add_event(event)
     
-    Args:
-        metric_name (str): Name of the timing metric
-        elapsed_time (float): Time in seconds
-        category (str, optional): Category for the metric (e.g., question type)
-    """
-    metrics.record_time(metric_name, elapsed_time, category)
+    def flush_metrics(self):
+        """
+        Flush pending raw metric events to the storage file.
+        Clears the pending events list after attempting to flush.
+        """
+        events_to_flush = []
+        with self._metrics_lock:
+            if not self._pending_events:
+                logger.debug("No pending metrics to flush.")
+                return # Nothing to do
 
-def record_category_time(metric_name: str, category: str, elapsed_time: float):
-    """
-    Record a timing metric specifically for a category
-    
-    Args:
-        metric_name (str): Name of the timing metric
-        category (str): Category for the metric (e.g., question type)
-        elapsed_time (float): Time in seconds
-    """
-    metrics.record_category_time(metric_name, category, elapsed_time)
+            # Make a copy and clear the original list safely
+            events_to_flush = list(self._pending_events) # Shallow copy is fine
+            self._pending_events = []
 
-def record_rouge_metrics(rouge1: float, rouge2: float, rougeL: float):
-    """
-    Record ROUGE metrics for real-time evaluation
-    
-    Args:
-        rouge1 (float): ROUGE-1 F1 score
-        rouge2 (float): ROUGE-2 F1 score
-        rougeL (float): ROUGE-L F1 score
-    """
-    metrics.record_rouge_metrics(rouge1, rouge2, rougeL)
+        logger.info(f"Attempting to flush {len(events_to_flush)} raw metric events.")
 
-def time_function(metric_name: str, category_func=None):
-    """
-    Decorator to time a function and record the elapsed time
-    
-    Args:
-        metric_name (str): Name of the timing metric
-        category_func (callable, optional): Function that extracts category from args/kwargs
-        
-    Returns:
-        Decorated function
-    """
-    return metrics.time_function(metric_name, category_func)
+        # --- Save to local file ---
+        try:
+            existing_events = []
+            if os.path.exists(self.metrics_file):
+                try:
+                    with open(self.metrics_file, 'r') as f:
+                        content = f.read()
+                        # Handle empty file or file with just whitespace
+                        if content.strip():
+                            existing_events = json.loads(content)
+                            if not isinstance(existing_events, list):
+                                logger.warning(f"Metrics file {self.metrics_file} is not a list. Overwriting.")
+                                existing_events = []
+                        else:
+                            existing_events = [] # Treat empty file as empty list
+                except json.JSONDecodeError:
+                    logger.warning(f"Invalid JSON in metrics file {self.metrics_file}. Overwriting.")
+                    existing_events = []
+                except Exception as read_err:
+                    logger.error(f"Error reading metrics file {self.metrics_file}, data might be lost: {read_err}")
+                    # Decide if you want to proceed and overwrite or stop
+                    # For robustness, maybe try backing up the bad file?
+                    # For now, we'll proceed and potentially overwrite.
+                    existing_events = []
 
-def record_api_call(api_name: str, tokens_used: int = 0):
-    """Record an API call with optional token usage"""
-    metrics.record_api_call(api_name, tokens_used)
+            # Append new events
+            existing_events.extend(events_to_flush)
 
-def record_feedback(positive: bool = True):
-    """Record user feedback"""
-    metrics.record_feedback(positive)
+            # Write the entire updated list back
+            with open(self.metrics_file, 'w') as f:
+                json.dump(existing_events, f, indent=2) # indent=2 for readability, remove for smaller size
 
-def get_metrics() -> Dict[str, Any]:
-    """Get the current metrics"""
-    return metrics.get_metrics()
+            logger.debug(f"Successfully flushed {len(events_to_flush)} events to {self.metrics_file}")
 
-def flush_metrics(reset: bool = True) -> Dict[str, Any]:
-    """Flush metrics to storage and optionally reset"""
-    return metrics.flush_metrics(reset)
+        except Exception as e:
+            logger.error(f"Error saving metrics to file {self.metrics_file}: {str(e)}")
+            # Consider adding unflushed events back to pending list? Or log them?
+            # with self._metrics_lock:
+            #     self._pending_events = events_to_flush + self._pending_events # Put them at the front
+
+
+        # --- Send to CloudWatch (Optional, potentially high volume) ---
+        if self.enable_cloudwatch and self.cloudwatch:
+            # Sending raw events individually can be inefficient and costly.
+            # Consider aggregating before sending or using CloudWatch Logs instead.
+            # This simple example sends each event - USE WITH CAUTION.
+            logger.warning("CloudWatch is enabled for raw events - this may generate high volume.")
+            cw_metrics_data = []
+            for event in events_to_flush:
+                 try:
+                     # Basic mapping - Needs refinement based on event_type
+                     metric_name_cw = f"{event['event_type'].capitalize()}_{event['metric_name']}"
+                     value_cw = event.get('value', 1) # Default value if missing?
+
+                     if isinstance(value_cw, (int, float)):
+                        cw_event = {
+                            'MetricName': metric_name_cw,
+                            'Value': value_cw,
+                            # Add dimensions like session_id if needed:
+                            # 'Dimensions': [{'Name': 'SessionId', 'Value': event.get('session_id','N/A')}],
+                            # 'Timestamp': datetime.fromisoformat(event['timestamp']) # Optional: use event time
+                        }
+                        # Determine unit based on type/name (simplistic)
+                        if event['event_type'] == 'timer':
+                            cw_event['Unit'] = 'Seconds'
+                        elif event['event_type'] == 'measurement' and 'mb' in event['metric_name'].lower():
+                            cw_event['Unit'] = 'Megabytes'
+                        elif event['event_type'] == 'counter' or event['event_type'] == 'api_call':
+                             cw_event['Unit'] = 'Count'
+                        # Add more unit logic as needed
+
+                        cw_metrics_data.append(cw_event)
+                 except Exception as cw_format_err:
+                      logger.warning(f"Could not format event for CloudWatch: {cw_format_err} - Event: {event}")
+
+
+            # Send in batches
+            batch_size = 20
+            for i in range(0, len(cw_metrics_data), batch_size):
+                batch = cw_metrics_data[i:i+batch_size]
+                try:
+                    self.cloudwatch.put_metric_data(
+                        Namespace=self.app_name,
+                        MetricData=batch
+                    )
+                    logger.debug(f"Sent batch of {len(batch)} raw events to CloudWatch.")
+                except Exception as e:
+                    logger.error(f"Error sending metrics batch to CloudWatch: {str(e)}")
+
+# --- Global instance and updated helper functions ---
+metrics = MetricsTracker() # Configure parameters as needed
+
+def increment_counter(metric_name: str, value: int = 1, session_id: Optional[str] = None):
+    metrics.increment_counter(metric_name, value, session_id)
+
+def record_time(metric_name: str, elapsed_time: float, session_id: Optional[str] = None, category: Optional[str] = None):
+    metrics.record_time(metric_name, elapsed_time, session_id, category)
+
+def record_api_call(api_name: str, tokens_used: int = 0, session_id: Optional[str] = None):
+     metrics.record_api_call(api_name, tokens_used, session_id)
+
+def record_feedback(positive: bool = True, message_id: Optional[str] = None, session_id: Optional[str] = None, rating: Optional[int] = None, comment: Optional[str] = None):
+    metrics.record_feedback(positive, message_id, session_id, rating, comment)
+
+# ----> MAKE SURE THIS FUNCTION IS PRESENT <----
+def record_safety_score(score: float, session_id: Optional[str] = None, message_id: Optional[str] = None):
+    metrics.record_safety_score(score, session_id, message_id)
+# ----> AND THIS ONE <----
+def record_empathy_score(score: float, session_id: Optional[str] = None, message_id: Optional[str] = None):
+    metrics.record_empathy_score(score, session_id, message_id)
+# ----> AND THIS ONE <----
+def record_memory_usage(session_id: Optional[str] = None):
+    metrics.record_memory_usage(session_id)
+# ----> AND THIS ONE <----
+def record_measurement(metric_name: str, value: Union[int, float], session_id: Optional[str] = None, message_id: Optional[str] = None):
+    """Helper function to record a generic measurement event."""
+    metrics.record_measurement(metric_name, value, session_id, message_id)
+
+def flush_metrics():
+    """Manually trigger a flush of pending metrics."""
+    metrics.flush_metrics()
