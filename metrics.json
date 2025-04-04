@@ -1,0 +1,2419 @@
+[
+  {
+    "timestamp": "2025-04-01T19:47:32.441762",
+    "duration_seconds": 300.0103108882904,
+    "counters": {},
+    "timers": {},
+    "category_timers": {},
+    "rouge_metrics": {
+      "rouge1": {
+        "count": 0,
+        "average": 0,
+        "min": 0,
+        "max": 0,
+        "latest": 0
+      },
+      "rouge2": {
+        "count": 0,
+        "average": 0,
+        "min": 0,
+        "max": 0,
+        "latest": 0
+      },
+      "rougeL": {
+        "count": 0,
+        "average": 0,
+        "min": 0,
+        "max": 0,
+        "latest": 0
+      }
+    },
+    "api_calls": {},
+    "api_tokens": {},
+    "feedback": {
+      "positive": 0,
+      "negative": 0,
+      "total": 0,
+      "positive_percentage": 0,
+      "negative_percentage": 0
+    }
+  },
+  {
+    "timestamp": "2025-04-01T19:52:32.456539",
+    "duration_seconds": 300.0112600326538,
+    "counters": {},
+    "timers": {},
+    "category_timers": {},
+    "rouge_metrics": {
+      "rouge1": {
+        "count": 0,
+        "average": 0,
+        "min": 0,
+        "max": 0,
+        "latest": 0
+      },
+      "rouge2": {
+        "count": 0,
+        "average": 0,
+        "min": 0,
+        "max": 0,
+        "latest": 0
+      },
+      "rougeL": {
+        "count": 0,
+        "average": 0,
+        "min": 0,
+        "max": 0,
+        "latest": 0
+      }
+    },
+    "api_calls": {},
+    "api_tokens": {},
+    "feedback": {
+      "positive": 0,
+      "negative": 0,
+      "total": 0,
+      "positive_percentage": 0,
+      "negative_percentage": 0
+    }
+  },
+  {
+    "timestamp": "2025-04-01T19:57:32.469813",
+    "duration_seconds": 300.00781202316284,
+    "counters": {},
+    "timers": {},
+    "category_timers": {},
+    "rouge_metrics": {
+      "rouge1": {
+        "count": 0,
+        "average": 0,
+        "min": 0,
+        "max": 0,
+        "latest": 0
+      },
+      "rouge2": {
+        "count": 0,
+        "average": 0,
+        "min": 0,
+        "max": 0,
+        "latest": 0
+      },
+      "rougeL": {
+        "count": 0,
+        "average": 0,
+        "min": 0,
+        "max": 0,
+        "latest": 0
+      }
+    },
+    "api_calls": {},
+    "api_tokens": {},
+    "feedback": {
+      "positive": 0,
+      "negative": 0,
+      "total": 0,
+      "positive_percentage": 0,
+      "negative_percentage": 0
+    }
+  },
+  {
+    "timestamp": "2025-04-01T20:02:32.484067",
+    "duration_seconds": 300.01121616363525,
+    "counters": {},
+    "timers": {},
+    "category_timers": {},
+    "rouge_metrics": {
+      "rouge1": {
+        "count": 0,
+        "average": 0,
+        "min": 0,
+        "max": 0,
+        "latest": 0
+      },
+      "rouge2": {
+        "count": 0,
+        "average": 0,
+        "min": 0,
+        "max": 0,
+        "latest": 0
+      },
+      "rougeL": {
+        "count": 0,
+        "average": 0,
+        "min": 0,
+        "max": 0,
+        "latest": 0
+      }
+    },
+    "api_calls": {},
+    "api_tokens": {},
+    "feedback": {
+      "positive": 0,
+      "negative": 0,
+      "total": 0,
+      "positive_percentage": 0,
+      "negative_percentage": 0
+    }
+  },
+  {
+    "timestamp": "2025-04-01T20:07:32.498886",
+    "duration_seconds": 300.00903701782227,
+    "counters": {},
+    "timers": {},
+    "category_timers": {},
+    "rouge_metrics": {
+      "rouge1": {
+        "count": 0,
+        "average": 0,
+        "min": 0,
+        "max": 0,
+        "latest": 0
+      },
+      "rouge2": {
+        "count": 0,
+        "average": 0,
+        "min": 0,
+        "max": 0,
+        "latest": 0
+      },
+      "rougeL": {
+        "count": 0,
+        "average": 0,
+        "min": 0,
+        "max": 0,
+        "latest": 0
+      }
+    },
+    "api_calls": {},
+    "api_tokens": {},
+    "feedback": {
+      "positive": 0,
+      "negative": 0,
+      "total": 0,
+      "positive_percentage": 0,
+      "negative_percentage": 0
+    }
+  },
+  {
+    "timestamp": "2025-04-01T20:12:32.508785",
+    "duration_seconds": 300.007239818573,
+    "counters": {},
+    "timers": {},
+    "category_timers": {},
+    "rouge_metrics": {
+      "rouge1": {
+        "count": 0,
+        "average": 0,
+        "min": 0,
+        "max": 0,
+        "latest": 0
+      },
+      "rouge2": {
+        "count": 0,
+        "average": 0,
+        "min": 0,
+        "max": 0,
+        "latest": 0
+      },
+      "rougeL": {
+        "count": 0,
+        "average": 0,
+        "min": 0,
+        "max": 0,
+        "latest": 0
+      }
+    },
+    "api_calls": {},
+    "api_tokens": {},
+    "feedback": {
+      "positive": 0,
+      "negative": 0,
+      "total": 0,
+      "positive_percentage": 0,
+      "negative_percentage": 0
+    }
+  },
+  {
+    "timestamp": "2025-04-01T20:17:32.522126",
+    "duration_seconds": 300.0111789703369,
+    "counters": {},
+    "timers": {},
+    "category_timers": {},
+    "rouge_metrics": {
+      "rouge1": {
+        "count": 0,
+        "average": 0,
+        "min": 0,
+        "max": 0,
+        "latest": 0
+      },
+      "rouge2": {
+        "count": 0,
+        "average": 0,
+        "min": 0,
+        "max": 0,
+        "latest": 0
+      },
+      "rougeL": {
+        "count": 0,
+        "average": 0,
+        "min": 0,
+        "max": 0,
+        "latest": 0
+      }
+    },
+    "api_calls": {},
+    "api_tokens": {},
+    "feedback": {
+      "positive": 0,
+      "negative": 0,
+      "total": 0,
+      "positive_percentage": 0,
+      "negative_percentage": 0
+    }
+  },
+  {
+    "timestamp": "2025-04-01T20:22:32.542513",
+    "duration_seconds": 300.01227712631226,
+    "counters": {},
+    "timers": {},
+    "category_timers": {},
+    "rouge_metrics": {
+      "rouge1": {
+        "count": 0,
+        "average": 0,
+        "min": 0,
+        "max": 0,
+        "latest": 0
+      },
+      "rouge2": {
+        "count": 0,
+        "average": 0,
+        "min": 0,
+        "max": 0,
+        "latest": 0
+      },
+      "rougeL": {
+        "count": 0,
+        "average": 0,
+        "min": 0,
+        "max": 0,
+        "latest": 0
+      }
+    },
+    "api_calls": {},
+    "api_tokens": {},
+    "feedback": {
+      "positive": 0,
+      "negative": 0,
+      "total": 0,
+      "positive_percentage": 0,
+      "negative_percentage": 0
+    }
+  },
+  {
+    "timestamp": "2025-04-01T20:27:32.557930",
+    "duration_seconds": 300.0119969844818,
+    "counters": {},
+    "timers": {},
+    "category_timers": {},
+    "rouge_metrics": {
+      "rouge1": {
+        "count": 0,
+        "average": 0,
+        "min": 0,
+        "max": 0,
+        "latest": 0
+      },
+      "rouge2": {
+        "count": 0,
+        "average": 0,
+        "min": 0,
+        "max": 0,
+        "latest": 0
+      },
+      "rougeL": {
+        "count": 0,
+        "average": 0,
+        "min": 0,
+        "max": 0,
+        "latest": 0
+      }
+    },
+    "api_calls": {},
+    "api_tokens": {},
+    "feedback": {
+      "positive": 0,
+      "negative": 0,
+      "total": 0,
+      "positive_percentage": 0,
+      "negative_percentage": 0
+    }
+  },
+  {
+    "timestamp": "2025-04-01T20:32:32.578578",
+    "duration_seconds": 300.0106611251831,
+    "counters": {},
+    "timers": {},
+    "category_timers": {},
+    "rouge_metrics": {
+      "rouge1": {
+        "count": 0,
+        "average": 0,
+        "min": 0,
+        "max": 0,
+        "latest": 0
+      },
+      "rouge2": {
+        "count": 0,
+        "average": 0,
+        "min": 0,
+        "max": 0,
+        "latest": 0
+      },
+      "rougeL": {
+        "count": 0,
+        "average": 0,
+        "min": 0,
+        "max": 0,
+        "latest": 0
+      }
+    },
+    "api_calls": {},
+    "api_tokens": {},
+    "feedback": {
+      "positive": 0,
+      "negative": 0,
+      "total": 0,
+      "positive_percentage": 0,
+      "negative_percentage": 0
+    }
+  },
+  {
+    "timestamp": "2025-04-01T20:37:32.589877",
+    "duration_seconds": 300.0080089569092,
+    "counters": {},
+    "timers": {},
+    "category_timers": {},
+    "rouge_metrics": {
+      "rouge1": {
+        "count": 0,
+        "average": 0,
+        "min": 0,
+        "max": 0,
+        "latest": 0
+      },
+      "rouge2": {
+        "count": 0,
+        "average": 0,
+        "min": 0,
+        "max": 0,
+        "latest": 0
+      },
+      "rougeL": {
+        "count": 0,
+        "average": 0,
+        "min": 0,
+        "max": 0,
+        "latest": 0
+      }
+    },
+    "api_calls": {},
+    "api_tokens": {},
+    "feedback": {
+      "positive": 0,
+      "negative": 0,
+      "total": 0,
+      "positive_percentage": 0,
+      "negative_percentage": 0
+    }
+  },
+  {
+    "timestamp": "2025-04-01T20:42:32.774653",
+    "duration_seconds": 300.1813027858734,
+    "counters": {},
+    "timers": {},
+    "category_timers": {},
+    "rouge_metrics": {
+      "rouge1": {
+        "count": 0,
+        "average": 0,
+        "min": 0,
+        "max": 0,
+        "latest": 0
+      },
+      "rouge2": {
+        "count": 0,
+        "average": 0,
+        "min": 0,
+        "max": 0,
+        "latest": 0
+      },
+      "rougeL": {
+        "count": 0,
+        "average": 0,
+        "min": 0,
+        "max": 0,
+        "latest": 0
+      }
+    },
+    "api_calls": {},
+    "api_tokens": {},
+    "feedback": {
+      "positive": 0,
+      "negative": 0,
+      "total": 0,
+      "positive_percentage": 0,
+      "negative_percentage": 0
+    }
+  },
+  {
+    "timestamp": "2025-04-01T21:16:13.508493",
+    "event_type": "counter",
+    "metric_name": "server_start",
+    "value": 1,
+    "session_id": null
+  },
+  {
+    "timestamp": "2025-04-01T21:16:45.993194",
+    "event_type": "counter",
+    "metric_name": "user_messages",
+    "value": 1,
+    "session_id": null
+  },
+  {
+    "timestamp": "2025-04-01T21:16:45.993236",
+    "event_type": "measurement",
+    "metric_name": "user_message_length",
+    "value": 34,
+    "session_id": "44f65314-8f70-47af-99d0-dcb7c59e9485",
+    "message_id": null
+  },
+  {
+    "timestamp": "2025-04-01T21:16:45.993245",
+    "event_type": "counter",
+    "metric_name": "session_starts",
+    "value": 1,
+    "session_id": "44f65314-8f70-47af-99d0-dcb7c59e9485"
+  },
+  {
+    "timestamp": "2025-04-01T21:16:48.055384",
+    "event_type": "timer",
+    "metric_name": "query_processing",
+    "value": 2.0611393451690674,
+    "session_id": "44f65314-8f70-47af-99d0-dcb7c59e9485",
+    "category": "policy"
+  },
+  {
+    "timestamp": "2025-04-01T21:16:48.056781",
+    "event_type": "timer",
+    "metric_name": "query_processing",
+    "value": 2.0611393451690674,
+    "session_id": "44f65314-8f70-47af-99d0-dcb7c59e9485",
+    "category": "policy"
+  },
+  {
+    "timestamp": "2025-04-01T21:16:48.056795",
+    "event_type": "api_call",
+    "metric_name": "chatbot_response",
+    "value": 1,
+    "tokens_used": 45,
+    "session_id": "44f65314-8f70-47af-99d0-dcb7c59e9485"
+  },
+  {
+    "timestamp": "2025-04-01T21:16:48.058752",
+    "event_type": "score",
+    "metric_name": "safety_score",
+    "value": 0.0,
+    "session_id": "44f65314-8f70-47af-99d0-dcb7c59e9485",
+    "message_id": "f56832fd-800b-449d-bd13-d208ab80f014"
+  },
+  {
+    "timestamp": "2025-04-01T21:16:48.058786",
+    "event_type": "score",
+    "metric_name": "empathy_score",
+    "value": 0.5,
+    "session_id": "44f65314-8f70-47af-99d0-dcb7c59e9485",
+    "message_id": "f56832fd-800b-449d-bd13-d208ab80f014"
+  },
+  {
+    "timestamp": "2025-04-01T21:16:48.058997",
+    "event_type": "measurement",
+    "metric_name": "memory_usage_mb",
+    "value": 564.75,
+    "session_id": "44f65314-8f70-47af-99d0-dcb7c59e9485"
+  },
+  {
+    "timestamp": "2025-04-01T21:16:48.059607",
+    "event_type": "timer",
+    "metric_name": "total_response_time",
+    "value": 2.066671848297119,
+    "session_id": "44f65314-8f70-47af-99d0-dcb7c59e9485",
+    "category": null
+  },
+  {
+    "timestamp": "2025-04-01T21:16:48.059634",
+    "event_type": "counter",
+    "metric_name": "errors",
+    "value": 1,
+    "session_id": "44f65314-8f70-47af-99d0-dcb7c59e9485"
+  },
+  {
+    "timestamp": "2025-04-01T21:26:15.483751",
+    "event_type": "counter",
+    "metric_name": "server_start",
+    "value": 1,
+    "session_id": null
+  },
+  {
+    "timestamp": "2025-04-01T21:26:26.494632",
+    "event_type": "counter",
+    "metric_name": "user_messages",
+    "value": 1,
+    "session_id": null
+  },
+  {
+    "timestamp": "2025-04-01T21:26:26.494662",
+    "event_type": "measurement",
+    "metric_name": "user_message_length",
+    "value": 34,
+    "session_id": "d9853a4f-8420-47b9-9f98-e33a2f7a2f69",
+    "message_id": null
+  },
+  {
+    "timestamp": "2025-04-01T21:26:26.494670",
+    "event_type": "counter",
+    "metric_name": "session_starts",
+    "value": 1,
+    "session_id": "d9853a4f-8420-47b9-9f98-e33a2f7a2f69"
+  },
+  {
+    "timestamp": "2025-04-01T21:26:28.427424",
+    "event_type": "timer",
+    "metric_name": "query_processing",
+    "value": 1.9319589138031006,
+    "session_id": "d9853a4f-8420-47b9-9f98-e33a2f7a2f69",
+    "category": "policy"
+  },
+  {
+    "timestamp": "2025-04-01T21:26:28.428843",
+    "event_type": "timer",
+    "metric_name": "query_processing",
+    "value": 1.9319589138031006,
+    "session_id": "d9853a4f-8420-47b9-9f98-e33a2f7a2f69",
+    "category": "policy"
+  },
+  {
+    "timestamp": "2025-04-01T21:26:28.428860",
+    "event_type": "api_call",
+    "metric_name": "chatbot_response",
+    "value": 1,
+    "tokens_used": 45,
+    "session_id": "d9853a4f-8420-47b9-9f98-e33a2f7a2f69"
+  },
+  {
+    "timestamp": "2025-04-01T21:26:28.430985",
+    "event_type": "score",
+    "metric_name": "safety_score",
+    "value": 0.0,
+    "session_id": "d9853a4f-8420-47b9-9f98-e33a2f7a2f69",
+    "message_id": "ed908258-1b7c-4a6a-9fca-3653b2dc8e78"
+  },
+  {
+    "timestamp": "2025-04-01T21:26:28.431019",
+    "event_type": "score",
+    "metric_name": "empathy_score",
+    "value": 0.5,
+    "session_id": "d9853a4f-8420-47b9-9f98-e33a2f7a2f69",
+    "message_id": "ed908258-1b7c-4a6a-9fca-3653b2dc8e78"
+  },
+  {
+    "timestamp": "2025-04-01T21:26:28.431238",
+    "event_type": "measurement",
+    "metric_name": "memory_usage_mb",
+    "value": 555.234375,
+    "session_id": "d9853a4f-8420-47b9-9f98-e33a2f7a2f69"
+  },
+  {
+    "timestamp": "2025-04-01T21:26:28.431573",
+    "event_type": "timer",
+    "metric_name": "total_response_time",
+    "value": 1.937056064605713,
+    "session_id": "d9853a4f-8420-47b9-9f98-e33a2f7a2f69",
+    "category": null
+  },
+  {
+    "timestamp": "2025-04-01T21:26:36.676071",
+    "event_type": "counter",
+    "metric_name": "user_messages",
+    "value": 1,
+    "session_id": null
+  },
+  {
+    "timestamp": "2025-04-01T21:26:36.676091",
+    "event_type": "measurement",
+    "metric_name": "user_message_length",
+    "value": 6,
+    "session_id": "d9853a4f-8420-47b9-9f98-e33a2f7a2f69",
+    "message_id": null
+  },
+  {
+    "timestamp": "2025-04-01T21:26:42.639906",
+    "event_type": "timer",
+    "metric_name": "query_processing",
+    "value": 5.963038921356201,
+    "session_id": "d9853a4f-8420-47b9-9f98-e33a2f7a2f69",
+    "category": "policy"
+  },
+  {
+    "timestamp": "2025-04-01T21:26:42.648029",
+    "event_type": "timer",
+    "metric_name": "query_processing",
+    "value": 5.963038921356201,
+    "session_id": "d9853a4f-8420-47b9-9f98-e33a2f7a2f69",
+    "category": "policy"
+  },
+  {
+    "timestamp": "2025-04-01T21:26:42.648043",
+    "event_type": "api_call",
+    "metric_name": "chatbot_response",
+    "value": 1,
+    "tokens_used": 131,
+    "session_id": "d9853a4f-8420-47b9-9f98-e33a2f7a2f69"
+  },
+  {
+    "timestamp": "2025-04-01T21:26:42.648372",
+    "event_type": "score",
+    "metric_name": "safety_score",
+    "value": 0.0,
+    "session_id": "d9853a4f-8420-47b9-9f98-e33a2f7a2f69",
+    "message_id": "e913958d-9f88-4ef5-9fb5-21718f57eca8"
+  },
+  {
+    "timestamp": "2025-04-01T21:26:42.648414",
+    "event_type": "score",
+    "metric_name": "empathy_score",
+    "value": 0.5,
+    "session_id": "d9853a4f-8420-47b9-9f98-e33a2f7a2f69",
+    "message_id": "e913958d-9f88-4ef5-9fb5-21718f57eca8"
+  },
+  {
+    "timestamp": "2025-04-01T21:26:42.648534",
+    "event_type": "measurement",
+    "metric_name": "memory_usage_mb",
+    "value": 512.40234375,
+    "session_id": "d9853a4f-8420-47b9-9f98-e33a2f7a2f69"
+  },
+  {
+    "timestamp": "2025-04-01T21:26:42.648893",
+    "event_type": "timer",
+    "metric_name": "total_response_time",
+    "value": 5.972939968109131,
+    "session_id": "d9853a4f-8420-47b9-9f98-e33a2f7a2f69",
+    "category": null
+  },
+  {
+    "timestamp": "2025-04-01T21:27:08.654258",
+    "event_type": "counter",
+    "metric_name": "user_messages",
+    "value": 1,
+    "session_id": null
+  },
+  {
+    "timestamp": "2025-04-01T21:27:08.654275",
+    "event_type": "measurement",
+    "metric_name": "user_message_length",
+    "value": 60,
+    "session_id": "d9853a4f-8420-47b9-9f98-e33a2f7a2f69",
+    "message_id": null
+  },
+  {
+    "timestamp": "2025-04-01T21:27:11.682768",
+    "event_type": "timer",
+    "metric_name": "query_processing",
+    "value": 3.027801036834717,
+    "session_id": "d9853a4f-8420-47b9-9f98-e33a2f7a2f69",
+    "category": "policy"
+  },
+  {
+    "timestamp": "2025-04-01T21:27:11.683691",
+    "event_type": "timer",
+    "metric_name": "query_processing",
+    "value": 3.027801036834717,
+    "session_id": "d9853a4f-8420-47b9-9f98-e33a2f7a2f69",
+    "category": "policy"
+  },
+  {
+    "timestamp": "2025-04-01T21:27:11.683703",
+    "event_type": "api_call",
+    "metric_name": "chatbot_response",
+    "value": 1,
+    "tokens_used": 131,
+    "session_id": "d9853a4f-8420-47b9-9f98-e33a2f7a2f69"
+  },
+  {
+    "timestamp": "2025-04-01T21:27:11.683982",
+    "event_type": "score",
+    "metric_name": "safety_score",
+    "value": 0.0,
+    "session_id": "d9853a4f-8420-47b9-9f98-e33a2f7a2f69",
+    "message_id": "ebf12c06-5953-4a5e-9fe9-9714ee664141"
+  },
+  {
+    "timestamp": "2025-04-01T21:27:11.684022",
+    "event_type": "score",
+    "metric_name": "empathy_score",
+    "value": 0.5,
+    "session_id": "d9853a4f-8420-47b9-9f98-e33a2f7a2f69",
+    "message_id": "ebf12c06-5953-4a5e-9fe9-9714ee664141"
+  },
+  {
+    "timestamp": "2025-04-01T21:27:11.684149",
+    "event_type": "measurement",
+    "metric_name": "memory_usage_mb",
+    "value": 509.23046875,
+    "session_id": "d9853a4f-8420-47b9-9f98-e33a2f7a2f69"
+  },
+  {
+    "timestamp": "2025-04-01T21:27:11.685452",
+    "event_type": "timer",
+    "metric_name": "total_response_time",
+    "value": 3.0313191413879395,
+    "session_id": "d9853a4f-8420-47b9-9f98-e33a2f7a2f69",
+    "category": null
+  },
+  {
+    "timestamp": "2025-04-01T21:27:40.774137",
+    "event_type": "counter",
+    "metric_name": "user_messages",
+    "value": 1,
+    "session_id": null
+  },
+  {
+    "timestamp": "2025-04-01T21:27:40.774154",
+    "event_type": "measurement",
+    "metric_name": "user_message_length",
+    "value": 56,
+    "session_id": "d9853a4f-8420-47b9-9f98-e33a2f7a2f69",
+    "message_id": null
+  },
+  {
+    "timestamp": "2025-04-01T21:27:45.295099",
+    "event_type": "timer",
+    "metric_name": "query_processing",
+    "value": 4.519909143447876,
+    "session_id": "d9853a4f-8420-47b9-9f98-e33a2f7a2f69",
+    "category": "policy"
+  },
+  {
+    "timestamp": "2025-04-01T21:27:45.296598",
+    "event_type": "timer",
+    "metric_name": "query_processing",
+    "value": 4.519909143447876,
+    "session_id": "d9853a4f-8420-47b9-9f98-e33a2f7a2f69",
+    "category": "policy"
+  },
+  {
+    "timestamp": "2025-04-01T21:27:45.296622",
+    "event_type": "api_call",
+    "metric_name": "chatbot_response",
+    "value": 1,
+    "tokens_used": 131,
+    "session_id": "d9853a4f-8420-47b9-9f98-e33a2f7a2f69"
+  },
+  {
+    "timestamp": "2025-04-01T21:27:45.297162",
+    "event_type": "score",
+    "metric_name": "safety_score",
+    "value": 0.0,
+    "session_id": "d9853a4f-8420-47b9-9f98-e33a2f7a2f69",
+    "message_id": "3772b6a1-6ff1-4f00-92ce-45c4c3fa4fb6"
+  },
+  {
+    "timestamp": "2025-04-01T21:27:45.297195",
+    "event_type": "score",
+    "metric_name": "empathy_score",
+    "value": 0.5,
+    "session_id": "d9853a4f-8420-47b9-9f98-e33a2f7a2f69",
+    "message_id": "3772b6a1-6ff1-4f00-92ce-45c4c3fa4fb6"
+  },
+  {
+    "timestamp": "2025-04-01T21:27:45.297348",
+    "event_type": "measurement",
+    "metric_name": "memory_usage_mb",
+    "value": 494.671875,
+    "session_id": "d9853a4f-8420-47b9-9f98-e33a2f7a2f69"
+  },
+  {
+    "timestamp": "2025-04-01T21:27:45.297930",
+    "event_type": "timer",
+    "metric_name": "total_response_time",
+    "value": 4.5239129066467285,
+    "session_id": "d9853a4f-8420-47b9-9f98-e33a2f7a2f69",
+    "category": null
+  },
+  {
+    "timestamp": "2025-04-01T21:27:59.417712",
+    "event_type": "counter",
+    "metric_name": "user_messages",
+    "value": 1,
+    "session_id": null
+  },
+  {
+    "timestamp": "2025-04-01T21:27:59.417733",
+    "event_type": "measurement",
+    "metric_name": "user_message_length",
+    "value": 59,
+    "session_id": "d9853a4f-8420-47b9-9f98-e33a2f7a2f69",
+    "message_id": null
+  },
+  {
+    "timestamp": "2025-04-01T21:28:04.603061",
+    "event_type": "timer",
+    "metric_name": "query_processing",
+    "value": 5.183988094329834,
+    "session_id": "d9853a4f-8420-47b9-9f98-e33a2f7a2f69",
+    "category": "emotional"
+  },
+  {
+    "timestamp": "2025-04-01T21:28:04.604161",
+    "event_type": "timer",
+    "metric_name": "query_processing",
+    "value": 5.183988094329834,
+    "session_id": "d9853a4f-8420-47b9-9f98-e33a2f7a2f69",
+    "category": "emotional"
+  },
+  {
+    "timestamp": "2025-04-01T21:28:04.604176",
+    "event_type": "api_call",
+    "metric_name": "chatbot_response",
+    "value": 1,
+    "tokens_used": 187,
+    "session_id": "d9853a4f-8420-47b9-9f98-e33a2f7a2f69"
+  },
+  {
+    "timestamp": "2025-04-01T21:28:04.604568",
+    "event_type": "score",
+    "metric_name": "safety_score",
+    "value": 0.0,
+    "session_id": "d9853a4f-8420-47b9-9f98-e33a2f7a2f69",
+    "message_id": "f33073a8-920c-4361-937d-a2b73e010396"
+  },
+  {
+    "timestamp": "2025-04-01T21:28:04.604618",
+    "event_type": "score",
+    "metric_name": "empathy_score",
+    "value": 0.95,
+    "session_id": "d9853a4f-8420-47b9-9f98-e33a2f7a2f69",
+    "message_id": "f33073a8-920c-4361-937d-a2b73e010396"
+  },
+  {
+    "timestamp": "2025-04-01T21:28:04.604755",
+    "event_type": "measurement",
+    "metric_name": "memory_usage_mb",
+    "value": 495.015625,
+    "session_id": "d9853a4f-8420-47b9-9f98-e33a2f7a2f69"
+  },
+  {
+    "timestamp": "2025-04-01T21:28:04.606051",
+    "event_type": "timer",
+    "metric_name": "total_response_time",
+    "value": 5.188732862472534,
+    "session_id": "d9853a4f-8420-47b9-9f98-e33a2f7a2f69",
+    "category": null
+  },
+  {
+    "timestamp": "2025-04-01T21:28:30.729171",
+    "event_type": "counter",
+    "metric_name": "user_messages",
+    "value": 1,
+    "session_id": null
+  },
+  {
+    "timestamp": "2025-04-01T21:28:30.729191",
+    "event_type": "measurement",
+    "metric_name": "user_message_length",
+    "value": 36,
+    "session_id": "d9853a4f-8420-47b9-9f98-e33a2f7a2f69",
+    "message_id": null
+  },
+  {
+    "timestamp": "2025-04-01T21:28:42.763292",
+    "event_type": "timer",
+    "metric_name": "query_processing",
+    "value": 12.032882928848267,
+    "session_id": "d9853a4f-8420-47b9-9f98-e33a2f7a2f69",
+    "category": "emotional"
+  },
+  {
+    "timestamp": "2025-04-01T21:28:42.764321",
+    "event_type": "timer",
+    "metric_name": "query_processing",
+    "value": 12.032882928848267,
+    "session_id": "d9853a4f-8420-47b9-9f98-e33a2f7a2f69",
+    "category": "emotional"
+  },
+  {
+    "timestamp": "2025-04-01T21:28:42.764334",
+    "event_type": "api_call",
+    "metric_name": "chatbot_response",
+    "value": 1,
+    "tokens_used": 215,
+    "session_id": "d9853a4f-8420-47b9-9f98-e33a2f7a2f69"
+  },
+  {
+    "timestamp": "2025-04-01T21:28:42.765352",
+    "event_type": "score",
+    "metric_name": "safety_score",
+    "value": 0.0,
+    "session_id": "d9853a4f-8420-47b9-9f98-e33a2f7a2f69",
+    "message_id": "04dbb426-518c-45e4-81fc-c8840252e5ac"
+  },
+  {
+    "timestamp": "2025-04-01T21:28:42.765408",
+    "event_type": "score",
+    "metric_name": "empathy_score",
+    "value": 0.65,
+    "session_id": "d9853a4f-8420-47b9-9f98-e33a2f7a2f69",
+    "message_id": "04dbb426-518c-45e4-81fc-c8840252e5ac"
+  },
+  {
+    "timestamp": "2025-04-01T21:28:42.765565",
+    "event_type": "measurement",
+    "metric_name": "memory_usage_mb",
+    "value": 495.08203125,
+    "session_id": "d9853a4f-8420-47b9-9f98-e33a2f7a2f69"
+  },
+  {
+    "timestamp": "2025-04-01T21:28:42.766245",
+    "event_type": "timer",
+    "metric_name": "total_response_time",
+    "value": 12.03720498085022,
+    "session_id": "d9853a4f-8420-47b9-9f98-e33a2f7a2f69",
+    "category": null
+  },
+  {
+    "timestamp": "2025-04-01T21:29:25.408898",
+    "event_type": "counter",
+    "metric_name": "user_messages",
+    "value": 1,
+    "session_id": null
+  },
+  {
+    "timestamp": "2025-04-01T21:29:25.408916",
+    "event_type": "measurement",
+    "metric_name": "user_message_length",
+    "value": 89,
+    "session_id": "d9853a4f-8420-47b9-9f98-e33a2f7a2f69",
+    "message_id": null
+  },
+  {
+    "timestamp": "2025-04-01T21:29:36.047934",
+    "event_type": "timer",
+    "metric_name": "query_processing",
+    "value": 10.637272834777832,
+    "session_id": "d9853a4f-8420-47b9-9f98-e33a2f7a2f69",
+    "category": "knowledge"
+  },
+  {
+    "timestamp": "2025-04-01T21:29:36.050186",
+    "event_type": "timer",
+    "metric_name": "query_processing",
+    "value": 10.637272834777832,
+    "session_id": "d9853a4f-8420-47b9-9f98-e33a2f7a2f69",
+    "category": "knowledge"
+  },
+  {
+    "timestamp": "2025-04-01T21:29:36.050207",
+    "event_type": "api_call",
+    "metric_name": "chatbot_response",
+    "value": 1,
+    "tokens_used": 587,
+    "session_id": "d9853a4f-8420-47b9-9f98-e33a2f7a2f69"
+  },
+  {
+    "timestamp": "2025-04-01T21:29:36.051472",
+    "event_type": "score",
+    "metric_name": "safety_score",
+    "value": 0.0,
+    "session_id": "d9853a4f-8420-47b9-9f98-e33a2f7a2f69",
+    "message_id": "1be52ed7-3f17-4740-94c9-17cd0bac1e63"
+  },
+  {
+    "timestamp": "2025-04-01T21:29:36.051545",
+    "event_type": "score",
+    "metric_name": "empathy_score",
+    "value": 0.5,
+    "session_id": "d9853a4f-8420-47b9-9f98-e33a2f7a2f69",
+    "message_id": "1be52ed7-3f17-4740-94c9-17cd0bac1e63"
+  },
+  {
+    "timestamp": "2025-04-01T21:29:36.051694",
+    "event_type": "measurement",
+    "metric_name": "memory_usage_mb",
+    "value": 505.19921875,
+    "session_id": "d9853a4f-8420-47b9-9f98-e33a2f7a2f69"
+  },
+  {
+    "timestamp": "2025-04-01T21:29:36.052502",
+    "event_type": "timer",
+    "metric_name": "total_response_time",
+    "value": 10.64399790763855,
+    "session_id": "d9853a4f-8420-47b9-9f98-e33a2f7a2f69",
+    "category": null
+  },
+  {
+    "timestamp": "2025-04-01T21:31:27.533144",
+    "event_type": "counter",
+    "metric_name": "user_messages",
+    "value": 1,
+    "session_id": null
+  },
+  {
+    "timestamp": "2025-04-01T21:31:27.533261",
+    "event_type": "measurement",
+    "metric_name": "user_message_length",
+    "value": 39,
+    "session_id": "d9853a4f-8420-47b9-9f98-e33a2f7a2f69",
+    "message_id": null
+  },
+  {
+    "timestamp": "2025-04-01T21:31:40.224917",
+    "event_type": "timer",
+    "metric_name": "query_processing",
+    "value": 12.688002109527588,
+    "session_id": "d9853a4f-8420-47b9-9f98-e33a2f7a2f69",
+    "category": "knowledge"
+  },
+  {
+    "timestamp": "2025-04-01T21:31:40.227096",
+    "event_type": "timer",
+    "metric_name": "query_processing",
+    "value": 12.688002109527588,
+    "session_id": "d9853a4f-8420-47b9-9f98-e33a2f7a2f69",
+    "category": "knowledge"
+  },
+  {
+    "timestamp": "2025-04-01T21:31:40.227124",
+    "event_type": "api_call",
+    "metric_name": "chatbot_response",
+    "value": 1,
+    "tokens_used": 619,
+    "session_id": "d9853a4f-8420-47b9-9f98-e33a2f7a2f69"
+  },
+  {
+    "timestamp": "2025-04-01T21:31:40.228487",
+    "event_type": "score",
+    "metric_name": "safety_score",
+    "value": 0.0,
+    "session_id": "d9853a4f-8420-47b9-9f98-e33a2f7a2f69",
+    "message_id": "15afde45-cb83-4a44-b567-83c2c38545a7"
+  },
+  {
+    "timestamp": "2025-04-01T21:31:40.228893",
+    "event_type": "score",
+    "metric_name": "empathy_score",
+    "value": 0.5,
+    "session_id": "d9853a4f-8420-47b9-9f98-e33a2f7a2f69",
+    "message_id": "15afde45-cb83-4a44-b567-83c2c38545a7"
+  },
+  {
+    "timestamp": "2025-04-01T21:31:40.229691",
+    "event_type": "measurement",
+    "metric_name": "memory_usage_mb",
+    "value": 124.515625,
+    "session_id": "d9853a4f-8420-47b9-9f98-e33a2f7a2f69"
+  },
+  {
+    "timestamp": "2025-04-01T21:31:40.230751",
+    "event_type": "timer",
+    "metric_name": "total_response_time",
+    "value": 12.69884705543518,
+    "session_id": "d9853a4f-8420-47b9-9f98-e33a2f7a2f69",
+    "category": null
+  },
+  {
+    "timestamp": "2025-04-01T21:32:02.728150",
+    "event_type": "counter",
+    "metric_name": "user_messages",
+    "value": 1,
+    "session_id": null
+  },
+  {
+    "timestamp": "2025-04-01T21:32:02.728168",
+    "event_type": "measurement",
+    "metric_name": "user_message_length",
+    "value": 57,
+    "session_id": "d9853a4f-8420-47b9-9f98-e33a2f7a2f69",
+    "message_id": null
+  },
+  {
+    "timestamp": "2025-04-01T21:32:11.393677",
+    "event_type": "timer",
+    "metric_name": "query_processing",
+    "value": 8.66387677192688,
+    "session_id": "d9853a4f-8420-47b9-9f98-e33a2f7a2f69",
+    "category": "knowledge"
+  },
+  {
+    "timestamp": "2025-04-01T21:32:11.395867",
+    "event_type": "timer",
+    "metric_name": "query_processing",
+    "value": 8.66387677192688,
+    "session_id": "d9853a4f-8420-47b9-9f98-e33a2f7a2f69",
+    "category": "knowledge"
+  },
+  {
+    "timestamp": "2025-04-01T21:32:11.395880",
+    "event_type": "api_call",
+    "metric_name": "chatbot_response",
+    "value": 1,
+    "tokens_used": 622,
+    "session_id": "d9853a4f-8420-47b9-9f98-e33a2f7a2f69"
+  },
+  {
+    "timestamp": "2025-04-01T21:32:11.396411",
+    "event_type": "score",
+    "metric_name": "safety_score",
+    "value": 0.0,
+    "session_id": "d9853a4f-8420-47b9-9f98-e33a2f7a2f69",
+    "message_id": "9e0650e3-034d-4805-a811-2702b48e4915"
+  },
+  {
+    "timestamp": "2025-04-01T21:32:11.396516",
+    "event_type": "score",
+    "metric_name": "empathy_score",
+    "value": 0.5,
+    "session_id": "d9853a4f-8420-47b9-9f98-e33a2f7a2f69",
+    "message_id": "9e0650e3-034d-4805-a811-2702b48e4915"
+  },
+  {
+    "timestamp": "2025-04-01T21:32:11.396637",
+    "event_type": "measurement",
+    "metric_name": "memory_usage_mb",
+    "value": 125.60546875,
+    "session_id": "d9853a4f-8420-47b9-9f98-e33a2f7a2f69"
+  },
+  {
+    "timestamp": "2025-04-01T21:32:11.398592",
+    "event_type": "timer",
+    "metric_name": "total_response_time",
+    "value": 8.670571088790894,
+    "session_id": "d9853a4f-8420-47b9-9f98-e33a2f7a2f69",
+    "category": null
+  },
+  {
+    "timestamp": "2025-04-01T21:32:41.121507",
+    "event_type": "counter",
+    "metric_name": "user_messages",
+    "value": 1,
+    "session_id": null
+  },
+  {
+    "timestamp": "2025-04-01T21:32:41.121518",
+    "event_type": "measurement",
+    "metric_name": "user_message_length",
+    "value": 36,
+    "session_id": "d9853a4f-8420-47b9-9f98-e33a2f7a2f69",
+    "message_id": null
+  },
+  {
+    "timestamp": "2025-04-01T21:32:44.263525",
+    "event_type": "timer",
+    "metric_name": "query_processing",
+    "value": 3.1409361362457275,
+    "session_id": "d9853a4f-8420-47b9-9f98-e33a2f7a2f69",
+    "category": "policy"
+  },
+  {
+    "timestamp": "2025-04-01T21:32:44.265299",
+    "event_type": "timer",
+    "metric_name": "query_processing",
+    "value": 3.1409361362457275,
+    "session_id": "d9853a4f-8420-47b9-9f98-e33a2f7a2f69",
+    "category": "policy"
+  },
+  {
+    "timestamp": "2025-04-01T21:32:44.265320",
+    "event_type": "api_call",
+    "metric_name": "chatbot_response",
+    "value": 1,
+    "tokens_used": 131,
+    "session_id": "d9853a4f-8420-47b9-9f98-e33a2f7a2f69"
+  },
+  {
+    "timestamp": "2025-04-01T21:32:44.265866",
+    "event_type": "score",
+    "metric_name": "safety_score",
+    "value": 0.0,
+    "session_id": "d9853a4f-8420-47b9-9f98-e33a2f7a2f69",
+    "message_id": "97c70a36-6db6-4873-b022-85e7c29816a4"
+  },
+  {
+    "timestamp": "2025-04-01T21:32:44.265916",
+    "event_type": "score",
+    "metric_name": "empathy_score",
+    "value": 0.5,
+    "session_id": "d9853a4f-8420-47b9-9f98-e33a2f7a2f69",
+    "message_id": "97c70a36-6db6-4873-b022-85e7c29816a4"
+  },
+  {
+    "timestamp": "2025-04-01T21:32:44.266048",
+    "event_type": "measurement",
+    "metric_name": "memory_usage_mb",
+    "value": 128.4921875,
+    "session_id": "d9853a4f-8420-47b9-9f98-e33a2f7a2f69"
+  },
+  {
+    "timestamp": "2025-04-01T21:32:44.267211",
+    "event_type": "timer",
+    "metric_name": "total_response_time",
+    "value": 3.1457958221435547,
+    "session_id": "d9853a4f-8420-47b9-9f98-e33a2f7a2f69",
+    "category": null
+  },
+  {
+    "timestamp": "2025-04-01T21:33:03.178118",
+    "event_type": "counter",
+    "metric_name": "user_messages",
+    "value": 1,
+    "session_id": null
+  },
+  {
+    "timestamp": "2025-04-01T21:33:03.178136",
+    "event_type": "measurement",
+    "metric_name": "user_message_length",
+    "value": 43,
+    "session_id": "d9853a4f-8420-47b9-9f98-e33a2f7a2f69",
+    "message_id": null
+  },
+  {
+    "timestamp": "2025-04-01T21:33:08.329924",
+    "event_type": "timer",
+    "metric_name": "query_processing",
+    "value": 5.149951934814453,
+    "session_id": "d9853a4f-8420-47b9-9f98-e33a2f7a2f69",
+    "category": "emotional"
+  },
+  {
+    "timestamp": "2025-04-01T21:33:08.331436",
+    "event_type": "timer",
+    "metric_name": "query_processing",
+    "value": 5.149951934814453,
+    "session_id": "d9853a4f-8420-47b9-9f98-e33a2f7a2f69",
+    "category": "emotional"
+  },
+  {
+    "timestamp": "2025-04-01T21:33:08.331449",
+    "event_type": "api_call",
+    "metric_name": "chatbot_response",
+    "value": 1,
+    "tokens_used": 260,
+    "session_id": "d9853a4f-8420-47b9-9f98-e33a2f7a2f69"
+  },
+  {
+    "timestamp": "2025-04-01T21:33:08.331993",
+    "event_type": "score",
+    "metric_name": "safety_score",
+    "value": 0.0,
+    "session_id": "d9853a4f-8420-47b9-9f98-e33a2f7a2f69",
+    "message_id": "c11ba1fa-cd06-476e-abc0-d1f9be3f4802"
+  },
+  {
+    "timestamp": "2025-04-01T21:33:08.332038",
+    "event_type": "score",
+    "metric_name": "empathy_score",
+    "value": 0.95,
+    "session_id": "d9853a4f-8420-47b9-9f98-e33a2f7a2f69",
+    "message_id": "c11ba1fa-cd06-476e-abc0-d1f9be3f4802"
+  },
+  {
+    "timestamp": "2025-04-01T21:33:08.332200",
+    "event_type": "measurement",
+    "metric_name": "memory_usage_mb",
+    "value": 128.78125,
+    "session_id": "d9853a4f-8420-47b9-9f98-e33a2f7a2f69"
+  },
+  {
+    "timestamp": "2025-04-01T21:33:08.333746",
+    "event_type": "timer",
+    "metric_name": "total_response_time",
+    "value": 5.1557581424713135,
+    "session_id": "d9853a4f-8420-47b9-9f98-e33a2f7a2f69",
+    "category": null
+  },
+  {
+    "timestamp": "2025-04-01T21:33:41.540888",
+    "event_type": "counter",
+    "metric_name": "user_messages",
+    "value": 1,
+    "session_id": null
+  },
+  {
+    "timestamp": "2025-04-01T21:33:41.540909",
+    "event_type": "measurement",
+    "metric_name": "user_message_length",
+    "value": 51,
+    "session_id": "d9853a4f-8420-47b9-9f98-e33a2f7a2f69",
+    "message_id": null
+  },
+  {
+    "timestamp": "2025-04-01T21:34:03.468332",
+    "event_type": "timer",
+    "metric_name": "query_processing",
+    "value": 21.925419092178345,
+    "session_id": "d9853a4f-8420-47b9-9f98-e33a2f7a2f69",
+    "category": null
+  },
+  {
+    "timestamp": "2025-04-01T21:34:03.470543",
+    "event_type": "timer",
+    "metric_name": "query_processing",
+    "value": 21.925419092178345,
+    "session_id": "d9853a4f-8420-47b9-9f98-e33a2f7a2f69",
+    "category": null
+  },
+  {
+    "timestamp": "2025-04-01T21:34:03.470557",
+    "event_type": "api_call",
+    "metric_name": "chatbot_response",
+    "value": 1,
+    "tokens_used": 863,
+    "session_id": "d9853a4f-8420-47b9-9f98-e33a2f7a2f69"
+  },
+  {
+    "timestamp": "2025-04-01T21:34:03.472078",
+    "event_type": "score",
+    "metric_name": "safety_score",
+    "value": 0.0,
+    "session_id": "d9853a4f-8420-47b9-9f98-e33a2f7a2f69",
+    "message_id": "7989ce5a-8930-4eab-b3de-bf188b706c82"
+  },
+  {
+    "timestamp": "2025-04-01T21:34:03.472178",
+    "event_type": "score",
+    "metric_name": "empathy_score",
+    "value": 0.8,
+    "session_id": "d9853a4f-8420-47b9-9f98-e33a2f7a2f69",
+    "message_id": "7989ce5a-8930-4eab-b3de-bf188b706c82"
+  },
+  {
+    "timestamp": "2025-04-01T21:34:03.472370",
+    "event_type": "measurement",
+    "metric_name": "memory_usage_mb",
+    "value": 129.30859375,
+    "session_id": "d9853a4f-8420-47b9-9f98-e33a2f7a2f69"
+  },
+  {
+    "timestamp": "2025-04-01T21:34:03.474219",
+    "event_type": "timer",
+    "metric_name": "total_response_time",
+    "value": 21.933609008789062,
+    "session_id": "d9853a4f-8420-47b9-9f98-e33a2f7a2f69",
+    "category": null
+  },
+  {
+    "timestamp": "2025-04-01T21:35:01.887507",
+    "event_type": "counter",
+    "metric_name": "user_messages",
+    "value": 1,
+    "session_id": null
+  },
+  {
+    "timestamp": "2025-04-01T21:35:01.887545",
+    "event_type": "measurement",
+    "metric_name": "user_message_length",
+    "value": 77,
+    "session_id": "d9853a4f-8420-47b9-9f98-e33a2f7a2f69",
+    "message_id": null
+  },
+  {
+    "timestamp": "2025-04-01T21:35:07.014046",
+    "event_type": "timer",
+    "metric_name": "query_processing",
+    "value": 5.124442100524902,
+    "session_id": "d9853a4f-8420-47b9-9f98-e33a2f7a2f69",
+    "category": "emotional"
+  },
+  {
+    "timestamp": "2025-04-01T21:35:07.015816",
+    "event_type": "timer",
+    "metric_name": "query_processing",
+    "value": 5.124442100524902,
+    "session_id": "d9853a4f-8420-47b9-9f98-e33a2f7a2f69",
+    "category": "emotional"
+  },
+  {
+    "timestamp": "2025-04-01T21:35:07.015831",
+    "event_type": "api_call",
+    "metric_name": "chatbot_response",
+    "value": 1,
+    "tokens_used": 234,
+    "session_id": "d9853a4f-8420-47b9-9f98-e33a2f7a2f69"
+  },
+  {
+    "timestamp": "2025-04-01T21:35:07.016386",
+    "event_type": "score",
+    "metric_name": "safety_score",
+    "value": 0.0,
+    "session_id": "d9853a4f-8420-47b9-9f98-e33a2f7a2f69",
+    "message_id": "10639329-2006-4718-82c7-c847cbb5793b"
+  },
+  {
+    "timestamp": "2025-04-01T21:35:07.016431",
+    "event_type": "score",
+    "metric_name": "empathy_score",
+    "value": 0.65,
+    "session_id": "d9853a4f-8420-47b9-9f98-e33a2f7a2f69",
+    "message_id": "10639329-2006-4718-82c7-c847cbb5793b"
+  },
+  {
+    "timestamp": "2025-04-01T21:35:07.016603",
+    "event_type": "measurement",
+    "metric_name": "memory_usage_mb",
+    "value": 129.47265625,
+    "session_id": "d9853a4f-8420-47b9-9f98-e33a2f7a2f69"
+  },
+  {
+    "timestamp": "2025-04-01T21:35:07.017757",
+    "event_type": "timer",
+    "metric_name": "total_response_time",
+    "value": 5.1315107345581055,
+    "session_id": "d9853a4f-8420-47b9-9f98-e33a2f7a2f69",
+    "category": null
+  },
+  {
+    "timestamp": "2025-04-03T12:09:19.136158",
+    "event_type": "counter",
+    "metric_name": "server_start",
+    "value": 1,
+    "session_id": null
+  },
+  {
+    "timestamp": "2025-04-03T12:10:03.715227",
+    "event_type": "counter",
+    "metric_name": "user_messages",
+    "value": 1,
+    "session_id": null
+  },
+  {
+    "timestamp": "2025-04-03T12:10:03.715271",
+    "event_type": "measurement",
+    "metric_name": "user_message_length",
+    "value": 22,
+    "session_id": "6065e456-813e-40ee-b850-7515161d2d40",
+    "message_id": null
+  },
+  {
+    "timestamp": "2025-04-03T12:10:03.715352",
+    "event_type": "counter",
+    "metric_name": "session_starts",
+    "value": 1,
+    "session_id": "6065e456-813e-40ee-b850-7515161d2d40"
+  },
+  {
+    "timestamp": "2025-04-03T12:10:12.520624",
+    "event_type": "timer",
+    "metric_name": "query_processing",
+    "value": 8.804232835769653,
+    "session_id": "6065e456-813e-40ee-b850-7515161d2d40",
+    "category": "knowledge"
+  },
+  {
+    "timestamp": "2025-04-03T12:10:12.523282",
+    "event_type": "timer",
+    "metric_name": "query_processing",
+    "value": 8.804232835769653,
+    "session_id": "6065e456-813e-40ee-b850-7515161d2d40",
+    "category": "knowledge"
+  },
+  {
+    "timestamp": "2025-04-03T12:10:12.523307",
+    "event_type": "api_call",
+    "metric_name": "chatbot_response",
+    "value": 1,
+    "tokens_used": 546,
+    "session_id": "6065e456-813e-40ee-b850-7515161d2d40"
+  },
+  {
+    "timestamp": "2025-04-03T12:10:12.527518",
+    "event_type": "score",
+    "metric_name": "safety_score",
+    "value": 0.0,
+    "session_id": "6065e456-813e-40ee-b850-7515161d2d40",
+    "message_id": "bdaddea1-05e4-45a4-81ef-b0b061a95d4b"
+  },
+  {
+    "timestamp": "2025-04-03T12:10:12.527611",
+    "event_type": "score",
+    "metric_name": "empathy_score",
+    "value": 0.5,
+    "session_id": "6065e456-813e-40ee-b850-7515161d2d40",
+    "message_id": "bdaddea1-05e4-45a4-81ef-b0b061a95d4b"
+  },
+  {
+    "timestamp": "2025-04-03T12:10:12.528203",
+    "event_type": "measurement",
+    "metric_name": "memory_usage_mb",
+    "value": 535.5234375,
+    "session_id": "6065e456-813e-40ee-b850-7515161d2d40"
+  },
+  {
+    "timestamp": "2025-04-03T12:10:12.528768",
+    "event_type": "timer",
+    "metric_name": "total_response_time",
+    "value": 8.813762187957764,
+    "session_id": "6065e456-813e-40ee-b850-7515161d2d40",
+    "category": null
+  },
+  {
+    "timestamp": "2025-04-03T12:10:28.289741",
+    "event_type": "counter",
+    "metric_name": "user_messages",
+    "value": 1,
+    "session_id": null
+  },
+  {
+    "timestamp": "2025-04-03T12:10:28.289761",
+    "event_type": "measurement",
+    "metric_name": "user_message_length",
+    "value": 47,
+    "session_id": "6065e456-813e-40ee-b850-7515161d2d40",
+    "message_id": null
+  },
+  {
+    "timestamp": "2025-04-03T12:10:35.867289",
+    "event_type": "timer",
+    "metric_name": "query_processing",
+    "value": 7.576290130615234,
+    "session_id": "6065e456-813e-40ee-b850-7515161d2d40",
+    "category": "emotional"
+  },
+  {
+    "timestamp": "2025-04-03T12:10:35.869141",
+    "event_type": "timer",
+    "metric_name": "query_processing",
+    "value": 7.576290130615234,
+    "session_id": "6065e456-813e-40ee-b850-7515161d2d40",
+    "category": "emotional"
+  },
+  {
+    "timestamp": "2025-04-03T12:10:35.869163",
+    "event_type": "api_call",
+    "metric_name": "chatbot_response",
+    "value": 1,
+    "tokens_used": 394,
+    "session_id": "6065e456-813e-40ee-b850-7515161d2d40"
+  },
+  {
+    "timestamp": "2025-04-03T12:10:35.870380",
+    "event_type": "score",
+    "metric_name": "safety_score",
+    "value": 0.0,
+    "session_id": "6065e456-813e-40ee-b850-7515161d2d40",
+    "message_id": "93a39067-e934-424c-b91a-10dfa621dbe7"
+  },
+  {
+    "timestamp": "2025-04-03T12:10:35.870447",
+    "event_type": "score",
+    "metric_name": "empathy_score",
+    "value": 0.4,
+    "session_id": "6065e456-813e-40ee-b850-7515161d2d40",
+    "message_id": "93a39067-e934-424c-b91a-10dfa621dbe7"
+  },
+  {
+    "timestamp": "2025-04-03T12:10:35.870562",
+    "event_type": "measurement",
+    "metric_name": "memory_usage_mb",
+    "value": 526.99609375,
+    "session_id": "6065e456-813e-40ee-b850-7515161d2d40"
+  },
+  {
+    "timestamp": "2025-04-03T12:10:35.871195",
+    "event_type": "timer",
+    "metric_name": "total_response_time",
+    "value": 7.581554174423218,
+    "session_id": "6065e456-813e-40ee-b850-7515161d2d40",
+    "category": null
+  },
+  {
+    "timestamp": "2025-04-03T12:27:31.911515",
+    "event_type": "counter",
+    "metric_name": "server_start",
+    "value": 1,
+    "session_id": null
+  },
+  {
+    "timestamp": "2025-04-03T12:44:21.348033",
+    "event_type": "counter",
+    "metric_name": "server_start",
+    "value": 1,
+    "session_id": null
+  },
+  {
+    "timestamp": "2025-04-03T14:43:05.235566",
+    "event_type": "counter",
+    "metric_name": "server_start",
+    "value": 1,
+    "session_id": null
+  },
+  {
+    "timestamp": "2025-04-03T14:43:29.341793",
+    "event_type": "counter",
+    "metric_name": "user_messages",
+    "value": 1,
+    "session_id": null
+  },
+  {
+    "timestamp": "2025-04-03T14:43:29.341861",
+    "event_type": "measurement",
+    "metric_name": "user_message_length",
+    "value": 34,
+    "session_id": "eeb845b3-e847-445f-9958-4e492153b5a6",
+    "message_id": null
+  },
+  {
+    "timestamp": "2025-04-03T14:43:29.341874",
+    "event_type": "counter",
+    "metric_name": "session_starts",
+    "value": 1,
+    "session_id": "eeb845b3-e847-445f-9958-4e492153b5a6"
+  },
+  {
+    "timestamp": "2025-04-03T14:43:31.529892",
+    "event_type": "timer",
+    "metric_name": "query_processing",
+    "value": 2.1874940395355225,
+    "session_id": "eeb845b3-e847-445f-9958-4e492153b5a6",
+    "category": "policy"
+  },
+  {
+    "timestamp": "2025-04-03T14:43:31.531179",
+    "event_type": "timer",
+    "metric_name": "query_processing",
+    "value": 2.1874940395355225,
+    "session_id": "eeb845b3-e847-445f-9958-4e492153b5a6",
+    "category": "policy"
+  },
+  {
+    "timestamp": "2025-04-03T14:43:31.531193",
+    "event_type": "api_call",
+    "metric_name": "chatbot_response",
+    "value": 1,
+    "tokens_used": 45,
+    "session_id": "eeb845b3-e847-445f-9958-4e492153b5a6"
+  },
+  {
+    "timestamp": "2025-04-03T14:43:31.533291",
+    "event_type": "score",
+    "metric_name": "safety_score",
+    "value": 0.0,
+    "session_id": "eeb845b3-e847-445f-9958-4e492153b5a6",
+    "message_id": "efd2bf83-0e7c-435b-9378-ca7670288f7b"
+  },
+  {
+    "timestamp": "2025-04-03T14:43:31.533333",
+    "event_type": "score",
+    "metric_name": "empathy_score",
+    "value": 0.5,
+    "session_id": "eeb845b3-e847-445f-9958-4e492153b5a6",
+    "message_id": "efd2bf83-0e7c-435b-9378-ca7670288f7b"
+  },
+  {
+    "timestamp": "2025-04-03T14:43:31.533993",
+    "event_type": "measurement",
+    "metric_name": "memory_usage_mb",
+    "value": 594.5234375,
+    "session_id": "eeb845b3-e847-445f-9958-4e492153b5a6"
+  },
+  {
+    "timestamp": "2025-04-03T14:43:31.534428",
+    "event_type": "timer",
+    "metric_name": "total_response_time",
+    "value": 2.1927778720855713,
+    "session_id": "eeb845b3-e847-445f-9958-4e492153b5a6",
+    "category": null
+  },
+  {
+    "timestamp": "2025-04-03T14:43:35.826559",
+    "event_type": "counter",
+    "metric_name": "user_messages",
+    "value": 1,
+    "session_id": null
+  },
+  {
+    "timestamp": "2025-04-03T14:43:35.826591",
+    "event_type": "measurement",
+    "metric_name": "user_message_length",
+    "value": 10,
+    "session_id": "eeb845b3-e847-445f-9958-4e492153b5a6",
+    "message_id": null
+  },
+  {
+    "timestamp": "2025-04-03T14:43:39.618815",
+    "event_type": "timer",
+    "metric_name": "query_processing",
+    "value": 3.7914278507232666,
+    "session_id": "eeb845b3-e847-445f-9958-4e492153b5a6",
+    "category": "policy"
+  },
+  {
+    "timestamp": "2025-04-03T14:43:39.619965",
+    "event_type": "timer",
+    "metric_name": "query_processing",
+    "value": 3.7914278507232666,
+    "session_id": "eeb845b3-e847-445f-9958-4e492153b5a6",
+    "category": "policy"
+  },
+  {
+    "timestamp": "2025-04-03T14:43:39.619979",
+    "event_type": "api_call",
+    "metric_name": "chatbot_response",
+    "value": 1,
+    "tokens_used": 134,
+    "session_id": "eeb845b3-e847-445f-9958-4e492153b5a6"
+  },
+  {
+    "timestamp": "2025-04-03T14:43:39.620255",
+    "event_type": "score",
+    "metric_name": "safety_score",
+    "value": 0.0,
+    "session_id": "eeb845b3-e847-445f-9958-4e492153b5a6",
+    "message_id": "efa74a87-6120-434f-8c79-4abc9d5cbb2a"
+  },
+  {
+    "timestamp": "2025-04-03T14:43:39.620292",
+    "event_type": "score",
+    "metric_name": "empathy_score",
+    "value": 0.5,
+    "session_id": "eeb845b3-e847-445f-9958-4e492153b5a6",
+    "message_id": "efa74a87-6120-434f-8c79-4abc9d5cbb2a"
+  },
+  {
+    "timestamp": "2025-04-03T14:43:39.620408",
+    "event_type": "measurement",
+    "metric_name": "memory_usage_mb",
+    "value": 596.04296875,
+    "session_id": "eeb845b3-e847-445f-9958-4e492153b5a6"
+  },
+  {
+    "timestamp": "2025-04-03T14:43:39.621917",
+    "event_type": "timer",
+    "metric_name": "total_response_time",
+    "value": 3.795581102371216,
+    "session_id": "eeb845b3-e847-445f-9958-4e492153b5a6",
+    "category": null
+  },
+  {
+    "timestamp": "2025-04-03T14:44:16.706828",
+    "event_type": "counter",
+    "metric_name": "user_messages",
+    "value": 1,
+    "session_id": null
+  },
+  {
+    "timestamp": "2025-04-03T14:44:16.706849",
+    "event_type": "measurement",
+    "metric_name": "user_message_length",
+    "value": 83,
+    "session_id": "eeb845b3-e847-445f-9958-4e492153b5a6",
+    "message_id": null
+  },
+  {
+    "timestamp": "2025-04-03T14:44:24.291625",
+    "event_type": "timer",
+    "metric_name": "query_processing",
+    "value": 7.584118127822876,
+    "session_id": "eeb845b3-e847-445f-9958-4e492153b5a6",
+    "category": null
+  },
+  {
+    "timestamp": "2025-04-03T14:44:24.292948",
+    "event_type": "timer",
+    "metric_name": "query_processing",
+    "value": 7.584118127822876,
+    "session_id": "eeb845b3-e847-445f-9958-4e492153b5a6",
+    "category": null
+  },
+  {
+    "timestamp": "2025-04-03T14:44:24.292967",
+    "event_type": "api_call",
+    "metric_name": "chatbot_response",
+    "value": 1,
+    "tokens_used": 240,
+    "session_id": "eeb845b3-e847-445f-9958-4e492153b5a6"
+  },
+  {
+    "timestamp": "2025-04-03T14:44:24.293428",
+    "event_type": "score",
+    "metric_name": "safety_score",
+    "value": 0.0,
+    "session_id": "eeb845b3-e847-445f-9958-4e492153b5a6",
+    "message_id": "410eac8d-7f70-4666-ab97-25ec4ef82577"
+  },
+  {
+    "timestamp": "2025-04-03T14:44:24.293490",
+    "event_type": "score",
+    "metric_name": "empathy_score",
+    "value": 0.95,
+    "session_id": "eeb845b3-e847-445f-9958-4e492153b5a6",
+    "message_id": "410eac8d-7f70-4666-ab97-25ec4ef82577"
+  },
+  {
+    "timestamp": "2025-04-03T14:44:24.293644",
+    "event_type": "measurement",
+    "metric_name": "memory_usage_mb",
+    "value": 596.109375,
+    "session_id": "eeb845b3-e847-445f-9958-4e492153b5a6"
+  },
+  {
+    "timestamp": "2025-04-03T14:44:24.294266",
+    "event_type": "timer",
+    "metric_name": "total_response_time",
+    "value": 7.587707757949829,
+    "session_id": "eeb845b3-e847-445f-9958-4e492153b5a6",
+    "category": null
+  },
+  {
+    "timestamp": "2025-04-03T14:45:09.728546",
+    "event_type": "counter",
+    "metric_name": "user_messages",
+    "value": 1,
+    "session_id": null
+  },
+  {
+    "timestamp": "2025-04-03T14:45:09.728562",
+    "event_type": "measurement",
+    "metric_name": "user_message_length",
+    "value": 123,
+    "session_id": "eeb845b3-e847-445f-9958-4e492153b5a6",
+    "message_id": null
+  },
+  {
+    "timestamp": "2025-04-03T14:45:17.609717",
+    "event_type": "timer",
+    "metric_name": "query_processing",
+    "value": 7.880273103713989,
+    "session_id": "eeb845b3-e847-445f-9958-4e492153b5a6",
+    "category": "emotional"
+  },
+  {
+    "timestamp": "2025-04-03T14:45:17.610773",
+    "event_type": "timer",
+    "metric_name": "query_processing",
+    "value": 7.880273103713989,
+    "session_id": "eeb845b3-e847-445f-9958-4e492153b5a6",
+    "category": "emotional"
+  },
+  {
+    "timestamp": "2025-04-03T14:45:17.610789",
+    "event_type": "api_call",
+    "metric_name": "chatbot_response",
+    "value": 1,
+    "tokens_used": 263,
+    "session_id": "eeb845b3-e847-445f-9958-4e492153b5a6"
+  },
+  {
+    "timestamp": "2025-04-03T14:45:17.611305",
+    "event_type": "score",
+    "metric_name": "safety_score",
+    "value": 0.0,
+    "session_id": "eeb845b3-e847-445f-9958-4e492153b5a6",
+    "message_id": "26619fd1-4ff5-4f10-b4fd-1c04d842026c"
+  },
+  {
+    "timestamp": "2025-04-03T14:45:17.611359",
+    "event_type": "score",
+    "metric_name": "empathy_score",
+    "value": 0.65,
+    "session_id": "eeb845b3-e847-445f-9958-4e492153b5a6",
+    "message_id": "26619fd1-4ff5-4f10-b4fd-1c04d842026c"
+  },
+  {
+    "timestamp": "2025-04-03T14:45:17.611481",
+    "event_type": "measurement",
+    "metric_name": "memory_usage_mb",
+    "value": 596.203125,
+    "session_id": "eeb845b3-e847-445f-9958-4e492153b5a6"
+  },
+  {
+    "timestamp": "2025-04-03T14:45:17.612444",
+    "event_type": "timer",
+    "metric_name": "total_response_time",
+    "value": 7.8840131759643555,
+    "session_id": "eeb845b3-e847-445f-9958-4e492153b5a6",
+    "category": null
+  },
+  {
+    "timestamp": "2025-04-03T14:45:59.401449",
+    "event_type": "counter",
+    "metric_name": "user_messages",
+    "value": 1,
+    "session_id": null
+  },
+  {
+    "timestamp": "2025-04-03T14:45:59.401466",
+    "event_type": "measurement",
+    "metric_name": "user_message_length",
+    "value": 59,
+    "session_id": "eeb845b3-e847-445f-9958-4e492153b5a6",
+    "message_id": null
+  },
+  {
+    "timestamp": "2025-04-03T14:46:06.957412",
+    "event_type": "timer",
+    "metric_name": "query_processing",
+    "value": 7.555102825164795,
+    "session_id": "eeb845b3-e847-445f-9958-4e492153b5a6",
+    "category": "emotional"
+  },
+  {
+    "timestamp": "2025-04-03T14:46:06.958477",
+    "event_type": "timer",
+    "metric_name": "query_processing",
+    "value": 7.555102825164795,
+    "session_id": "eeb845b3-e847-445f-9958-4e492153b5a6",
+    "category": "emotional"
+  },
+  {
+    "timestamp": "2025-04-03T14:46:06.958488",
+    "event_type": "api_call",
+    "metric_name": "chatbot_response",
+    "value": 1,
+    "tokens_used": 504,
+    "session_id": "eeb845b3-e847-445f-9958-4e492153b5a6"
+  },
+  {
+    "timestamp": "2025-04-03T14:46:06.959144",
+    "event_type": "score",
+    "metric_name": "safety_score",
+    "value": 0.0,
+    "session_id": "eeb845b3-e847-445f-9958-4e492153b5a6",
+    "message_id": "428e272d-b0f9-4e2c-8a9e-07e8bc435150"
+  },
+  {
+    "timestamp": "2025-04-03T14:46:06.959211",
+    "event_type": "score",
+    "metric_name": "empathy_score",
+    "value": 1.0,
+    "session_id": "eeb845b3-e847-445f-9958-4e492153b5a6",
+    "message_id": "428e272d-b0f9-4e2c-8a9e-07e8bc435150"
+  },
+  {
+    "timestamp": "2025-04-03T14:46:06.959321",
+    "event_type": "measurement",
+    "metric_name": "memory_usage_mb",
+    "value": 596.2109375,
+    "session_id": "eeb845b3-e847-445f-9958-4e492153b5a6"
+  },
+  {
+    "timestamp": "2025-04-03T14:46:06.960279",
+    "event_type": "timer",
+    "metric_name": "total_response_time",
+    "value": 7.558941125869751,
+    "session_id": "eeb845b3-e847-445f-9958-4e492153b5a6",
+    "category": null
+  },
+  {
+    "timestamp": "2025-04-03T14:54:57.622786",
+    "event_type": "counter",
+    "metric_name": "server_start",
+    "value": 1,
+    "session_id": null
+  },
+  {
+    "timestamp": "2025-04-03T15:32:24.958288",
+    "event_type": "counter",
+    "metric_name": "server_start",
+    "value": 1,
+    "session_id": null
+  },
+  {
+    "timestamp": "2025-04-03T15:34:13.816358",
+    "event_type": "counter",
+    "metric_name": "user_messages",
+    "value": 1,
+    "session_id": null
+  },
+  {
+    "timestamp": "2025-04-03T15:34:13.816392",
+    "event_type": "measurement",
+    "metric_name": "user_message_length",
+    "value": 41,
+    "session_id": "a2a62571-fffc-43f7-9234-795730c4ecf8",
+    "message_id": null
+  },
+  {
+    "timestamp": "2025-04-03T15:34:13.816400",
+    "event_type": "counter",
+    "metric_name": "session_starts",
+    "value": 1,
+    "session_id": "a2a62571-fffc-43f7-9234-795730c4ecf8"
+  },
+  {
+    "timestamp": "2025-04-03T15:34:23.835716",
+    "event_type": "timer",
+    "metric_name": "query_processing",
+    "value": 10.018594980239868,
+    "session_id": "a2a62571-fffc-43f7-9234-795730c4ecf8",
+    "category": "knowledge"
+  },
+  {
+    "timestamp": "2025-04-03T15:34:23.838458",
+    "event_type": "timer",
+    "metric_name": "query_processing",
+    "value": 10.018594980239868,
+    "session_id": "a2a62571-fffc-43f7-9234-795730c4ecf8",
+    "category": "knowledge"
+  },
+  {
+    "timestamp": "2025-04-03T15:34:23.838475",
+    "event_type": "api_call",
+    "metric_name": "chatbot_response",
+    "value": 1,
+    "tokens_used": 764,
+    "session_id": "a2a62571-fffc-43f7-9234-795730c4ecf8"
+  },
+  {
+    "timestamp": "2025-04-03T15:34:23.843497",
+    "event_type": "score",
+    "metric_name": "safety_score",
+    "value": 1.0,
+    "session_id": "a2a62571-fffc-43f7-9234-795730c4ecf8",
+    "message_id": "c3473ecd-6673-460e-8511-2b125332dc21"
+  },
+  {
+    "timestamp": "2025-04-03T15:34:23.849487",
+    "event_type": "score",
+    "metric_name": "empathy_score",
+    "value": 0.4,
+    "session_id": "a2a62571-fffc-43f7-9234-795730c4ecf8",
+    "message_id": "c3473ecd-6673-460e-8511-2b125332dc21"
+  },
+  {
+    "timestamp": "2025-04-03T15:34:23.849866",
+    "event_type": "measurement",
+    "metric_name": "memory_usage_mb",
+    "value": 613.0,
+    "session_id": "a2a62571-fffc-43f7-9234-795730c4ecf8"
+  },
+  {
+    "timestamp": "2025-04-03T15:34:23.850578",
+    "event_type": "timer",
+    "metric_name": "total_response_time",
+    "value": 10.034339189529419,
+    "session_id": "a2a62571-fffc-43f7-9234-795730c4ecf8",
+    "category": null
+  },
+  {
+    "timestamp": "2025-04-03T15:35:44.759002",
+    "event_type": "counter",
+    "metric_name": "user_messages",
+    "value": 1,
+    "session_id": null
+  },
+  {
+    "timestamp": "2025-04-03T15:35:44.759024",
+    "event_type": "measurement",
+    "metric_name": "user_message_length",
+    "value": 37,
+    "session_id": "a2a62571-fffc-43f7-9234-795730c4ecf8",
+    "message_id": null
+  },
+  {
+    "timestamp": "2025-04-03T15:35:49.131007",
+    "event_type": "timer",
+    "metric_name": "query_processing",
+    "value": 4.369422912597656,
+    "session_id": "a2a62571-fffc-43f7-9234-795730c4ecf8",
+    "category": "emotional"
+  },
+  {
+    "timestamp": "2025-04-03T15:35:49.132162",
+    "event_type": "timer",
+    "metric_name": "query_processing",
+    "value": 4.369422912597656,
+    "session_id": "a2a62571-fffc-43f7-9234-795730c4ecf8",
+    "category": "emotional"
+  },
+  {
+    "timestamp": "2025-04-03T15:35:49.132175",
+    "event_type": "api_call",
+    "metric_name": "chatbot_response",
+    "value": 1,
+    "tokens_used": 327,
+    "session_id": "a2a62571-fffc-43f7-9234-795730c4ecf8"
+  },
+  {
+    "timestamp": "2025-04-03T15:35:49.132989",
+    "event_type": "score",
+    "metric_name": "safety_score",
+    "value": 1.0,
+    "session_id": "a2a62571-fffc-43f7-9234-795730c4ecf8",
+    "message_id": "1fe41671-08cb-4135-9846-a3892f5a9e76"
+  },
+  {
+    "timestamp": "2025-04-03T15:35:49.134258",
+    "event_type": "score",
+    "metric_name": "empathy_score",
+    "value": 0.52,
+    "session_id": "a2a62571-fffc-43f7-9234-795730c4ecf8",
+    "message_id": "1fe41671-08cb-4135-9846-a3892f5a9e76"
+  },
+  {
+    "timestamp": "2025-04-03T15:35:49.134394",
+    "event_type": "measurement",
+    "metric_name": "memory_usage_mb",
+    "value": 603.63671875,
+    "session_id": "a2a62571-fffc-43f7-9234-795730c4ecf8"
+  },
+  {
+    "timestamp": "2025-04-03T15:35:49.136119",
+    "event_type": "timer",
+    "metric_name": "total_response_time",
+    "value": 4.377250671386719,
+    "session_id": "a2a62571-fffc-43f7-9234-795730c4ecf8",
+    "category": null
+  },
+  {
+    "timestamp": "2025-04-03T15:51:54.496803",
+    "event_type": "counter",
+    "metric_name": "server_start",
+    "value": 1,
+    "session_id": null
+  },
+  {
+    "timestamp": "2025-04-03T16:50:17.682048",
+    "event_type": "counter",
+    "metric_name": "server_start",
+    "value": 1,
+    "session_id": null
+  },
+  {
+    "timestamp": "2025-04-03T16:50:40.972158",
+    "event_type": "counter",
+    "metric_name": "user_messages",
+    "value": 1,
+    "session_id": null
+  },
+  {
+    "timestamp": "2025-04-03T16:50:40.972211",
+    "event_type": "measurement",
+    "metric_name": "user_message_length",
+    "value": 32,
+    "session_id": "07e5a375-5a33-44db-8ea9-a9a520fcee05",
+    "message_id": null
+  },
+  {
+    "timestamp": "2025-04-03T16:50:40.972219",
+    "event_type": "counter",
+    "metric_name": "session_starts",
+    "value": 1,
+    "session_id": "07e5a375-5a33-44db-8ea9-a9a520fcee05"
+  },
+  {
+    "timestamp": "2025-04-03T16:50:47.047354",
+    "event_type": "timer",
+    "metric_name": "query_processing",
+    "value": 6.073465824127197,
+    "session_id": "07e5a375-5a33-44db-8ea9-a9a520fcee05",
+    "category": "knowledge"
+  },
+  {
+    "timestamp": "2025-04-03T16:50:47.053893",
+    "event_type": "timer",
+    "metric_name": "query_processing",
+    "value": 6.073465824127197,
+    "session_id": "07e5a375-5a33-44db-8ea9-a9a520fcee05",
+    "category": "knowledge"
+  },
+  {
+    "timestamp": "2025-04-03T16:50:47.053918",
+    "event_type": "api_call",
+    "metric_name": "chatbot_response",
+    "value": 1,
+    "tokens_used": 332,
+    "session_id": "07e5a375-5a33-44db-8ea9-a9a520fcee05"
+  },
+  {
+    "timestamp": "2025-04-03T16:50:47.063331",
+    "event_type": "score",
+    "metric_name": "safety_score",
+    "value": 1.0,
+    "session_id": "07e5a375-5a33-44db-8ea9-a9a520fcee05",
+    "message_id": "13d0b5f5-a5a8-4b35-9e20-da0493329743"
+  },
+  {
+    "timestamp": "2025-04-03T16:50:47.067238",
+    "event_type": "score",
+    "metric_name": "empathy_score",
+    "value": 0.4,
+    "session_id": "07e5a375-5a33-44db-8ea9-a9a520fcee05",
+    "message_id": "13d0b5f5-a5a8-4b35-9e20-da0493329743"
+  },
+  {
+    "timestamp": "2025-04-03T16:50:47.068823",
+    "event_type": "measurement",
+    "metric_name": "memory_usage_mb",
+    "value": 578.12890625,
+    "session_id": "07e5a375-5a33-44db-8ea9-a9a520fcee05"
+  },
+  {
+    "timestamp": "2025-04-03T16:50:47.069617",
+    "event_type": "timer",
+    "metric_name": "total_response_time",
+    "value": 6.09799599647522,
+    "session_id": "07e5a375-5a33-44db-8ea9-a9a520fcee05",
+    "category": null
+  },
+  {
+    "timestamp": "2025-04-03T16:53:15.444667",
+    "event_type": "feedback",
+    "metric_name": "user_feedback",
+    "value": 0,
+    "message_id": "msg_1743724247410",
+    "rating": 1,
+    "comment": null,
+    "session_id": null
+  },
+  {
+    "timestamp": "2025-04-03T16:53:22.517503",
+    "event_type": "counter",
+    "metric_name": "user_messages",
+    "value": 1,
+    "session_id": null
+  },
+  {
+    "timestamp": "2025-04-03T16:53:22.517536",
+    "event_type": "measurement",
+    "metric_name": "user_message_length",
+    "value": 7,
+    "session_id": "07e5a375-5a33-44db-8ea9-a9a520fcee05",
+    "message_id": null
+  },
+  {
+    "timestamp": "2025-04-03T16:53:27.318059",
+    "event_type": "timer",
+    "metric_name": "query_processing",
+    "value": 4.799789905548096,
+    "session_id": "07e5a375-5a33-44db-8ea9-a9a520fcee05",
+    "category": "emotional"
+  },
+  {
+    "timestamp": "2025-04-03T16:53:27.319155",
+    "event_type": "timer",
+    "metric_name": "query_processing",
+    "value": 4.799789905548096,
+    "session_id": "07e5a375-5a33-44db-8ea9-a9a520fcee05",
+    "category": "emotional"
+  },
+  {
+    "timestamp": "2025-04-03T16:53:27.319169",
+    "event_type": "api_call",
+    "metric_name": "chatbot_response",
+    "value": 1,
+    "tokens_used": 177,
+    "session_id": "07e5a375-5a33-44db-8ea9-a9a520fcee05"
+  },
+  {
+    "timestamp": "2025-04-03T16:53:27.320080",
+    "event_type": "score",
+    "metric_name": "safety_score",
+    "value": 1.0,
+    "session_id": "07e5a375-5a33-44db-8ea9-a9a520fcee05",
+    "message_id": "a96120f0-7c93-4175-916f-fdc6552bc971"
+  },
+  {
+    "timestamp": "2025-04-03T16:53:27.320858",
+    "event_type": "score",
+    "metric_name": "empathy_score",
+    "value": 0.64,
+    "session_id": "07e5a375-5a33-44db-8ea9-a9a520fcee05",
+    "message_id": "a96120f0-7c93-4175-916f-fdc6552bc971"
+  },
+  {
+    "timestamp": "2025-04-03T16:53:27.321686",
+    "event_type": "measurement",
+    "metric_name": "memory_usage_mb",
+    "value": 345.01171875,
+    "session_id": "07e5a375-5a33-44db-8ea9-a9a520fcee05"
+  },
+  {
+    "timestamp": "2025-04-03T16:53:27.322373",
+    "event_type": "timer",
+    "metric_name": "total_response_time",
+    "value": 4.804955244064331,
+    "session_id": "07e5a375-5a33-44db-8ea9-a9a520fcee05",
+    "category": null
+  },
+  {
+    "timestamp": "2025-04-03T16:53:41.630674",
+    "event_type": "counter",
+    "metric_name": "user_messages",
+    "value": 1,
+    "session_id": null
+  },
+  {
+    "timestamp": "2025-04-03T16:53:41.630697",
+    "event_type": "measurement",
+    "metric_name": "user_message_length",
+    "value": 8,
+    "session_id": "07e5a375-5a33-44db-8ea9-a9a520fcee05",
+    "message_id": null
+  },
+  {
+    "timestamp": "2025-04-03T16:53:46.425258",
+    "event_type": "timer",
+    "metric_name": "query_processing",
+    "value": 4.79351806640625,
+    "session_id": "07e5a375-5a33-44db-8ea9-a9a520fcee05",
+    "category": "emotional"
+  },
+  {
+    "timestamp": "2025-04-03T16:53:46.426128",
+    "event_type": "timer",
+    "metric_name": "query_processing",
+    "value": 4.79351806640625,
+    "session_id": "07e5a375-5a33-44db-8ea9-a9a520fcee05",
+    "category": "emotional"
+  },
+  {
+    "timestamp": "2025-04-03T16:53:46.426140",
+    "event_type": "api_call",
+    "metric_name": "chatbot_response",
+    "value": 1,
+    "tokens_used": 116,
+    "session_id": "07e5a375-5a33-44db-8ea9-a9a520fcee05"
+  },
+  {
+    "timestamp": "2025-04-03T16:53:46.426497",
+    "event_type": "score",
+    "metric_name": "safety_score",
+    "value": 1.0,
+    "session_id": "07e5a375-5a33-44db-8ea9-a9a520fcee05",
+    "message_id": "0793b37a-fdd8-4aee-bf11-4b96a32000b0"
+  },
+  {
+    "timestamp": "2025-04-03T16:53:46.426805",
+    "event_type": "score",
+    "metric_name": "empathy_score",
+    "value": 0.64,
+    "session_id": "07e5a375-5a33-44db-8ea9-a9a520fcee05",
+    "message_id": "0793b37a-fdd8-4aee-bf11-4b96a32000b0"
+  },
+  {
+    "timestamp": "2025-04-03T16:53:46.426913",
+    "event_type": "measurement",
+    "metric_name": "memory_usage_mb",
+    "value": 345.30078125,
+    "session_id": "07e5a375-5a33-44db-8ea9-a9a520fcee05"
+  },
+  {
+    "timestamp": "2025-04-03T16:53:46.427367",
+    "event_type": "timer",
+    "metric_name": "total_response_time",
+    "value": 4.797171115875244,
+    "session_id": "07e5a375-5a33-44db-8ea9-a9a520fcee05",
+    "category": null
+  }
+]
