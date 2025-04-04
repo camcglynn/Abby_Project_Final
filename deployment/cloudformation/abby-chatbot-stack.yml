@@ -1,0 +1,725 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: 'Abby Chatbot - Complete Infrastructure Stack'
+
+Metadata:
+  AWS::CloudFormation::Interface:
+    ParameterGroups:
+      - Label:
+          default: "Environment Configuration"
+        Parameters:
+          - Environment
+          - InstanceType
+          - KeyName
+          - UseSerializedModels
+          - ApplicationPort
+          - HealthCheckPath
+          - GitHubOwner
+          - GitHubRepo
+          - GitHubBranch
+          - GitHubOAuthToken
+    ParameterLabels:
+      Environment:
+        default: "Deployment Environment"
+      InstanceType:
+        default: "EC2 Instance Type"
+      KeyName:
+        default: "SSH Key Pair Name"
+      UseSerializedModels:
+        default: "Use Pre-trained Models"
+      ApplicationPort:
+        default: "Application Port"
+      HealthCheckPath:
+        default: "Health Check Path"
+      GitHubOwner:
+        default: "GitHub Repository Owner"
+      GitHubRepo:
+        default: "GitHub Repository Name"
+      GitHubBranch:
+        default: "GitHub Branch Name"
+      GitHubOAuthToken:
+        default: "GitHub OAuth Token"
+
+Parameters:
+  Environment:
+    Type: String
+    Default: prod
+    Description: Deployment environment for resource tagging and configuration
+    AllowedValues:
+      - dev
+      - test
+      - prod
+  
+  InstanceType:
+    Type: String
+    Default: t3.medium
+    Description: EC2 instance type for the application servers
+    AllowedValues:
+      - t2.micro
+      - t2.small
+      - t2.medium
+      - t3.micro
+      - t3.small
+      - t3.medium
+
+  KeyName:
+    Type: String
+    Description: Name of an existing EC2 KeyPair for SSH access (optional)
+    Default: ''
+  
+  UseSerializedModels:
+    Type: String
+    Default: 'true'
+    Description: Whether to use pre-trained serialized models for faster startup
+    AllowedValues:
+      - 'true'
+      - 'false'
+
+  ApplicationPort:
+    Type: Number
+    Default: 5006
+    Description: Port on which the application listens
+    MinValue: 1024
+    MaxValue: 65535
+
+  HealthCheckPath:
+    Type: String
+    Default: /health
+    Description: Path for ALB health checks
+
+  GitHubOwner:
+    Type: String
+    Description: GitHub repository owner
+    Default: sahanasankar13
+
+  GitHubRepo:
+    Type: String
+    Description: GitHub repository name
+    Default: Abby_Chatbot
+
+  GitHubBranch:
+    Type: String
+    Description: GitHub branch to deploy
+    Default: main
+
+  GitHubOAuthToken:
+    Type: String
+    Description: GitHub OAuth token for repository access
+    NoEcho: true
+
+Mappings:
+  RegionMap:
+    us-east-1:
+      AMI: ami-0230bd60aa48260c6
+    us-east-2:
+      AMI: ami-0ccabb5f82d4c9af5
+    us-west-1:
+      AMI: ami-00569e54da628d17c
+    us-west-2:
+      AMI: ami-03f65b8614a860c29
+
+Resources:
+  # VPC Configuration
+  VPC:
+    Type: AWS::EC2::VPC
+    Properties:
+      CidrBlock: 10.0.0.0/16
+      EnableDnsSupport: true
+      EnableDnsHostnames: true
+      Tags:
+        - Key: Name
+          Value: !Sub ${AWS::StackName}-VPC
+        - Key: Environment
+          Value: !Ref Environment
+
+  InternetGateway:
+    Type: AWS::EC2::InternetGateway
+    Properties:
+      Tags:
+        - Key: Name
+          Value: !Sub ${AWS::StackName}-IGW
+        - Key: Environment
+          Value: !Ref Environment
+
+  VPCGatewayAttachment:
+    Type: AWS::EC2::VPCGatewayAttachment
+    Properties:
+      VpcId: !Ref VPC
+      InternetGatewayId: !Ref InternetGateway
+
+  # Public Subnets
+  PublicSubnet1:
+    Type: AWS::EC2::Subnet
+    Properties:
+      VpcId: !Ref VPC
+      AvailabilityZone: !Select [0, !GetAZs '']
+      CidrBlock: 10.0.1.0/24
+      MapPublicIpOnLaunch: true
+      Tags:
+        - Key: Name
+          Value: !Sub ${AWS::StackName}-PublicSubnet1
+        - Key: Environment
+          Value: !Ref Environment
+
+  PublicSubnet2:
+    Type: AWS::EC2::Subnet
+    Properties:
+      VpcId: !Ref VPC
+      AvailabilityZone: !Select [1, !GetAZs '']
+      CidrBlock: 10.0.2.0/24
+      MapPublicIpOnLaunch: true
+      Tags:
+        - Key: Name
+          Value: !Sub ${AWS::StackName}-PublicSubnet2
+        - Key: Environment
+          Value: !Ref Environment
+
+  # Private Subnets
+  PrivateSubnet1:
+    Type: AWS::EC2::Subnet
+    Properties:
+      VpcId: !Ref VPC
+      AvailabilityZone: !Select [0, !GetAZs '']
+      CidrBlock: 10.0.3.0/24
+      MapPublicIpOnLaunch: false
+      Tags:
+        - Key: Name
+          Value: !Sub ${AWS::StackName}-PrivateSubnet1
+        - Key: Environment
+          Value: !Ref Environment
+
+  PrivateSubnet2:
+    Type: AWS::EC2::Subnet
+    Properties:
+      VpcId: !Ref VPC
+      AvailabilityZone: !Select [1, !GetAZs '']
+      CidrBlock: 10.0.4.0/24
+      MapPublicIpOnLaunch: false
+      Tags:
+        - Key: Name
+          Value: !Sub ${AWS::StackName}-PrivateSubnet2
+        - Key: Environment
+          Value: !Ref Environment
+
+  # NAT Gateway for Private Subnets
+  NatGatewayEIP1:
+    Type: AWS::EC2::EIP
+    Properties:
+      Domain: vpc
+
+  NatGateway1:
+    Type: AWS::EC2::NatGateway
+    Properties:
+      AllocationId: !GetAtt NatGatewayEIP1.AllocationId
+      SubnetId: !Ref PublicSubnet1
+      Tags:
+        - Key: Name
+          Value: !Sub ${AWS::StackName}-NatGateway1
+        - Key: Environment
+          Value: !Ref Environment
+
+  # Route Tables
+  PublicRouteTable:
+    Type: AWS::EC2::RouteTable
+    Properties:
+      VpcId: !Ref VPC
+      Tags:
+        - Key: Name
+          Value: !Sub ${AWS::StackName}-PublicRouteTable
+        - Key: Environment
+          Value: !Ref Environment
+
+  PrivateRouteTable1:
+    Type: AWS::EC2::RouteTable
+    Properties:
+      VpcId: !Ref VPC
+      Tags:
+        - Key: Name
+          Value: !Sub ${AWS::StackName}-PrivateRouteTable1
+        - Key: Environment
+          Value: !Ref Environment
+
+  PublicRoute:
+    Type: AWS::EC2::Route
+    DependsOn: VPCGatewayAttachment
+    Properties:
+      RouteTableId: !Ref PublicRouteTable
+      DestinationCidrBlock: 0.0.0.0/0
+      GatewayId: !Ref InternetGateway
+
+  PrivateRoute1:
+    Type: AWS::EC2::Route
+    Properties:
+      RouteTableId: !Ref PrivateRouteTable1
+      DestinationCidrBlock: 0.0.0.0/0
+      NatGatewayId: !Ref NatGateway1
+
+  PublicSubnet1RouteTableAssociation:
+    Type: AWS::EC2::SubnetRouteTableAssociation
+    Properties:
+      SubnetId: !Ref PublicSubnet1
+      RouteTableId: !Ref PublicRouteTable
+
+  PublicSubnet2RouteTableAssociation:
+    Type: AWS::EC2::SubnetRouteTableAssociation
+    Properties:
+      SubnetId: !Ref PublicSubnet2
+      RouteTableId: !Ref PublicRouteTable
+
+  PrivateSubnet1RouteTableAssociation:
+    Type: AWS::EC2::SubnetRouteTableAssociation
+    Properties:
+      SubnetId: !Ref PrivateSubnet1
+      RouteTableId: !Ref PrivateRouteTable1
+
+  PrivateSubnet2RouteTableAssociation:
+    Type: AWS::EC2::SubnetRouteTableAssociation
+    Properties:
+      SubnetId: !Ref PrivateSubnet2
+      RouteTableId: !Ref PrivateRouteTable1
+
+  # Security Groups
+  ALBSecurityGroup:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupDescription: Security group for Application Load Balancer
+      VpcId: !Ref VPC
+      SecurityGroupIngress:
+        - IpProtocol: tcp
+          FromPort: 80
+          ToPort: 80
+          CidrIp: 0.0.0.0/0
+        - IpProtocol: tcp
+          FromPort: 443
+          ToPort: 443
+          CidrIp: 0.0.0.0/0
+      Tags:
+        - Key: Name
+          Value: !Sub ${AWS::StackName}-ALBSecurityGroup
+        - Key: Environment
+          Value: !Ref Environment
+
+  WebappSecurityGroup:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupDescription: Security group for web application instances
+      VpcId: !Ref VPC
+      SecurityGroupIngress:
+        - IpProtocol: tcp
+          FromPort: !Ref ApplicationPort
+          ToPort: !Ref ApplicationPort
+          SourceSecurityGroupId: !Ref ALBSecurityGroup
+        - IpProtocol: tcp
+          FromPort: 22
+          ToPort: 22
+          CidrIp: 0.0.0.0/0
+      SecurityGroupEgress:
+        - IpProtocol: -1
+          FromPort: -1
+          ToPort: -1
+          CidrIp: 0.0.0.0/0
+      Tags:
+        - Key: Name
+          Value: !Sub ${AWS::StackName}-WebappSecurityGroup
+        - Key: Environment
+          Value: !Ref Environment
+
+  # S3 Bucket for Deployment Artifacts
+  WebappDeploymentBucket:
+    Type: AWS::S3::Bucket
+    DeletionPolicy: Retain
+    UpdateReplacePolicy: Retain
+    Properties:
+      BucketName: !Sub ${AWS::StackName}-deploy-${AWS::Region}-${AWS::AccountId}
+      PublicAccessBlockConfiguration:
+        BlockPublicAcls: true
+        BlockPublicPolicy: true
+        IgnorePublicAcls: true
+        RestrictPublicBuckets: true
+      VersioningConfiguration:
+        Status: Enabled
+      Tags:
+        - Key: Name
+          Value: !Sub ${AWS::StackName}-DeploymentBucket
+        - Key: Environment
+          Value: !Ref Environment
+
+  # IAM Roles
+  CodeDeployServiceRole:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service: codedeploy.amazonaws.com
+            Action: sts:AssumeRole
+      ManagedPolicyArns:
+        - arn:aws:iam::aws:policy/service-role/AWSCodeDeployRole
+      Tags:
+        - Key: Name
+          Value: !Sub ${AWS::StackName}-CodeDeployServiceRole
+        - Key: Environment
+          Value: !Ref Environment
+
+  EC2Role:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service: ec2.amazonaws.com
+            Action: sts:AssumeRole
+      ManagedPolicyArns:
+        - arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore
+        - arn:aws:iam::aws:policy/CloudWatchAgentServerPolicy
+      Tags:
+        - Key: Name
+          Value: !Sub ${AWS::StackName}-EC2Role
+        - Key: Environment
+          Value: !Ref Environment
+
+  GitHubIAMRole:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: Allow
+            Principal:
+              Federated: !Sub 'arn:aws:iam::${AWS::AccountId}:oidc-provider/token.actions.githubusercontent.com'
+            Action: sts:AssumeRoleWithWebIdentity
+            Condition:
+              StringLike:
+                token.actions.githubusercontent.com:sub: !Sub repo:${GitHubOwner}/${GitHubRepo}:*
+      Policies:
+        - PolicyName: GitHubDeploymentPolicy
+          PolicyDocument:
+            Version: '2012-10-17'
+            Statement:
+              - Effect: Allow
+                Action:
+                  - s3:PutObject
+                  - s3:GetObject
+                  - s3:ListBucket
+                Resource:
+                  - !GetAtt WebappDeploymentBucket.Arn
+                  - !Sub ${WebappDeploymentBucket.Arn}/*
+              - Effect: Allow
+                Action:
+                  - codedeploy:CreateDeployment
+                  - codedeploy:GetDeployment
+                  - codedeploy:GetDeploymentConfig
+                  - codedeploy:RegisterApplicationRevision
+                Resource: '*'
+      Tags:
+        - Key: Name
+          Value: !Sub ${AWS::StackName}-GitHubRole
+        - Key: Environment
+          Value: !Ref Environment
+
+  EC2InstanceProfile:
+    Type: AWS::IAM::InstanceProfile
+    Properties:
+      Path: /
+      Roles:
+        - !Ref EC2Role
+
+  # Application Load Balancer
+  ApplicationLoadBalancer:
+    Type: AWS::ElasticLoadBalancingV2::LoadBalancer
+    Properties:
+      Name: !Sub ${AWS::StackName}-alb
+      Scheme: internet-facing
+      LoadBalancerAttributes:
+        - Key: idle_timeout.timeout_seconds
+          Value: '60'
+      SecurityGroups:
+        - !Ref ALBSecurityGroup
+      Subnets:
+        - !Ref PublicSubnet1
+        - !Ref PublicSubnet2
+      Tags:
+        - Key: Name
+          Value: !Sub ${AWS::StackName}-ALB
+        - Key: Environment
+          Value: !Ref Environment
+
+  ALBListener:
+    Type: AWS::ElasticLoadBalancingV2::Listener
+    Properties:
+      DefaultActions:
+        - Type: forward
+          TargetGroupArn: !Ref ALBTargetGroup
+      LoadBalancerArn: !Ref ApplicationLoadBalancer
+      Port: 80
+      Protocol: HTTP
+
+  ALBTargetGroup:
+    Type: AWS::ElasticLoadBalancingV2::TargetGroup
+    Properties:
+      HealthCheckEnabled: true
+      HealthCheckIntervalSeconds: 30
+      HealthCheckPath: !Ref HealthCheckPath
+      HealthCheckPort: !Ref ApplicationPort
+      HealthCheckProtocol: HTTP
+      HealthCheckTimeoutSeconds: 5
+      HealthyThresholdCount: 2
+      Name: !Sub ${AWS::StackName}-tg
+      Port: !Ref ApplicationPort
+      Protocol: HTTP
+      TargetType: instance
+      UnhealthyThresholdCount: 5
+      VpcId: !Ref VPC
+      Tags:
+        - Key: Name
+          Value: !Sub ${AWS::StackName}-TargetGroup
+        - Key: Environment
+          Value: !Ref Environment
+
+  # Launch Template
+  WebappLaunchTemplate:
+    Type: AWS::EC2::LaunchTemplate
+    Properties:
+      LaunchTemplateName: !Sub ${AWS::StackName}-lt
+      LaunchTemplateData:
+        ImageId: !FindInMap [RegionMap, !Ref 'AWS::Region', AMI]
+        InstanceType: !Ref InstanceType
+        IamInstanceProfile:
+          Name: !Ref EC2InstanceProfile
+        SecurityGroupIds:
+          - !Ref WebappSecurityGroup
+        UserData:
+          Fn::Base64: !Sub |
+            #!/bin/bash
+            yum update -y
+            yum install -y ruby wget
+            cd /home/ec2-user
+            wget https://aws-codedeploy-${AWS::Region}.s3.amazonaws.com/latest/install
+            chmod +x ./install
+            ./install auto
+            service codedeploy-agent start
+            
+            # Create application directories
+            mkdir -p /opt/abby-chatbot/data
+            mkdir -p /opt/abby-chatbot/serialized_models
+            mkdir -p /opt/abby-chatbot/nltk_data
+            
+            # Set permissions
+            chown -R ec2-user:ec2-user /opt/abby-chatbot
+            chmod -R 755 /opt/abby-chatbot
+        TagSpecifications:
+          - ResourceType: instance
+            Tags:
+              - Key: Name
+                Value: !Sub ${AWS::StackName}-Instance
+              - Key: Environment
+                Value: !Ref Environment
+
+  # Auto Scaling Group
+  WebappAutoScalingGroup:
+    Type: AWS::AutoScaling::AutoScalingGroup
+    Properties:
+      AutoScalingGroupName: !Sub ${AWS::StackName}-asg
+      DesiredCapacity: 2
+      MaxSize: 4
+      MinSize: 1
+      TargetGroupARNs:
+        - !Ref ALBTargetGroup
+      VPCZoneIdentifier:
+        - !Ref PrivateSubnet1
+        - !Ref PrivateSubnet2
+      LaunchTemplate:
+        LaunchTemplateId: !Ref WebappLaunchTemplate
+        Version: !GetAtt WebappLaunchTemplate.LatestVersionNumber
+      Tags:
+        - Key: Name
+          Value: !Sub ${AWS::StackName}-ASG
+          PropagateAtLaunch: true
+        - Key: Environment
+          Value: !Ref Environment
+          PropagateAtLaunch: true
+
+  # CodeDeploy Application
+  WebappApplication:
+    Type: AWS::CodeDeploy::Application
+    Properties:
+      ApplicationName: !Sub ${AWS::StackName}-app
+      ComputePlatform: Server
+
+  WebappDeploymentGroup:
+    Type: AWS::CodeDeploy::DeploymentGroup
+    Properties:
+      ApplicationName: !Ref WebappApplication
+      ServiceRoleArn: !GetAtt CodeDeployServiceRole.Arn
+      DeploymentGroupName: !Sub ${AWS::StackName}-dg
+      DeploymentStyle:
+        DeploymentOption: WITH_TRAFFIC_CONTROL
+        DeploymentType: IN_PLACE
+      AutoScalingGroups:
+        - !Ref WebappAutoScalingGroup
+      LoadBalancerInfo:
+        TargetGroupInfoList:
+          - Name: !GetAtt ALBTargetGroup.TargetGroupName
+      Ec2TagSet:
+        Ec2TagSetList:
+          - Ec2TagGroup:
+              - Key: Environment
+                Type: KEY_AND_VALUE
+                Value: !Ref Environment
+
+  # CloudWatch Alarms
+  CPUUtilizationAlarm:
+    Type: AWS::CloudWatch::Alarm
+    Properties:
+      AlarmDescription: Alarm if CPU utilization exceeds 75% for 5 minutes
+      MetricName: CPUUtilization
+      Namespace: AWS/EC2
+      Statistic: Average
+      Period: 300
+      EvaluationPeriods: 2
+      ThresholdType: Static
+      Threshold: 75
+      ComparisonOperator: GreaterThanThreshold
+      AlarmActions:
+        - !Ref WebappScalingPolicy
+      Dimensions:
+        - Name: AutoScalingGroupName
+          Value: !Ref WebappAutoScalingGroup
+
+  WebappScalingPolicy:
+    Type: AWS::AutoScaling::ScalingPolicy
+    Properties:
+      AutoScalingGroupName: !Ref WebappAutoScalingGroup
+      PolicyType: TargetTrackingScaling
+      TargetTrackingConfiguration:
+        PredefinedMetricSpecification:
+          PredefinedMetricType: ASGAverageCPUUtilization
+        TargetValue: 75.0
+
+  AbbyBotEC2Instance:
+    Type: AWS::EC2::Instance
+    Properties:
+      ImageId: ami-0c7217cdde317cfec  # Amazon Linux 2023 AMI
+      InstanceType: t2.micro
+      SecurityGroups: 
+        - !Ref AbbyBotSecurityGroup
+      IamInstanceProfile: !Ref EC2InstanceProfile
+      UserData:
+        Fn::Base64: !Sub |
+          #!/bin/bash
+          yum update -y
+          yum install -y ruby wget
+          cd /home/ec2-user
+          wget https://aws-codedeploy-${AWS::Region}.s3.amazonaws.com/latest/install
+          chmod +x ./install
+          ./install auto
+          
+          # Create application directories
+          mkdir -p /opt/abby-chatbot/data
+          mkdir -p /opt/abby-chatbot/serialized_models
+          mkdir -p /opt/abby-chatbot/nltk_data
+          
+          # Set permissions
+          chown -R ec2-user:ec2-user /opt/abby-chatbot
+          chmod -R 755 /opt/abby-chatbot
+      Tags:
+        - Key: Name
+          Value: !Sub abby-chatbot-${Environment}
+
+  AbbyBotSecurityGroup:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupDescription: Security group for Abby Chatbot
+      SecurityGroupIngress:
+        - IpProtocol: tcp
+          FromPort: 80
+          ToPort: 80
+          CidrIp: 0.0.0.0/0
+        - IpProtocol: tcp
+          FromPort: 443
+          ToPort: 443
+          CidrIp: 0.0.0.0/0
+        - IpProtocol: tcp
+          FromPort: 22
+          ToPort: 22
+          CidrIp: 0.0.0.0/0  # Consider restricting to your IP
+        - IpProtocol: tcp
+          FromPort: 5006
+          ToPort: 5006
+          CidrIp: 0.0.0.0/0
+
+Outputs:
+  VPCId:
+    Description: VPC ID
+    Value: !Ref VPC
+    Export:
+      Name: !Sub ${AWS::StackName}-VPC-ID
+
+  PublicSubnet1:
+    Description: Public Subnet 1 ID
+    Value: !Ref PublicSubnet1
+    Export:
+      Name: !Sub ${AWS::StackName}-PublicSubnet1-ID
+
+  PublicSubnet2:
+    Description: Public Subnet 2 ID
+    Value: !Ref PublicSubnet2
+    Export:
+      Name: !Sub ${AWS::StackName}-PublicSubnet2-ID
+
+  PrivateSubnet1:
+    Description: Private Subnet 1 ID
+    Value: !Ref PrivateSubnet1
+    Export:
+      Name: !Sub ${AWS::StackName}-PrivateSubnet1-ID
+
+  PrivateSubnet2:
+    Description: Private Subnet 2 ID
+    Value: !Ref PrivateSubnet2
+    Export:
+      Name: !Sub ${AWS::StackName}-PrivateSubnet2-ID
+
+  ALBDNSName:
+    Description: Application Load Balancer DNS Name
+    Value: !GetAtt ApplicationLoadBalancer.DNSName
+    Export:
+      Name: !Sub ${AWS::StackName}-ALB-DNSName
+
+  DeploymentBucketName:
+    Description: S3 Bucket for deployment artifacts
+    Value: !Ref WebappDeploymentBucket
+    Export:
+      Name: !Sub ${AWS::StackName}-DeploymentBucket
+
+  CodeDeployApplication:
+    Description: CodeDeploy Application Name
+    Value: !Ref WebappApplication
+    Export:
+      Name: !Sub ${AWS::StackName}-CodeDeploy-App
+
+  CodeDeployDeploymentGroup:
+    Description: CodeDeploy Deployment Group Name
+    Value: !Ref WebappDeploymentGroup
+    Export:
+      Name: !Sub ${AWS::StackName}-CodeDeploy-DG
+
+  GitHubRoleARN:
+    Description: IAM Role ARN for GitHub Actions
+    Value: !GetAtt GitHubIAMRole.Arn
+    Export:
+      Name: !Sub ${AWS::StackName}-GitHubRole-ARN
+
+  InstanceId:
+    Description: EC2 Instance ID
+    Value: !Ref AbbyBotEC2Instance
+
+  PublicDNS:
+    Description: Public DNS of EC2 instance
+    Value: !GetAtt AbbyBotEC2Instance.PublicDnsName
+
+  PublicIP:
+    Description: Public IP of EC2 instance
+    Value: !GetAtt AbbyBotEC2Instance.PublicIp 

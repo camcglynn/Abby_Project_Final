@@ -1,0 +1,25 @@
+[Unit]
+Description=Abby Chatbot Service
+After=network.target
+
+[Service]
+User=ec2-user
+Group=ec2-user
+WorkingDirectory=/home/ec2-user/abby-chatbot
+Environment=PATH=/home/ec2-user/abby-chatbot/venv/bin:/usr/local/bin:/usr/bin:/bin
+Environment=PYTHONPATH=/home/ec2-user/abby-chatbot
+Environment=NLTK_DATA=/home/ec2-user/abby-chatbot/nltk_data
+EnvironmentFile=/home/ec2-user/abby-chatbot/.env
+ExecStart=/home/ec2-user/abby-chatbot/venv/bin/gunicorn \
+    --bind 0.0.0.0:5006 \
+    --workers 4 \
+    --worker-class uvicorn.workers.UvicornWorker \
+    --timeout 120 \
+    --access-logfile /var/log/abby-chatbot/access.log \
+    --error-logfile /var/log/abby-chatbot/error.log \
+    app:app
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target 
