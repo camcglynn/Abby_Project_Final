@@ -9,13 +9,38 @@ import dotenv
 from datetime import datetime
 import re
 from pathlib import Path
+from collections import defaultdict
 
-from fastapi import FastAPI, HTTPException, Request, Depends, Form
+from fastapi import FastAPI, HTTPException, Request, Depends, Form, Query
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse, HTMLResponse, RedirectResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 from pydantic import BaseModel
+from utils.metrics import (
+    increment_counter, record_time, record_api_call, flush_metrics,
+    record_feedback,record_safety_score, record_empathy_score, 
+    record_memory_usage, record_measurement
+)
+# In app.py, after other utils imports
+try:
+    from utils.response_evaluation import check_response_safety, calculate_empathy
+    EVALUATION_FUNCTIONS_LOADED = True
+except ImportError:
+    logger.error("Could not import evaluation functions from utils.response_evaluation. Placeholders will be used.")
+    EVALUATION_FUNCTIONS_LOADED = False
+
+    # Define placeholders directly in app.py if import fails
+    def check_response_safety(text: str) -> bool:
+        logger.warning("Using placeholder safety check (always True)")
+        return True
+
+    def calculate_empathy(text: str) -> float:
+        logger.warning("Using placeholder empathy calculation (always 0.5)")
+        return 0.5
+    
+from datetime import datetime, timedelta # Import datetime stuff
+from fastapi import APIRouter, Depends, HTTPException, Query # If using router, else adapt
 
 # Set up environment variables
 dotenv.load_dotenv()
@@ -104,8 +129,10 @@ class HealthResponse(BaseModel):
 
 class FeedbackRequest(BaseModel):
     message_id: str
+    session_id: Optional[str] = None # Add if needed and sent from frontend
     rating: int
     comment: Optional[str] = None
+    quality_metrics: Optional[Dict[str, float]] = None # Keep if you plan to send these
 
 # Dependency to get the processor
 def get_processor():
@@ -137,12 +164,23 @@ async def chat(request: ChatRequest,
     Process a chat message and return a response
     """
     start_time = time.time()
+    session_id = request.session_id or str(uuid.uuid4()) # Ensure session_id is defined early
+
     try:
         logger.info(f"Received chat request: {request.message[:100]}")
         
+        # Track message received
+        increment_counter('user_messages')
+
         # Generate or use provided session ID
         session_id = request.session_id or str(uuid.uuid4())
-        
+        # Optional: Log message length as a separate event if useful
+        record_measurement('user_message_length', len(request.message), session_id=session_id)
+
+        # New session start event
+        if not request.session_id:
+            increment_counter('session_starts', session_id=session_id) # Log session_id with start
+
         # Store user message in memory
         memory.add_message(
             session_id=session_id,
@@ -155,17 +193,22 @@ async def chat(request: ChatRequest,
         conversation_history = memory.get_history(session_id)
         
         # Process the query through our multi-aspect processor
+        query_start_time = time.time()
         response_data = await processor.process_query(
             message=request.message,
             conversation_history=conversation_history,
             user_location=request.user_location
         )
+        query_processing_time = time.time() - query_start_time
         
+        # Record query processing time
+        record_time('query_processing', query_processing_time, session_id=session_id, category=response_data.get("aspect_type"))
+
         # Add message ID and session ID to response
         message_id = str(uuid.uuid4())
         response_data["message_id"] = message_id
         response_data["session_id"] = session_id
-        
+
         if "processing_time" not in response_data:
             response_data["processing_time"] = time.time() - start_time
             
@@ -343,10 +386,57 @@ async def chat(request: ChatRequest,
                         logger.info(f"Added state_codes to response: {aspect_response['state_codes']}")
                     
                     break
+        # Record response metrics
+        record_time(
+            metric_name='query_processing',
+            elapsed_time=query_processing_time,
+            session_id=session_id,
+            category=response_data.get("aspect_type")) # Use .get() - sends None if key missing)
         
+        # --- Record Metrics for the Response ---
+        # Estimate token count and record API usage event
+        response_text_length = len(response_data.get("text", ""))
+        estimated_tokens = int(response_text_length / 4)
+        record_api_call('chatbot_response', tokens_used=estimated_tokens, session_id=session_id)
+
+        # Safety Score event (calls the imported or placeholder function)
+        text_to_check = response_data.get("text", "") # Get text safely
+        is_safe = check_response_safety(text_to_check)
+        safety_score = 1.0 if is_safe else 0.0
+        record_safety_score(safety_score, session_id=session_id, message_id=message_id)
+
+        # Empathy Score event (calls the imported or placeholder function)
+        empathy_score = calculate_empathy(text_to_check)
+        record_empathy_score(empathy_score, session_id=session_id, message_id=message_id)
+
+        # Memory Usage event
+        record_memory_usage(session_id=session_id)
+        # --- End Response Metrics ---
+
+        # Store bot response in memory
+        memory.add_message(
+            session_id=session_id,
+            message=response_data["text"],
+            role="assistant",
+            metadata={
+                "message_id": message_id,
+                "citations": response_data.get("citations", []),
+                "citation_objects": response_data.get("citation_objects", [])
+            }
+        )
+
+        # Track total conversation time
+        total_time = time.time() - start_time
+        record_time('total_response_time', total_time, session_id = session_id)
+        
+        # Flush metrics to ensure they're written to storage
+        flush_metrics()
+
         return response_data
         
     except Exception as e:
+        # Record error
+        increment_counter('errors', session_id=session_id)
         logger.error(f"Error processing chat request: {str(e)}", exc_info=True)
         raise HTTPException(status_code=500, detail=f"Error processing request: {str(e)}")
 
@@ -385,49 +475,78 @@ async def submit_feedback(request: FeedbackRequest):
     Submit feedback for a message
     """
     try:
+        session_id = request.session_id
         message_id = request.message_id
         rating = request.rating
         comment = request.comment
-        
-        logger.info(f"Received feedback for message {message_id}: rating={rating}")
-        
+
+        logger.info(f"Session {session_id or 'Unknown'}: Received feedback for message {message_id}: rating={rating}")
+
+        # Record feedback in metrics
+        is_positive = rating >= 3  # Assuming rating scale is 1-5
+        record_feedback(
+            positive=is_positive,
+            message_id=message_id,
+            session_id=session_id,
+            rating=rating, # Pass the actual rating
+            comment=comment
+        )
+
+        # --- Removed previous commented-out code related to quality_metrics/ROUGE ---
+
         # In a production system, store this feedback in a database
-        # For now, just log it
+        # For now, just log it and append to a simple JSON file
         feedback_data = {
             "message_id": message_id,
+            "session_id": session_id, # Added session_id here too
             "rating": rating,
             "comment": comment,
-            "timestamp": time.time()
+            "timestamp": time.time() # Use time.time() for consistency, or datetime.now().isoformat()
         }
-        
+
         # Append to a simple JSON file
         feedback_file = os.path.join(os.getcwd(), "user_feedback.json")
         try:
-            # Read existing feedback
+            all_feedback = [] # Initialize default
             if os.path.exists(feedback_file):
                 with open(feedback_file, 'r') as f:
                     try:
-                        all_feedback = json.load(f)
+                        content = f.read()
+                        if content.strip():
+                            loaded_json = json.loads(content)
+                            if isinstance(loaded_json, list):
+                                all_feedback = loaded_json
+                            else:
+                                logger.warning(f"Feedback file {feedback_file} is not a list. Overwriting.")
+                        # If file is empty or whitespace, all_feedback remains []
                     except json.JSONDecodeError:
-                        all_feedback = []
-            else:
-                all_feedback = []
-                
+                         logger.warning(f"Could not decode JSON from {feedback_file}. Overwriting.")
+                    except Exception as read_err:
+                        logger.error(f"Error reading feedback file {feedback_file}: {read_err}")
+                        # Decide if this is fatal. For now, proceed to overwrite/create.
+
             # Add new feedback
             all_feedback.append(feedback_data)
-            
+
             # Write back to file
             with open(feedback_file, 'w') as f:
                 json.dump(all_feedback, f, indent=2)
-                
+
         except Exception as file_error:
             logger.error(f"Error saving feedback to file: {str(file_error)}")
-        
+
+        # Flush metrics after recording feedback
+        flush_metrics()
+
         return {"success": True, "message": "Feedback recorded successfully"}
-            
+
     except Exception as e:
         logger.error(f"Error processing feedback: {str(e)}", exc_info=True)
+        # Use .get() for session_id as it might be Optional in the request model
+        increment_counter('errors', session_id=request.session_id, metric_name='feedback_error') # Specific error counter
         raise HTTPException(status_code=500, detail=f"Error processing feedback: {str(e)}")
+
+# --- END: app.py /feedback Endpoint ---
 
 @app.get("/health", response_model=HealthResponse)
 async def health_check():
@@ -440,18 +559,317 @@ async def health_check():
         "environment": os.getenv("ENVIRONMENT", "production")
     }
 
-@app.get("/metrics", status_code=200)
-async def get_metrics(processor: MultiAspectQueryProcessor = Depends(get_processor)):
+# --- START: app.py /dashboard/metrics Endpoint ---
+
+@app.get("/dashboard/metrics", status_code=200)
+async def get_dashboard_metrics(
+    start_date: Optional[str] = Query(None, description="Start date (YYYY-MM-DD)"),
+    end_date: Optional[str] = Query(None, description="End date (YYYY-MM-DD)"),
+    session_id_filter: Optional[str] = Query(None, alias="session_id", description="Filter by Session ID")
+):
     """
-    Get performance metrics
+    Get aggregated metrics by reading and processing the raw event file (metrics.json).
+    Allows filtering by date and session ID.
     """
+    logger.info(f"Fetching dashboard metrics. Filters: start={start_date}, end={end_date}, session={session_id_filter}")
     try:
-        metrics = processor.get_performance_metrics()
-        return {"metrics": metrics}
-            
+        metrics_file_path = "metrics.json"
+        raw_events: List[Dict[str, Any]] = []
+
+        # --- Step 1: Read the Raw Event Data File ---
+        if os.path.exists(metrics_file_path):
+            try:
+                with open(metrics_file_path, 'r') as f:
+                    content = f.read()
+                    if content.strip():
+                        loaded_json = json.loads(content)
+                        if isinstance(loaded_json, list):
+                           raw_events = loaded_json
+                        else:
+                           logger.warning(f"Metrics file {metrics_file_path} does not contain a list. Treating as empty.")
+                    else:
+                         logger.info(f"Metrics file {metrics_file_path} is empty.")
+            except json.JSONDecodeError:
+                logger.warning(f"Could not decode JSON from {metrics_file_path}. Treating as empty.")
+            except Exception as read_err:
+                 logger.error(f"Error reading metrics file {metrics_file_path}: {read_err}")
+                 # Continue with empty data for dashboard robustness
+
+        # --- Step 2: Prepare Filters ---
+        filter_start_dt: Optional[datetime] = None
+        filter_end_dt: Optional[datetime] = None
+
+        if start_date:
+            try:
+                filter_start_dt = datetime.strptime(start_date, "%Y-%m-%d").replace(hour=0, minute=0, second=0, microsecond=0)
+            except ValueError:
+                logger.warning(f"Invalid start_date format: {start_date}. Expected YYYY-MM-DD.")
+        if end_date:
+            try:
+                filter_end_dt = datetime.strptime(end_date, "%Y-%m-%d").replace(hour=23, minute=59, second=59, microsecond=999999)
+            except ValueError:
+                logger.warning(f"Invalid end_date format: {end_date}. Expected YYYY-MM-DD.")
+
+        # --- Step 3: Filter Raw Events ---
+        filtered_events: List[Dict[str, Any]] = []
+        parse_errors = 0
+        for event in raw_events:
+            ts_str = event.get('timestamp')
+            if not isinstance(ts_str, str):
+                 # logger.debug(f"Skipping event with invalid timestamp: {event}") # Can be noisy
+                 parse_errors += 1
+                 continue
+
+            try:
+                # Handle potential timezone info ('Z' or offset) robustly
+                if ts_str.endswith('Z'):
+                    ts_str = ts_str[:-1] + '+00:00'
+                event_dt = datetime.fromisoformat(ts_str)
+
+            except ValueError:
+                 # Add fallback parsing if needed, but fromisoformat is preferred
+                 parse_errors += 1
+                 logger.warning(f"Could not parse timestamp: {ts_str}. Skipping event.")
+                 continue
+
+            # Apply Date Filters (make timezone-aware if necessary, assuming UTC for now)
+            if filter_start_dt and event_dt.replace(tzinfo=None) < filter_start_dt: # Naive comparison if filter dates are naive
+                continue
+            if filter_end_dt and event_dt.replace(tzinfo=None) > filter_end_dt: # Naive comparison
+                continue
+
+            # Apply Session ID Filter
+            if session_id_filter and event.get('session_id') != session_id_filter:
+                continue
+
+            filtered_events.append(event)
+
+        if parse_errors > 0:
+            logger.warning(f"Skipped {parse_errors} events due to timestamp parsing issues during filtering.")
+        logger.info(f"Found {len(filtered_events)} events matching filters.")
+
+
+        # --- Step 4: Aggregate Filtered Events ---
+        total_user_messages: int = 0
+        session_starts: set = set()
+        response_times: List[float] = []
+        query_processing_times: List[float] = []
+        chatbot_api_calls: int = 0
+        chatbot_tokens_used: int = 0
+        feedback_positive: int = 0
+        feedback_negative: int = 0
+        safety_scores: List[float] = []
+        empathy_scores: List[float] = []
+        memory_usages: List[float] = []
+
+        # --- Step 4.5: Aggregate Metrics by Day for Chart ---
+        daily_aggregation = defaultdict(lambda: {
+            'count': 0, # Count of responses evaluated for safety/empathy on this day
+            'safety_scores': [],
+            'empathy_scores': [],
+            'response_times': [],
+        })
+
+        for event in filtered_events:
+            event_type = event.get("event_type")
+            metric_name = event.get("metric_name")
+            value = event.get("value")
+            session_id = event.get("session_id")
+            ts_str = event.get('timestamp')
+
+            # Aggregate overall stats
+            if event_type == "counter":
+                if isinstance(value, int):
+                    if metric_name == "user_messages":
+                        total_user_messages += value
+                    elif metric_name == "session_starts" and session_id:
+                        session_starts.add(session_id)
+            elif event_type == "timer":
+                if isinstance(value, (int, float)):
+                    if metric_name == "total_response_time":
+                        response_times.append(value)
+                    elif metric_name == "query_processing":
+                         query_processing_times.append(value)
+            elif event_type == "api_call":
+                if metric_name == "chatbot_response":
+                     if isinstance(value, int): chatbot_api_calls += value
+                     tokens = event.get("tokens_used", 0)
+                     if isinstance(tokens, int): chatbot_tokens_used += tokens
+            elif event_type == "feedback":
+                 rating = event.get("rating") # Check rating for positive/negative if available
+                 if rating is not None and isinstance(rating, int):
+                     if rating >= 3: feedback_positive += 1 # Assuming 1-5 scale
+                     else: feedback_negative += 1
+                 elif isinstance(value, int): # Fallback to positive/negative flag if rating not present
+                     if value == 1: feedback_positive += 1
+                     elif value == 0: feedback_negative += 1
+            elif event_type == "score":
+                 if isinstance(value, (int, float)):
+                     if metric_name == "safety_score": safety_scores.append(value)
+                     elif metric_name == "empathy_score": empathy_scores.append(value)
+            elif event_type == "measurement":
+                 if isinstance(value, (int, float)):
+                     if metric_name == "memory_usage_mb":
+                         memory_usages.append(value)
+
+            # Aggregate daily stats
+            if ts_str:
+                try:
+                    if ts_str.endswith('Z'):
+                       ts_str = ts_str[:-1] + '+00:00'
+                    event_dt = datetime.fromisoformat(ts_str)
+                    day_str = event_dt.strftime('%Y-%m-%d') # Group by day
+
+                    if event_type == "score":
+                        if isinstance(value, (int, float)):
+                            if metric_name == "safety_score":
+                                daily_aggregation[day_str]['safety_scores'].append(value)
+                                daily_aggregation[day_str]['count'] += 1 # Count responses with safety score
+                            elif metric_name == "empathy_score":
+                                daily_aggregation[day_str]['empathy_scores'].append(value)
+                                # Note: Count isn't incremented here, assuming safety is the primary driver for daily eval count
+                    elif event_type == "timer":
+                        if metric_name == "total_response_time" and isinstance(value, (int, float)):
+                            daily_aggregation[day_str]['response_times'].append(value)
+
+                except ValueError:
+                    # Already logged during filtering pass if it failed there
+                    pass
+                except Exception as daily_agg_err:
+                    logger.warning(f"Skipping event during daily aggregation due to error: {daily_agg_err} - Event: {event}")
+                    continue
+
+        # --- Process daily data for the chart ---
+        daily_chart_data = {
+            'dates': [],
+            'avg_safety': [], # Corresponds to 'daily_safety' in HTML attempt (0-100%)
+            'avg_empathy': [], # Can be used for 'daily_scores' in HTML if desired (0-1 score)
+            'avg_response_time_ms': [] # Convert to ms for display
+        }
+        sorted_dates = sorted(daily_aggregation.keys())
+
+        for day in sorted_dates:
+            day_data = daily_aggregation[day]
+            daily_chart_data['dates'].append(day)
+
+            avg_safety_day = sum(day_data['safety_scores']) / len(day_data['safety_scores']) if day_data['safety_scores'] else 0
+            daily_chart_data['avg_safety'].append(round(avg_safety_day * 100, 1)) # Convert to percentage 0-100
+
+            avg_empathy_day = sum(day_data['empathy_scores']) / len(day_data['empathy_scores']) if day_data['empathy_scores'] else 0
+            daily_chart_data['avg_empathy'].append(round(avg_empathy_day, 3)) # Keep as 0-1 score
+
+            avg_resp_time_day = sum(day_data['response_times']) / len(day_data['response_times']) if day_data['response_times'] else 0
+            daily_chart_data['avg_response_time_ms'].append(round(avg_resp_time_day * 1000)) # Convert s to ms
+
+        # --- Step 5: Calculate Final Aggregated Values ---
+        total_conversations = len(session_starts)
+        total_responses_evaluated = len(safety_scores) # Use safety score count as proxy for evaluated responses
+
+        avg_messages_per_conversation = (total_user_messages / total_conversations) if total_conversations > 0 else 0
+
+        total_feedback = feedback_positive + feedback_negative
+        improvement_rate = (feedback_positive / total_feedback * 100) if total_feedback > 0 else 0 # Renamed from positive_percentage
+
+        avg_response_time_s = sum(response_times) / len(response_times) if response_times else 0
+        min_response_time_s = min(response_times) if response_times else 0
+        max_response_time_s = max(response_times) if response_times else 0
+
+        avg_token_usage = (chatbot_tokens_used / chatbot_api_calls) if chatbot_api_calls > 0 else 0
+
+        # Quality Metrics
+        avg_safety = sum(safety_scores) / len(safety_scores) if safety_scores else 0
+        avg_empathy = sum(empathy_scores) / len(empathy_scores) if empathy_scores else 0
+        # Calculate Safety Rate (e.g., % of responses with safety score >= 0.9)
+        safety_threshold = 0.9 # Define your threshold for "safe"
+        safe_count = sum(1 for score in safety_scores if score >= safety_threshold)
+        safety_rate = (safe_count / total_responses_evaluated * 100) if total_responses_evaluated > 0 else 0
+
+        # Placeholder for Avg Score (using avg of safety and empathy for now)
+        avg_score_placeholder = ((avg_safety + avg_empathy) / 2 * 10) if (avg_safety > 0 or avg_empathy > 0) else 0 # Scale 0-10
+
+        avg_memory = sum(memory_usages) / len(memory_usages) if memory_usages else 0
+        min_memory = min(memory_usages) if memory_usages else 0
+        max_memory = max(memory_usages) if memory_usages else 0
+
+        # --- Step 6: Format Output for Dashboard ---
+        dashboard_data = {
+            "summary": {
+                "total_evaluations": total_user_messages, # Use user messages as total evaluations
+                "total_conversations": total_conversations,
+                "avg_messages_per_conversation": round(avg_messages_per_conversation, 1),
+                "improvement_rate": round(improvement_rate, 1), # % based on positive feedback
+                "safe_count": safe_count, # Needed for subtext
+                "total_responses_evaluated": total_responses_evaluated, # Needed for subtext
+                "positive_feedback_count": feedback_positive, # Needed for subtext
+            },
+            "quality_metrics": {
+                 "avg_score": round(avg_score_placeholder, 1), # Placeholder average score (0-10)
+                 "safety_rate": round(safety_rate, 1), # % of safe responses (0-100)
+                 "avg_safety_score": round(avg_safety, 3), # Raw average safety (0-1)
+                 "avg_empathy_score": round(avg_empathy, 3), # Raw average empathy (0-1)
+                 # --- Relevance, Accuracy, etc. keys are removed ---
+            },
+            "performance_metrics": { # Group performance related items
+                "response_times_ms": { # Send in ms
+                    "average": round(avg_response_time_s * 1000),
+                    "min": round(min_response_time_s * 1000),
+                    "max": round(max_response_time_s * 1000)
+                },
+                "token_usage": {
+                    "average": round(avg_token_usage),
+                    "min": 0, # Cannot determine min tokens per call easily
+                    "max": chatbot_tokens_used # Total tokens in the filtered period
+                },
+                "memory_usage_mb": {
+                    "average": round(avg_memory, 2),
+                    "min": round(min_memory, 2),
+                    "max": round(max_memory, 2)
+                }
+            },
+            "daily_metrics_trend": daily_chart_data, # Use this for the line chart
+            "feedback_summary": { # Separate feedback details
+                 "positive": feedback_positive,
+                 "negative": feedback_negative,
+                 "total": total_feedback
+            },
+            # Placeholder for features not yet implemented
+            "rag_performance": None, # For the 'Coming Soon' section
+            "top_issues": [] # Return empty list as it's not calculated
+        }
+        logger.info("Successfully aggregated dashboard metrics.")
+        return dashboard_data
+
     except Exception as e:
-        logger.error(f"Error getting metrics: {str(e)}", exc_info=True)
-        raise HTTPException(status_code=500, detail=f"Error getting metrics: {str(e)}")
+        logger.error(f"Error processing dashboard metrics: {str(e)}", exc_info=True)
+        # Return a default structure that matches the expected keys to prevent JS errors
+        return {
+            "summary": {"total_evaluations": 0, "total_conversations": 0, "avg_messages_per_conversation": 0.0, "improvement_rate": 0.0, "safe_count": 0, "total_responses_evaluated": 0, "positive_feedback_count": 0},
+            # --- Removed avg_relevance etc. from default quality_metrics ---
+            "quality_metrics": {"avg_score": 0.0, "safety_rate": 0.0, "avg_safety_score": 0.0, "avg_empathy_score": 0.0},
+            "performance_metrics": {
+                "response_times_ms": {"average": 0, "min": 0, "max": 0},
+                "token_usage": {"average": 0, "min": 0, "max": 0},
+                "memory_usage_mb": {"average": 0.0, "min": 0.0, "max": 0.0}
+            },
+            "daily_metrics_trend": {"dates": [], "avg_safety": [], "avg_empathy": [], "avg_response_time_ms": []},
+            "feedback_summary": {"positive": 0, "negative": 0, "total": 0},
+            "rag_performance": None,
+            "top_issues": []
+        }
+
+# --- END: app.py /dashboard/metrics Endpoint ---
+
+@app.get("/admin", response_class=HTMLResponse)
+async def admin_dashboard(request: Request):
+    """
+    Serve the admin dashboard interface
+    """
+    return templates.TemplateResponse(
+        "admin-dashboard.html", 
+        {
+            "request": request
+        }
+    )
 
 @app.post("/test-multi-aspect", response_model=ChatResponse)
 async def test_multi_aspect(request: ChatRequest, 
@@ -945,6 +1363,9 @@ async def startup_event():
     """
     logger.info("Starting up Abby Chatbot API")
     
+    # Initialize metrics collection -- added 3.22
+    increment_counter('server_start')
+
     # In the future, we might want to initialize more components here
     # For example, loading pre-trained models, connecting to databases, etc.
 
