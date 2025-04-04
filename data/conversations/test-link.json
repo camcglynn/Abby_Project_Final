@@ -1,0 +1,22 @@
+{
+  "session_id": "test-link",
+  "created_at": 1742544850.419126,
+  "last_active": 1742544859.1731231,
+  "messages": [
+    {
+      "message_id": "8241202f-350e-4fcc-94eb-cab094a80420",
+      "session_id": "test-link",
+      "role": "user",
+      "content": "What is the emotional impact of abortion?",
+      "timestamp": 1742544850.419144
+    },
+    {
+      "message_id": "3c977ac2-1974-4ecb-b0c0-46d5c7c54e76",
+      "session_id": "test-link",
+      "role": "assistant",
+      "content": "It\u2019s completely understandable to have a lot of emotions surrounding the experience of abortion, as it can be a deeply personal and complex decision. Many people report a range of feelings afterwards, including relief, sadness, guilt, or even a sense of loss. It\u2019s important to recognize that these emotions are valid and can vary widely from person to person. Some individuals might feel relief, especially if the decision was made after careful consideration and under challenging circumstances. However, it\u2019s also common to experience feelings of sadness, anxiety, or guilt, which can arise from societal pressures, personal beliefs, or the gravity of the choice made. Each person's experience is unique, and it's okay to take the time to process your feelings. If you find that your emotions are overwhelming or persist over time, it might be helpful to talk to a professional who can provide support. Therapists or counselors who specialize in reproductive health can offer a safe space to explore these feelings without judgment. Remember, you\u2019re not alone in this, and it's perfectly okay to seek help and talk about your experience. Your feelings matter, and taking care of your emotional well-being is important. If you have any specific questions or if you\u2019d like to share more about how you\u2019re feeling, I\u2019m here to listen.",
+      "timestamp": 1742544859.173121,
+      "citations": []
+    }
+  ]
+}

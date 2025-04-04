@@ -1,0 +1,38 @@
+{
+  "session_id": "test-multi-aspect2",
+  "created_at": 1742544831.763044,
+  "last_active": 1742544839.412029,
+  "messages": [
+    {
+      "message_id": "eacd26a6-2109-47d7-b59c-d43a9f8f2aad",
+      "session_id": "test-multi-aspect2",
+      "role": "user",
+      "content": "I live in Texas and Im pregnant. What are my options?",
+      "timestamp": 1742544831.763059
+    },
+    {
+      "message_id": "f6f1b47e-5526-4df2-befe-d448c3041d3f",
+      "session_id": "test-multi-aspect2",
+      "role": "assistant",
+      "content": "In Texas, here are the key abortion policies you should be aware of: 1. **Waiting Period and Counseling**: - There is a mandatory 24-hour waiting period before an abortion can be performed. - You must attend two counseling visits. The ultrasound must occur at least 24 hours before the abortion unless you live more than 100 miles from an abortion provider, or if the pregnancy is due to rape, incest, or if the fetus has a lethal anomaly. 2. **Insurance Coverage**: - Private insurance and health exchange plans have exceptions for abortion coverage if the woman's life is at risk or if there is a major bodily function impairment. - Medicaid covers abortion if the woman's life is at risk or in cases of rape or incest. 3. **Gestational Limits**: - Abortion is banned at all stages of pregnancy, with exceptions only if the woman's life is at risk. 4. **Minors**: - If you are under 18, one parent must provide consent and be notified. However, a judicial bypass is available if you cannot obtain parental consent. These policies outline the current legal framework for abortion in Texas. If you need further assistance or specific guidance, consider consulting a healthcare provider or legal expert familiar with Texas abortion laws.",
+      "timestamp": 1742544839.4120278,
+      "citations": [
+        {
+          "source": "Abortion Policy API",
+          "url": "https://www.abortionpolicyapi.com/",
+          "accessed_date": "2025-03-21"
+        },
+        {
+          "source": "Planned Parenthood",
+          "url": "https://www.plannedparenthood.org/learn/abortion/abortion-laws-by-state",
+          "accessed_date": "2025-03-21"
+        },
+        {
+          "source": "Abortion Finder",
+          "url": "https://www.abortionfinder.org/",
+          "accessed_date": "2025-03-21"
+        }
+      ]
+    }
+  ]
+}

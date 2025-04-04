@@ -1,0 +1,142 @@
+{
+  "session_id": "ea7f8380-5bfb-47f2-957e-c1fd1edecd63",
+  "created_at": 1743380790.814495,
+  "last_active": 1743384067.029214,
+  "messages": [
+    {
+      "message_id": "edfd9aa1-eca6-48c2-a99e-bc1d7e70d327",
+      "session_id": "ea7f8380-5bfb-47f2-957e-c1fd1edecd63",
+      "role": "user",
+      "content": "Can I get an abortion in my state?",
+      "timestamp": 1743380790.814528
+    },
+    {
+      "message_id": "65c78b2c-f203-4375-953e-fde33c52a16e",
+      "session_id": "ea7f8380-5bfb-47f2-957e-c1fd1edecd63",
+      "role": "assistant",
+      "content": "I'll need to know which state you're in to answer that question. Could you please tell me your state, so I can provide accurate information about abortion policies that apply to you?",
+      "timestamp": 1743380793.387573,
+      "citations": [],
+      "citation_objects": []
+    },
+    {
+      "message_id": "f956ff07-bbe3-481b-8074-8ceb52f15cb8",
+      "session_id": "ea7f8380-5bfb-47f2-957e-c1fd1edecd63",
+      "role": "user",
+      "content": "Kansas",
+      "timestamp": 1743380798.8120651
+    },
+    {
+      "message_id": "28f4d3f4-1306-497d-9a4b-5c9085b2c532",
+      "session_id": "ea7f8380-5bfb-47f2-957e-c1fd1edecd63",
+      "role": "assistant",
+      "content": "Here's abortion policy information for Kansas:\n\n\u2022 Insurance Coverage: Private insurance must cover abortion services; Medicaid provides coverage for abortion in certain circumstances.\n\u2022 Abortion is prohibited after 22 weeks since last menstrual period.\n\u2022 Exceptions are allowed to save the life of the pregnant person.\n\u2022 Minors: Parental consent is required.\n\nThis information is based on the most recent data available, but laws may have changed. For the most up-to-date information, please contact Planned Parenthood or visit abortionfinder.org.",
+      "timestamp": 1743380801.866137,
+      "citations": [],
+      "citation_objects": []
+    },
+    {
+      "message_id": "2bd5b99d-15f9-44dd-a466-ce7d438204a0",
+      "session_id": "ea7f8380-5bfb-47f2-957e-c1fd1edecd63",
+      "role": "user",
+      "content": "Under what circumstances does medicaid provide coverage for abortion?",
+      "timestamp": 1743380850.936063
+    },
+    {
+      "message_id": "7b089352-6ef2-4f48-ab6f-67f4e565f243",
+      "session_id": "ea7f8380-5bfb-47f2-957e-c1fd1edecd63",
+      "role": "assistant",
+      "content": "Here's abortion policy information for Kansas:\n\n\u2022 Insurance Coverage: Private insurance must cover abortion services; Medicaid provides coverage for abortion in certain circumstances.\n\u2022 Abortion is prohibited after 22 weeks since last menstrual period.\n\u2022 Exceptions are allowed to save the life of the pregnant person.\n\u2022 Minors: Parental consent is required.\n\nThis information is based on the most recent data available, but laws may have changed. For the most up-to-date information, please contact Planned Parenthood or visit abortionfinder.org.",
+      "timestamp": 1743380855.7064672,
+      "citations": [],
+      "citation_objects": []
+    },
+    {
+      "message_id": "2b0db3d8-e8fd-4d6c-8919-a0310700e314",
+      "session_id": "ea7f8380-5bfb-47f2-957e-c1fd1edecd63",
+      "role": "user",
+      "content": "How do I know how far along I am?",
+      "timestamp": 1743380886.044348
+    },
+    {
+      "message_id": "a3be6090-8b91-4fac-bc9a-fe98299e78e8",
+      "session_id": "ea7f8380-5bfb-47f2-957e-c1fd1edecd63",
+      "role": "assistant",
+      "content": "To determine how far along you are in your pregnancy, you can start by calculating the gestational age. This is typically measured from the first day of your last menstrual period (LMP). Here\u2019s how you can estimate it: 1. **Identify the First Day of Your Last Period**: The gestational age is calculated from this date, assuming a regular 28-day cycle. If your cycle is longer or shorter, you may need to adjust accordingly. 2. **Count the Weeks**: Count the number of weeks from that date to today. For example, if your last period started 6 weeks ago, you would be approximately 6 weeks pregnant. 3. **Use a Pregnancy Calculator**: There are many online pregnancy calculators that can help you determine how far along you are based on your LMP. 4. **Ultrasound**: If you have access to medical care, an ultrasound can provide a more accurate estimate of your gestational age, especially if your menstrual cycles are irregular. 5. **Consult a Healthcare Provider**: If you suspect you are pregnant, taking a pregnancy test is the first step. If the test is positive, make an appointment with a healthcare provider who can confirm your pregnancy and help you determine how far along you are. It's important to remember that the only way to confirm a pregnancy is through a pregnancy test, and if it's positive, a healthcare provider can assist you in understanding your options and ensuring your health throughout the pregnancy (Sources: Planned Parenthood ).",
+      "timestamp": 1743380895.563185,
+      "citations": [
+        "Planned Parenthood",
+        "Planned Parenthood",
+        "Planned Parenthood"
+      ],
+      "citation_objects": [
+        {
+          "source": "Planned Parenthood",
+          "title": "I Think Im Pregnant Now What",
+          "url": "https://www.plannedparenthood.org/learn/teens/stds-birth-control-pregnancy/i-think-im-pregnant-now-what",
+          "accessed_date": "2025-03-30"
+        },
+        {
+          "source": "Planned Parenthood",
+          "title": "How Do I Know My Sexual Orientation",
+          "url": "https://www.plannedparenthood.org/learn/sexual-orientation/sexual-orientation/how-do-i-know-my-sexual-orientation",
+          "accessed_date": "2025-03-30"
+        },
+        {
+          "source": "Planned Parenthood",
+          "title": "Am I Pregnant",
+          "url": "https://www.plannedparenthood.org/blog/am-i-pregnant",
+          "accessed_date": "2025-03-30"
+        }
+      ]
+    },
+    {
+      "message_id": "b5b0d46d-9e44-4fde-8562-4c543bef7abe",
+      "session_id": "ea7f8380-5bfb-47f2-957e-c1fd1edecd63",
+      "role": "user",
+      "content": "What if I don't have health insurance, but need an abortion in Kansas?",
+      "timestamp": 1743381131.719369
+    },
+    {
+      "message_id": "966b2125-acbc-4caf-b938-73893cb04888",
+      "session_id": "ea7f8380-5bfb-47f2-957e-c1fd1edecd63",
+      "role": "assistant",
+      "content": "Here's abortion policy information for Kansas:\n\n\u2022 Insurance Coverage: Private insurance must cover abortion services; Medicaid provides coverage for abortion in certain circumstances.\n\u2022 Abortion is prohibited after 22 weeks since last menstrual period.\n\u2022 Exceptions are allowed to save the life of the pregnant person.\n\u2022 Minors: Parental consent is required.\n\nThis information is based on the most recent data available, but laws may have changed. For the most up-to-date information, please contact Planned Parenthood or visit abortionfinder.org.",
+      "timestamp": 1743381134.873068,
+      "citations": [],
+      "citation_objects": []
+    },
+    {
+      "message_id": "4f68b977-c487-40db-ade9-410955c93e17",
+      "session_id": "ea7f8380-5bfb-47f2-957e-c1fd1edecd63",
+      "role": "user",
+      "content": "Can you tell me if Cigna covers abortions in Kansas?",
+      "timestamp": 1743384047.081367
+    },
+    {
+      "message_id": "0ade412e-7405-47df-bbf4-cab8e4f95de2",
+      "session_id": "ea7f8380-5bfb-47f2-957e-c1fd1edecd63",
+      "role": "assistant",
+      "content": "Here's abortion policy information for Kansas:\n\n\u2022 Insurance Coverage: Private insurance must cover abortion services; Medicaid provides coverage for abortion in certain circumstances.\n\u2022 Abortion is prohibited after 22 weeks since last menstrual period.\n\u2022 Exceptions are allowed to save the life of the pregnant person.\n\u2022 Minors: Parental consent is required.\n\nThis information is based on the most recent data available, but laws may have changed. For the most up-to-date information, please contact Planned Parenthood or visit abortionfinder.org.",
+      "timestamp": 1743384051.878468,
+      "citations": [],
+      "citation_objects": []
+    },
+    {
+      "message_id": "5b7dbc99-54f8-41b1-b647-dcbccee7ad6d",
+      "session_id": "ea7f8380-5bfb-47f2-957e-c1fd1edecd63",
+      "role": "user",
+      "content": "Can you tell me if Cigna covers abortions?",
+      "timestamp": 1743384063.380777
+    },
+    {
+      "message_id": "c19d381e-9f4c-4b57-8f86-d53deb49a57a",
+      "session_id": "ea7f8380-5bfb-47f2-957e-c1fd1edecd63",
+      "role": "assistant",
+      "content": "Here's abortion policy information for Kansas:\n\n\u2022 Insurance Coverage: Private insurance must cover abortion services; Medicaid provides coverage for abortion in certain circumstances.\n\u2022 Abortion is prohibited after 22 weeks since last menstrual period.\n\u2022 Exceptions are allowed to save the life of the pregnant person.\n\u2022 Minors: Parental consent is required.\n\nThis information is based on the most recent data available, but laws may have changed. For the most up-to-date information, please contact Planned Parenthood or visit abortionfinder.org.",
+      "timestamp": 1743384067.029212,
+      "citations": [],
+      "citation_objects": []
+    }
+  ]
+}

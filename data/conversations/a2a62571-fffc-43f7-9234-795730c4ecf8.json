@@ -1,0 +1,89 @@
+{
+  "session_id": "a2a62571-fffc-43f7-9234-795730c4ecf8",
+  "created_at": 1743719653.816412,
+  "last_active": 1743719749.134432,
+  "messages": [
+    {
+      "message_id": "22b9ca50-05e2-4e5e-bdcd-b0379bac6000",
+      "session_id": "a2a62571-fffc-43f7-9234-795730c4ecf8",
+      "role": "user",
+      "content": "What contraception methods are available?",
+      "timestamp": 1743719653.816427
+    },
+    {
+      "message_id": "c3473ecd-6673-460e-8511-2b125332dc21",
+      "session_id": "a2a62571-fffc-43f7-9234-795730c4ecf8",
+      "role": "assistant",
+      "content": "There are several contraception methods available, each with different mechanisms of action, effectiveness, and suitability for various individuals. Here\u2019s a comprehensive overview: ### 1. **Long-Acting Reversible Contraceptives (LARCs)** - **IUDs (Intrauterine Devices)**: - **Copper IUD (Paragard)**: Non-hormonal, can prevent pregnancy for up to 10 years. - **Hormonal IUDs (Mirena, Liletta, Skyla, Kyleena)**: Release progestin, effective for 3 to 7 years depending on the brand. - **Implant (Nexplanon)**: A small rod inserted under the skin of the arm that releases progestin, effective for up to 3 years. ### 2. **Hormonal Methods** - **Birth Control Pills**: - **Combination Pills**: Contain estrogen and progestin; taken daily. - **Progestin-Only Pills (Mini Pills)**: Must be taken at the same time every day. - **Birth Control Patch**: A patch worn on the skin that releases hormones; changed weekly. - **Vaginal Ring (NuvaRing)**: A flexible ring placed in the vagina that releases hormones; replaced monthly. - **Birth Control Shot (Depo-Provera)**: An injection of progestin given every three months. ### 3. **Barrier Methods** - **Condoms**: Male and female condoms prevent sperm from reaching the egg and also protect against STDs. - **Diaphragm**: A dome-shaped cup inserted into the vagina to cover the cervix, used with spermicide. - **Cervical Cap**: Similar to a diaphragm but smaller, also used with spermicide. - **Sponge**: A soft, round sponge containing spermicide that fits over the cervix. ### 4. **Emergency Contraception** - **Emergency Contraceptive Pills (ECPs)**: - **Ulipristal Acetate (ella)**: Prescription-only, effective up to 120 hours after unprotected sex. - **Levonorgestrel (Plan B One-Step, etc.)**: Available over-the-counter, effective up to 72 hours after unprotected sex but can be used up to 120 hours with decreasing effectiveness. - **Copper IUD**: Can be used as emergency contraception if inserted by a healthcare provider within 5 days after unprotected sex. ### 5. **Permanent Methods** - **Sterilization**: Surgical procedures for permanent contraception, including tubal ligation for women and vasectomy for men. ### 6. **Natural Methods** - **Fertility Awareness Methods**: Tracking menstrual cycles and fertility signs to avoid sex on fertile days. - **Withdrawal Method**: The male partner withdraws before ejaculation, though this method is less reliable. ### Choosing the Right Method The best contraception method for you depends on various factors, including your health, lifestyle, and personal preferences. It's important to consult with a healthcare provider to discuss these options and find the most suitable method for your needs. For more detailed information on each method, you can refer to resources like Planned Parenthood. Remember, using a combination of methods, such as hormonal birth control with condoms, can provide additional protection against pregnancy and STDs. If you have further questions or need personalized advice, consider reaching out to a healthcare professional.",
+      "timestamp": 1743719663.8377368,
+      "citations": [
+        "Planned Parenthood",
+        "Planned Parenthood"
+      ],
+      "citation_objects": [
+        {
+          "source": "Planned Parenthood",
+          "title": "Which Kind Emergency Contraception Should I Use",
+          "url": "https://www.plannedparenthood.org/learn/morning-after-pill-emergency-contraception/which-kind-emergency-contraception-should-i-use",
+          "accessed_date": "2025-04-03"
+        },
+        {
+          "source": "Planned Parenthood",
+          "title": "Whats Best Kind Birth Control",
+          "url": "https://www.plannedparenthood.org/learn/teens/stds-birth-control-pregnancy/whats-best-kind-birth-control",
+          "accessed_date": "2025-04-03"
+        }
+      ]
+    },
+    {
+      "message_id": "c3473ecd-6673-460e-8511-2b125332dc21",
+      "session_id": "a2a62571-fffc-43f7-9234-795730c4ecf8",
+      "role": "assistant",
+      "content": "There are several contraception methods available, each with different mechanisms of action, effectiveness, and suitability for various individuals. Here\u2019s a comprehensive overview: ### 1. **Long-Acting Reversible Contraceptives (LARCs)** - **IUDs (Intrauterine Devices)**: - **Copper IUD (Paragard)**: Non-hormonal, can prevent pregnancy for up to 10 years. - **Hormonal IUDs (Mirena, Liletta, Skyla, Kyleena)**: Release progestin, effective for 3 to 7 years depending on the brand. - **Implant (Nexplanon)**: A small rod inserted under the skin of the arm that releases progestin, effective for up to 3 years. ### 2. **Hormonal Methods** - **Birth Control Pills**: - **Combination Pills**: Contain estrogen and progestin; taken daily. - **Progestin-Only Pills (Mini Pills)**: Must be taken at the same time every day. - **Birth Control Patch**: A patch worn on the skin that releases hormones; changed weekly. - **Vaginal Ring (NuvaRing)**: A flexible ring placed in the vagina that releases hormones; replaced monthly. - **Birth Control Shot (Depo-Provera)**: An injection of progestin given every three months. ### 3. **Barrier Methods** - **Condoms**: Male and female condoms prevent sperm from reaching the egg and also protect against STDs. - **Diaphragm**: A dome-shaped cup inserted into the vagina to cover the cervix, used with spermicide. - **Cervical Cap**: Similar to a diaphragm but smaller, also used with spermicide. - **Sponge**: A soft, round sponge containing spermicide that fits over the cervix. ### 4. **Emergency Contraception** - **Emergency Contraceptive Pills (ECPs)**: - **Ulipristal Acetate (ella)**: Prescription-only, effective up to 120 hours after unprotected sex. - **Levonorgestrel (Plan B One-Step, etc.)**: Available over-the-counter, effective up to 72 hours after unprotected sex but can be used up to 120 hours with decreasing effectiveness. - **Copper IUD**: Can be used as emergency contraception if inserted by a healthcare provider within 5 days after unprotected sex. ### 5. **Permanent Methods** - **Sterilization**: Surgical procedures for permanent contraception, including tubal ligation for women and vasectomy for men. ### 6. **Natural Methods** - **Fertility Awareness Methods**: Tracking menstrual cycles and fertility signs to avoid sex on fertile days. - **Withdrawal Method**: The male partner withdraws before ejaculation, though this method is less reliable. ### Choosing the Right Method The best contraception method for you depends on various factors, including your health, lifestyle, and personal preferences. It's important to consult with a healthcare provider to discuss these options and find the most suitable method for your needs. For more detailed information on each method, you can refer to resources like Planned Parenthood. Remember, using a combination of methods, such as hormonal birth control with condoms, can provide additional protection against pregnancy and STDs. If you have further questions or need personalized advice, consider reaching out to a healthcare professional.",
+      "timestamp": 1743719663.849914,
+      "citations": [
+        "Planned Parenthood",
+        "Planned Parenthood"
+      ],
+      "citation_objects": [
+        {
+          "source": "Planned Parenthood",
+          "title": "Which Kind Emergency Contraception Should I Use",
+          "url": "https://www.plannedparenthood.org/learn/morning-after-pill-emergency-contraception/which-kind-emergency-contraception-should-i-use",
+          "accessed_date": "2025-04-03"
+        },
+        {
+          "source": "Planned Parenthood",
+          "title": "Whats Best Kind Birth Control",
+          "url": "https://www.plannedparenthood.org/learn/teens/stds-birth-control-pregnancy/whats-best-kind-birth-control",
+          "accessed_date": "2025-04-03"
+        }
+      ]
+    },
+    {
+      "message_id": "e6b6bda1-9673-4557-a842-321b56783f3c",
+      "session_id": "a2a62571-fffc-43f7-9234-795730c4ecf8",
+      "role": "user",
+      "content": "Is getting an IUD painful? I'm scared",
+      "timestamp": 1743719744.75907
+    },
+    {
+      "message_id": "1fe41671-08cb-4135-9846-a3892f5a9e76",
+      "session_id": "a2a62571-fffc-43f7-9234-795730c4ecf8",
+      "role": "assistant",
+      "content": "It's completely understandable to feel scared about getting an IUD. Many people have similar feelings, and it's important to acknowledge that everyone experiences procedures differently. Your emotions are valid, and it's okay to have concerns about pain or discomfort. When getting an IUD, some people do report feeling discomfort or cramping during the insertion process, while others may find it more manageable. Healthcare providers often use different techniques to make the experience as comfortable as possible, and they can discuss pain management options with you beforehand. Remember, you have the right to ask questions and express your concerns to your healthcare provider. They can provide reassurance and help you feel more at ease. If you\u2019re still feeling anxious, consider bringing a supportive friend or family member with you to the appointment, as having someone there can provide comfort. It's also worth noting that the discomfort is usually brief, and many find that the benefits of having an IUD\u2014like long-term contraception\u2014outweigh the temporary discomfort. If you're still feeling unsure, it might be helpful to talk to a healthcare professional who can provide you with more personalized information and support. You're not alone in this, and it's okay to seek help and reassurance.",
+      "timestamp": 1743719749.131404,
+      "citations": [],
+      "citation_objects": []
+    },
+    {
+      "message_id": "1fe41671-08cb-4135-9846-a3892f5a9e76",
+      "session_id": "a2a62571-fffc-43f7-9234-795730c4ecf8",
+      "role": "assistant",
+      "content": "It's completely understandable to feel scared about getting an IUD. Many people have similar feelings, and it's important to acknowledge that everyone experiences procedures differently. Your emotions are valid, and it's okay to have concerns about pain or discomfort. When getting an IUD, some people do report feeling discomfort or cramping during the insertion process, while others may find it more manageable. Healthcare providers often use different techniques to make the experience as comfortable as possible, and they can discuss pain management options with you beforehand. Remember, you have the right to ask questions and express your concerns to your healthcare provider. They can provide reassurance and help you feel more at ease. If you\u2019re still feeling anxious, consider bringing a supportive friend or family member with you to the appointment, as having someone there can provide comfort. It's also worth noting that the discomfort is usually brief, and many find that the benefits of having an IUD\u2014like long-term contraception\u2014outweigh the temporary discomfort. If you're still feeling unsure, it might be helpful to talk to a healthcare professional who can provide you with more personalized information and support. You're not alone in this, and it's okay to seek help and reassurance.",
+      "timestamp": 1743719749.134429,
+      "citations": [],
+      "citation_objects": []
+    }
+  ]
+}

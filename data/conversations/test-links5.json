@@ -1,0 +1,22 @@
+{
+  "session_id": "test-links5",
+  "created_at": 1742545182.963914,
+  "last_active": 1742545188.255302,
+  "messages": [
+    {
+      "message_id": "9f564aa6-1ace-4534-aa1e-40e7bade4adb",
+      "session_id": "test-links5",
+      "role": "user",
+      "content": "Is it normal to feel guilty after an abortion?",
+      "timestamp": 1742545182.9639301
+    },
+    {
+      "message_id": "e47566e8-c6b8-4b47-bd2b-d13bbf893044",
+      "session_id": "test-links5",
+      "role": "assistant",
+      "content": "It\u2019s completely normal to feel a range of emotions after an abortion, including guilt. Many people experience complex feelings during this time, and it's important to acknowledge that your feelings are valid. You may be grappling with societal expectations, personal beliefs, or thoughts about what your decision means for you. Remember, you made a choice based on your circumstances, and that choice is yours to own. It\u2019s okay to feel conflicted or uncertain. You are not alone in this experience, and many others have felt similarly. If you find that these feelings of guilt are overwhelming or persistent, it might be helpful to talk to someone, such as a counselor or therapist who specializes in reproductive health. They can provide a safe space for you to explore your feelings further and help you find ways to cope. Please be gentle with yourself during this time. Your feelings are important, and it's okay to seek support as you process everything.",
+      "timestamp": 1742545188.255295,
+      "citations": []
+    }
+  ]
+}

@@ -1,0 +1,196 @@
+{
+  "session_id": "7900a51f-a907-47a9-a5c2-998aef2fbaf5",
+  "created_at": 1743404414.787925,
+  "last_active": 1743404617.118463,
+  "messages": [
+    {
+      "message_id": "47abb656-c993-4522-9096-0bd4e9d9963d",
+      "session_id": "7900a51f-a907-47a9-a5c2-998aef2fbaf5",
+      "role": "user",
+      "content": "Can I get an abortion in my state?",
+      "timestamp": 1743404414.7879329
+    },
+    {
+      "message_id": "559d4df4-f2a9-4221-b751-07cc66b09a9a",
+      "session_id": "7900a51f-a907-47a9-a5c2-998aef2fbaf5",
+      "role": "assistant",
+      "content": "I'll need to know which state you're in to answer that question. Could you please tell me your state, so I can provide accurate information about abortion policies that apply to you?",
+      "timestamp": 1743404416.751803,
+      "citations": [],
+      "citation_objects": []
+    },
+    {
+      "message_id": "559d4df4-f2a9-4221-b751-07cc66b09a9a",
+      "session_id": "7900a51f-a907-47a9-a5c2-998aef2fbaf5",
+      "role": "assistant",
+      "content": "I'll need to know which state you're in to answer that question. Could you please tell me your state, so I can provide accurate information about abortion policies that apply to you?",
+      "timestamp": 1743404416.752328,
+      "citations": [],
+      "citation_objects": []
+    },
+    {
+      "message_id": "bfe55d4c-d3c0-42c5-b478-094cce0b2606",
+      "session_id": "7900a51f-a907-47a9-a5c2-998aef2fbaf5",
+      "role": "user",
+      "content": "Florida",
+      "timestamp": 1743404537.6552792
+    },
+    {
+      "message_id": "e45eac11-fc51-473a-bee3-bad31c19f2f7",
+      "session_id": "7900a51f-a907-47a9-a5c2-998aef2fbaf5",
+      "role": "assistant",
+      "content": "Here's abortion policy information for Florida:\n\n\u2022 There is a required waiting period of 24 hours.\n\u2022 Insurance Coverage: Private insurance must cover abortion services; Medicaid provides coverage for abortion in certain circumstances.\n\u2022 Abortion is prohibited after 6 weeks since last menstrual period.\n\u2022 Exceptions are allowed to save the life of the pregnant person, to prevent substantial impairment of bodily function, in cases of rape or incest, for fetal anomalies.\n\u2022 Minors: Parental consent is required; Parents must be notified.\n\nThis information is based on the most recent data available, but laws may have changed. For the most up-to-date information, please contact Planned Parenthood or visit abortionfinder.org.",
+      "timestamp": 1743404541.151998,
+      "citations": [],
+      "citation_objects": []
+    },
+    {
+      "message_id": "e45eac11-fc51-473a-bee3-bad31c19f2f7",
+      "session_id": "7900a51f-a907-47a9-a5c2-998aef2fbaf5",
+      "role": "assistant",
+      "content": "Here's abortion policy information for Florida:\n\n\u2022 There is a required waiting period of 24 hours.\n\u2022 Insurance Coverage: Private insurance must cover abortion services; Medicaid provides coverage for abortion in certain circumstances.\n\u2022 Abortion is prohibited after 6 weeks since last menstrual period.\n\u2022 Exceptions are allowed to save the life of the pregnant person, to prevent substantial impairment of bodily function, in cases of rape or incest, for fetal anomalies.\n\u2022 Minors: Parental consent is required; Parents must be notified.\n\nThis information is based on the most recent data available, but laws may have changed. For the most up-to-date information, please contact Planned Parenthood or visit abortionfinder.org.",
+      "timestamp": 1743404541.152645,
+      "citations": [],
+      "citation_objects": []
+    },
+    {
+      "message_id": "061dbc6e-aead-41f0-985a-aed62a747632",
+      "session_id": "7900a51f-a907-47a9-a5c2-998aef2fbaf5",
+      "role": "user",
+      "content": "is there any way around parent consent?",
+      "timestamp": 1743404551.90264
+    },
+    {
+      "message_id": "45709a3b-8380-4cdf-bb3f-1f338475d606",
+      "session_id": "7900a51f-a907-47a9-a5c2-998aef2fbaf5",
+      "role": "assistant",
+      "content": "Here's abortion policy information for Florida:\n\n\u2022 There is a required waiting period of 24 hours.\n\u2022 Insurance Coverage: Private insurance must cover abortion services; Medicaid provides coverage for abortion in certain circumstances.\n\u2022 Abortion is prohibited after 6 weeks since last menstrual period.\n\u2022 Exceptions are allowed to save the life of the pregnant person, to prevent substantial impairment of bodily function, in cases of rape or incest, for fetal anomalies.\n\u2022 Minors: Parental consent is required; Parents must be notified.\n\nThis information is based on the most recent data available, but laws may have changed. For the most up-to-date information, please contact Planned Parenthood or visit abortionfinder.org.",
+      "timestamp": 1743404555.19505,
+      "citations": [],
+      "citation_objects": []
+    },
+    {
+      "message_id": "45709a3b-8380-4cdf-bb3f-1f338475d606",
+      "session_id": "7900a51f-a907-47a9-a5c2-998aef2fbaf5",
+      "role": "assistant",
+      "content": "Here's abortion policy information for Florida:\n\n\u2022 There is a required waiting period of 24 hours.\n\u2022 Insurance Coverage: Private insurance must cover abortion services; Medicaid provides coverage for abortion in certain circumstances.\n\u2022 Abortion is prohibited after 6 weeks since last menstrual period.\n\u2022 Exceptions are allowed to save the life of the pregnant person, to prevent substantial impairment of bodily function, in cases of rape or incest, for fetal anomalies.\n\u2022 Minors: Parental consent is required; Parents must be notified.\n\nThis information is based on the most recent data available, but laws may have changed. For the most up-to-date information, please contact Planned Parenthood or visit abortionfinder.org.",
+      "timestamp": 1743404555.195649,
+      "citations": [],
+      "citation_objects": []
+    },
+    {
+      "message_id": "ae4f6d5d-41a3-4962-a4e0-f7fdbed5d30f",
+      "session_id": "7900a51f-a907-47a9-a5c2-998aef2fbaf5",
+      "role": "user",
+      "content": "I am feeling overwhelmed. What are my options if i'm pregnant?",
+      "timestamp": 1743404574.957669
+    },
+    {
+      "message_id": "8816f782-6eef-458c-b408-27a24d0aade6",
+      "session_id": "7900a51f-a907-47a9-a5c2-998aef2fbaf5",
+      "role": "assistant",
+      "content": "Finding out you're pregnant can indeed feel overwhelming, but it's important to know that you have options and support available to you. Here are the three primary options you can consider: 1. **Parenting**: This means choosing to give birth and raise the child. If you decide to parent, it's essential to seek prenatal care to ensure your health and the health of your baby throughout the pregnancy. 2. **Abortion**: This option involves ending the pregnancy. If you are considering this choice, it's advisable to make an appointment as soon as possible, as access to abortion can become more limited as time goes on. If you live in a state where abortion is restricted, you may need to travel to another state to access the procedure. 3. **Adoption**: This involves giving birth and then placing the child with another person or family. If you choose this path, you can still receive prenatal care during your pregnancy. Regardless of the option you choose, it's crucial to consult with a healthcare provider who can help you stay healthy and provide you with accurate information. You can reach out to organizations like Planned Parenthood for support and guidance on your options. They can help answer your questions and connect you with reliable resources. Additionally, talking to someone you trust about your feelings can be very helpful. This could be a parent, friend, school counselor, or any supportive adult. If you're struggling to find someone to talk to, you can also contact All-Options, which offers a free, private hotline for support. Remember, no one should pressure you into making a decision about your pregnancy. It's important to take your time and choose what feels right for you. For more information and resources, you can visit Planned Parenthood's website or contact your local health center. You're not alone in this, and there are people who want to support you. In addition to this information, I want to acknowledge that I'm really sorry to hear that you're feeling overwhelmed. It's completely understandable to feel this way when facing such a significant situation. Your feelings are valid, and it's okay to take the time to process everything. When it comes to your options if you are pregnant, it's important to know that you have choices available to you, and you can take the time you need to consider what feels right for you. The options typically include parenting, adoption, or abortion, and each path comes with its own set of emotions and considerations. If you're feeling uncertain about what to do, it might be helpful to talk things through with someone who can provide support, like a trusted friend, family member, or a professional counselor. They can help you explore your feelings and options in a safe space. Remember, there\u2019s no right or wrong choice here; it's about what aligns best with your values, circumstances, and future goals. You're not alone in this, and there are resources available to help you navigate these feelings and decisions. If you have any specific questions or need more information about any options, feel free to ask. I'm here to support you.",
+      "timestamp": 1743404591.572431,
+      "citations": [
+        "Planned Parenthood",
+        "Planned Parenthood"
+      ],
+      "citation_objects": [
+        {
+          "source": "Planned Parenthood",
+          "url": "https://www.plannedparenthood.org/learn/teens/stds-birth-control-pregnancy/i-think-im-pregnant-now-what",
+          "title": "I Think Im Pregnant Now What",
+          "accessed_date": "2025-03-31"
+        },
+        {
+          "source": "Planned Parenthood",
+          "url": "https://www.plannedparenthood.org/learn/pregnancy/how-pregnancy-happens/what-are-some-tips-getting-pregnant",
+          "title": "What Are Some Tips Getting Pregnant",
+          "accessed_date": "2025-03-31"
+        }
+      ]
+    },
+    {
+      "message_id": "8816f782-6eef-458c-b408-27a24d0aade6",
+      "session_id": "7900a51f-a907-47a9-a5c2-998aef2fbaf5",
+      "role": "assistant",
+      "content": "Finding out you're pregnant can indeed feel overwhelming, but it's important to know that you have options and support available to you. Here are the three primary options you can consider: 1. **Parenting**: This means choosing to give birth and raise the child. If you decide to parent, it's essential to seek prenatal care to ensure your health and the health of your baby throughout the pregnancy. 2. **Abortion**: This option involves ending the pregnancy. If you are considering this choice, it's advisable to make an appointment as soon as possible, as access to abortion can become more limited as time goes on. If you live in a state where abortion is restricted, you may need to travel to another state to access the procedure. 3. **Adoption**: This involves giving birth and then placing the child with another person or family. If you choose this path, you can still receive prenatal care during your pregnancy. Regardless of the option you choose, it's crucial to consult with a healthcare provider who can help you stay healthy and provide you with accurate information. You can reach out to organizations like Planned Parenthood for support and guidance on your options. They can help answer your questions and connect you with reliable resources. Additionally, talking to someone you trust about your feelings can be very helpful. This could be a parent, friend, school counselor, or any supportive adult. If you're struggling to find someone to talk to, you can also contact All-Options, which offers a free, private hotline for support. Remember, no one should pressure you into making a decision about your pregnancy. It's important to take your time and choose what feels right for you. For more information and resources, you can visit Planned Parenthood's website or contact your local health center. You're not alone in this, and there are people who want to support you. In addition to this information, I want to acknowledge that I'm really sorry to hear that you're feeling overwhelmed. It's completely understandable to feel this way when facing such a significant situation. Your feelings are valid, and it's okay to take the time to process everything. When it comes to your options if you are pregnant, it's important to know that you have choices available to you, and you can take the time you need to consider what feels right for you. The options typically include parenting, adoption, or abortion, and each path comes with its own set of emotions and considerations. If you're feeling uncertain about what to do, it might be helpful to talk things through with someone who can provide support, like a trusted friend, family member, or a professional counselor. They can help you explore your feelings and options in a safe space. Remember, there\u2019s no right or wrong choice here; it's about what aligns best with your values, circumstances, and future goals. You're not alone in this, and there are resources available to help you navigate these feelings and decisions. If you have any specific questions or need more information about any options, feel free to ask. I'm here to support you.",
+      "timestamp": 1743404591.573256,
+      "citations": [
+        "Planned Parenthood",
+        "Planned Parenthood"
+      ],
+      "citation_objects": [
+        {
+          "source": "Planned Parenthood",
+          "url": "https://www.plannedparenthood.org/learn/teens/stds-birth-control-pregnancy/i-think-im-pregnant-now-what",
+          "title": "I Think Im Pregnant Now What",
+          "accessed_date": "2025-03-31"
+        },
+        {
+          "source": "Planned Parenthood",
+          "url": "https://www.plannedparenthood.org/learn/pregnancy/how-pregnancy-happens/what-are-some-tips-getting-pregnant",
+          "title": "What Are Some Tips Getting Pregnant",
+          "accessed_date": "2025-03-31"
+        }
+      ]
+    },
+    {
+      "message_id": "012cf072-cdbb-4906-a5f3-52396c59015a",
+      "session_id": "7900a51f-a907-47a9-a5c2-998aef2fbaf5",
+      "role": "user",
+      "content": "What kinds of abortion are there?",
+      "timestamp": 1743404610.146695
+    },
+    {
+      "message_id": "ec981406-07af-4837-a5f0-07598d913a2f",
+      "session_id": "7900a51f-a907-47a9-a5c2-998aef2fbaf5",
+      "role": "assistant",
+      "content": "There are two main types of abortion: medication abortion and in-clinic abortion. 1. **Medication Abortion**: Also known as the \"abortion pill,\" this method involves taking medications to end an early pregnancy, typically up to 11 weeks after the first day of your last period. It usually involves two medications: mifepristone, which is taken first, followed by misoprostol, which is taken a day or two later. This process causes cramping and bleeding, similar to an early miscarriage. 2. **In-Clinic Abortion**: This type of abortion is performed by a trained healthcare provider in a medical setting. There are a couple of procedures under this category: - **Suction Abortion (Vacuum Aspiration)**: This is the most common in-clinic procedure, which uses gentle suction to empty the uterus. It is usually performed up to about 14-16 weeks after the last menstrual period. - **Dilation and Evacuation (D&E)**: This method combines suction with medical instruments to remove the pregnancy tissue and can be performed later in the pregnancy, typically after 16 weeks. Both methods are considered safe and effective. It's important to consult with a healthcare provider to determine which option is best for your individual situation and to receive appropriate care and support throughout the process.",
+      "timestamp": 1743404617.117545,
+      "citations": [
+        "Planned Parenthood",
+        "Planned Parenthood"
+      ],
+      "citation_objects": [
+        {
+          "source": "Planned Parenthood",
+          "title": "What Facts About Abortion Do I Need Know",
+          "url": "https://www.plannedparenthood.org/learn/abortion/considering-abortion/what-facts-about-abortion-do-i-need-know",
+          "accessed_date": "2025-03-31"
+        },
+        {
+          "source": "Planned Parenthood",
+          "title": "In Clinic Abortion Procedures",
+          "url": "https://www.plannedparenthood.org/learn/abortion/in-clinic-abortion-procedures",
+          "accessed_date": "2025-03-31"
+        }
+      ]
+    },
+    {
+      "message_id": "ec981406-07af-4837-a5f0-07598d913a2f",
+      "session_id": "7900a51f-a907-47a9-a5c2-998aef2fbaf5",
+      "role": "assistant",
+      "content": "There are two main types of abortion: medication abortion and in-clinic abortion. 1. **Medication Abortion**: Also known as the \"abortion pill,\" this method involves taking medications to end an early pregnancy, typically up to 11 weeks after the first day of your last period. It usually involves two medications: mifepristone, which is taken first, followed by misoprostol, which is taken a day or two later. This process causes cramping and bleeding, similar to an early miscarriage. 2. **In-Clinic Abortion**: This type of abortion is performed by a trained healthcare provider in a medical setting. There are a couple of procedures under this category: - **Suction Abortion (Vacuum Aspiration)**: This is the most common in-clinic procedure, which uses gentle suction to empty the uterus. It is usually performed up to about 14-16 weeks after the last menstrual period. - **Dilation and Evacuation (D&E)**: This method combines suction with medical instruments to remove the pregnancy tissue and can be performed later in the pregnancy, typically after 16 weeks. Both methods are considered safe and effective. It's important to consult with a healthcare provider to determine which option is best for your individual situation and to receive appropriate care and support throughout the process.",
+      "timestamp": 1743404617.11846,
+      "citations": [
+        "Planned Parenthood",
+        "Planned Parenthood"
+      ],
+      "citation_objects": [
+        {
+          "source": "Planned Parenthood",
+          "title": "What Facts About Abortion Do I Need Know",
+          "url": "https://www.plannedparenthood.org/learn/abortion/considering-abortion/what-facts-about-abortion-do-i-need-know",
+          "accessed_date": "2025-03-31"
+        },
+        {
+          "source": "Planned Parenthood",
+          "title": "In Clinic Abortion Procedures",
+          "url": "https://www.plannedparenthood.org/learn/abortion/in-clinic-abortion-procedures",
+          "accessed_date": "2025-03-31"
+        }
+      ]
+    }
+  ]
+}

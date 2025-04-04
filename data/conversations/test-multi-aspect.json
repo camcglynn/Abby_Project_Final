@@ -1,0 +1,24 @@
+{
+  "session_id": "test-multi-aspect",
+  "created_at": 1742544807.552225,
+  "last_active": 1742544825.6912792,
+  "messages": [
+    {
+      "message_id": "a136b678-dba5-47d5-9d8e-70cee028b978",
+      "session_id": "test-multi-aspect",
+      "role": "user",
+      "content": "I live in Texas and Im pregnant. What are my options and how does birth control work?",
+      "timestamp": 1742544807.5522401
+    },
+    {
+      "message_id": "8d250f57-2d27-4c18-b222-2d4b77798b01",
+      "session_id": "test-multi-aspect",
+      "role": "assistant",
+      "content": "During your pregnancy, you have three main options to consider: 1. **Parenting**: This involves giving birth and raising the child yourself. If you choose this option, it's important to seek prenatal care to ensure both your health and the health of your baby. 2. **Abortion**: This option allows you to end the pregnancy. If you are considering this, it's advisable to make an appointment as soon as possible, as access to abortion can become more limited as time goes on. In Texas, there may be specific legal considerations regarding abortion, so it's essential to consult a healthcare provider or a trusted organization like Planned Parenthood for guidance. 3. **Adoption**: This involves giving birth and then placing the child with another person or family. If you choose this path, you can still receive prenatal care during your pregnancy. Regardless of the option you choose, it\u2019s crucial to consult with a healthcare provider to discuss your health and any necessary care during your pregnancy. They can provide you with accurate information and support tailored to your situation. If you have questions about birth control, it's important to note that once you are pregnant, traditional birth control methods are no longer applicable. However, understanding how birth control works can be helpful for future planning. The most effective methods of birth control include the IUD and implant, which are highly reliable and require less frequent attention compared to methods like the pill or patch. Using a combination of methods, such as condoms with another form of birth control, can provide additional protection against unintended pregnancies and sexually transmitted infections (STIs) [Sources: 1, 2, 3, 5]. If you need further support or information, consider reaching out to a local health center or a trusted healthcare provider. You are not alone, and there are resources available to help you navigate this situation.",
+      "timestamp": 1742544825.691278,
+      "citations": [
+        "Planned Parenthood"
+      ]
+    }
+  ]
+}

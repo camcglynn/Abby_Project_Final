@@ -1,0 +1,32 @@
+{
+  "session_id": "d939ccac-8d3a-4542-a1df-6e3ae4afff79",
+  "created_at": 1743555508.9355981,
+  "last_active": 1743555511.369687,
+  "messages": [
+    {
+      "message_id": "6a3e142c-f770-4362-9c2b-9781e75cbf15",
+      "session_id": "d939ccac-8d3a-4542-a1df-6e3ae4afff79",
+      "role": "user",
+      "content": "Can I get an abortion in my state?",
+      "timestamp": 1743555508.935663
+    },
+    {
+      "message_id": "6c83d24c-be49-4ae7-a3a9-9cd3a69ddf78",
+      "session_id": "d939ccac-8d3a-4542-a1df-6e3ae4afff79",
+      "role": "assistant",
+      "content": "I'll need to know which state you're in to answer that question. Could you please tell me your state, so I can provide accurate information about abortion policies that apply to you?",
+      "timestamp": 1743555511.369042,
+      "citations": [],
+      "citation_objects": []
+    },
+    {
+      "message_id": "6c83d24c-be49-4ae7-a3a9-9cd3a69ddf78",
+      "session_id": "d939ccac-8d3a-4542-a1df-6e3ae4afff79",
+      "role": "assistant",
+      "content": "I'll need to know which state you're in to answer that question. Could you please tell me your state, so I can provide accurate information about abortion policies that apply to you?",
+      "timestamp": 1743555511.369685,
+      "citations": [],
+      "citation_objects": []
+    }
+  ]
+}

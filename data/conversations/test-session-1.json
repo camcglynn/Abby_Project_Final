@@ -1,0 +1,100 @@
+{
+  "session_id": "test-session-1",
+  "created_at": 1742542482.3165991,
+  "last_active": 1742542608.969779,
+  "messages": [
+    {
+      "message_id": "8be934db-6029-4dbc-a2f3-1986fb47f290",
+      "session_id": "test-session-1",
+      "role": "user",
+      "content": "Can I get an abortion in my state?",
+      "timestamp": 1742542482.316617
+    },
+    {
+      "message_id": "02f7aade-d271-4a81-ba41-ec23502d8234",
+      "session_id": "test-session-1",
+      "role": "assistant",
+      "content": "In Indiana, abortion is generally banned, but there are specific exceptions where it is permitted. These exceptions include: 1. **Life of the Pregnant Person**: If the abortion is necessary to save the life of the pregnant person. 2. **Rape or Incest**: If the pregnancy is a result of rape or incest. 3. **Fetal Anomaly**: If there is a lethal fetal anomaly. 4. **Health**: If the abortion is necessary to prevent serious health issues related to a major bodily function. Additionally, there are specific requirements and restrictions: - **Waiting Period**: There is an 18-hour waiting period after counseling, which requires two visits. - **Minors**: If you are under 18, parental consent from one parent is required, but a judicial bypass is available if obtaining consent is not possible. - **Insurance Coverage**: Coverage for abortion services varies, with exceptions typically for life, rape or incest, and major bodily functions. If you fall under one of the exceptions, you may be able to access abortion services in Indiana. It is important to consult with a healthcare provider or legal expert to understand how these policies apply to your specific situation.",
+      "timestamp": 1742542489.3194492,
+      "citations": [
+        {
+          "source": "Abortion Policy API",
+          "url": "https://www.abortionpolicyapi.com/",
+          "accessed_date": "2025-03-21"
+        },
+        {
+          "source": "Planned Parenthood",
+          "url": "https://www.plannedparenthood.org/learn/abortion/abortion-laws-by-state",
+          "accessed_date": "2025-03-21"
+        },
+        {
+          "source": "Abortion Finder",
+          "url": "https://www.abortionfinder.org/",
+          "accessed_date": "2025-03-21"
+        }
+      ]
+    },
+    {
+      "message_id": "df7ded18-4778-43ea-8e72-08c93ee9718a",
+      "session_id": "test-session-1",
+      "role": "user",
+      "content": "I'm in California",
+      "timestamp": 1742542586.399172
+    },
+    {
+      "message_id": "b026bd20-18cc-4627-a63d-d353e179ef5a",
+      "session_id": "test-session-1",
+      "role": "assistant",
+      "content": "I can only provide information about abortion policies in Indiana based on the data provided. If you have questions about Indiana's abortion policies, feel free to ask!",
+      "timestamp": 1742542590.2917418,
+      "citations": [
+        {
+          "source": "Abortion Policy API",
+          "url": "https://www.abortionpolicyapi.com/",
+          "accessed_date": "2025-03-21"
+        },
+        {
+          "source": "Planned Parenthood",
+          "url": "https://www.plannedparenthood.org/learn/abortion/abortion-laws-by-state",
+          "accessed_date": "2025-03-21"
+        },
+        {
+          "source": "Abortion Finder",
+          "url": "https://www.abortionfinder.org/",
+          "accessed_date": "2025-03-21"
+        }
+      ]
+    },
+    {
+      "message_id": "4ffb05e8-9adc-4305-9b85-97150e768d0b",
+      "session_id": "test-session-1",
+      "role": "user",
+      "content": "What are the abortion laws in California?",
+      "timestamp": 1742542603.70929
+    },
+    {
+      "message_id": "b1915919-fe0d-4d98-8872-ab59e2817168",
+      "session_id": "test-session-1",
+      "role": "assistant",
+      "content": "I'm sorry, but I can only provide information on abortion policies for Indiana based on the data provided. If you have questions about Indiana's abortion policies, feel free to ask!",
+      "timestamp": 1742542608.9697778,
+      "citations": [
+        {
+          "source": "Abortion Policy API",
+          "url": "https://www.abortionpolicyapi.com/",
+          "accessed_date": "2025-03-21"
+        },
+        {
+          "source": "Planned Parenthood",
+          "url": "https://www.plannedparenthood.org/learn/abortion/abortion-laws-by-state",
+          "accessed_date": "2025-03-21"
+        },
+        {
+          "source": "Abortion Finder",
+          "url": "https://www.abortionfinder.org/",
+          "accessed_date": "2025-03-21"
+        }
+      ]
+    }
+  ]
+}

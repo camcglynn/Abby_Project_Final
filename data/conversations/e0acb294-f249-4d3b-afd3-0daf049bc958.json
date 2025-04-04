@@ -1,0 +1,235 @@
+{
+  "session_id": "e0acb294-f249-4d3b-afd3-0daf049bc958",
+  "created_at": 1743397795.430399,
+  "last_active": 1743397994.825258,
+  "messages": [
+    {
+      "message_id": "f1b18bfd-2e9c-4a9e-b5e9-339da3a6bddf",
+      "session_id": "e0acb294-f249-4d3b-afd3-0daf049bc958",
+      "role": "user",
+      "content": "How does pregnancy happen?",
+      "timestamp": 1743397795.430412
+    },
+    {
+      "message_id": "5efc684b-b701-4c66-a4ac-ff2526be1f94",
+      "session_id": "e0acb294-f249-4d3b-afd3-0daf049bc958",
+      "role": "assistant",
+      "content": "Pregnancy occurs when a sperm cell fertilizes an egg, leading to the development of an embryo. Here\u2019s a step-by-step overview of how pregnancy happens: 1. **Ovulation**: About halfway through a woman's menstrual cycle, a mature egg is released from the ovary. This process is called ovulation. 2. **Fertilization**: If sperm is present in the female reproductive tract (typically through vaginal intercourse), one sperm can swim through the cervix and uterus to meet the egg in the fallopian tube. Fertilization occurs when the sperm successfully penetrates the egg. 3. **Formation of the Blastocyst**: After fertilization, the fertilized egg (now called a zygote) begins to divide and grow as it travels down the fallopian tube toward the uterus. This process takes about 3-4 days, resulting in a ball of cells known as a blastocyst. 4. **Implantation**: The blastocyst reaches the uterus and must implant itself into the uterine lining. This implantation typically occurs about 6-10 days after fertilization. Once the blastocyst attaches to the uterine lining, pregnancy is officially established. 5. **Hormonal Changes**: Upon implantation, the blastocyst releases hormones that signal the body to maintain the uterine lining and prevent menstruation, which is why periods stop during pregnancy. It's important to note that sperm can survive in the female reproductive tract for up to six days, meaning that fertilization can occur several days after intercourse, as long as the egg is still viable (which is typically about 12-24 hours after ovulation) (Sources: , , ). If you have further questions or need more detailed information, feel free to ask!",
+      "timestamp": 1743397806.701453,
+      "citations": [
+        "Planned Parenthood",
+        "Planned Parenthood"
+      ],
+      "citation_objects": [
+        {
+          "source": "Planned Parenthood",
+          "title": "How Pregnancy Happens",
+          "url": "https://www.plannedparenthood.org/learn/pregnancy/how-pregnancy-happens",
+          "accessed_date": "2025-03-30"
+        },
+        {
+          "source": "Planned Parenthood",
+          "title": "Stds Birth Control Pregnancy",
+          "url": "https://www.plannedparenthood.org/learn/teens/stds-birth-control-pregnancy",
+          "accessed_date": "2025-03-30"
+        }
+      ]
+    },
+    {
+      "message_id": "5efc684b-b701-4c66-a4ac-ff2526be1f94",
+      "session_id": "e0acb294-f249-4d3b-afd3-0daf049bc958",
+      "role": "assistant",
+      "content": "Pregnancy occurs when a sperm cell fertilizes an egg, leading to the development of an embryo. Here\u2019s a step-by-step overview of how pregnancy happens: 1. **Ovulation**: About halfway through a woman's menstrual cycle, a mature egg is released from the ovary. This process is called ovulation. 2. **Fertilization**: If sperm is present in the female reproductive tract (typically through vaginal intercourse), one sperm can swim through the cervix and uterus to meet the egg in the fallopian tube. Fertilization occurs when the sperm successfully penetrates the egg. 3. **Formation of the Blastocyst**: After fertilization, the fertilized egg (now called a zygote) begins to divide and grow as it travels down the fallopian tube toward the uterus. This process takes about 3-4 days, resulting in a ball of cells known as a blastocyst. 4. **Implantation**: The blastocyst reaches the uterus and must implant itself into the uterine lining. This implantation typically occurs about 6-10 days after fertilization. Once the blastocyst attaches to the uterine lining, pregnancy is officially established. 5. **Hormonal Changes**: Upon implantation, the blastocyst releases hormones that signal the body to maintain the uterine lining and prevent menstruation, which is why periods stop during pregnancy. It's important to note that sperm can survive in the female reproductive tract for up to six days, meaning that fertilization can occur several days after intercourse, as long as the egg is still viable (which is typically about 12-24 hours after ovulation) (Sources: , , ). If you have further questions or need more detailed information, feel free to ask!",
+      "timestamp": 1743397806.702286,
+      "citations": [
+        "Planned Parenthood",
+        "Planned Parenthood"
+      ],
+      "citation_objects": [
+        {
+          "source": "Planned Parenthood",
+          "title": "How Pregnancy Happens",
+          "url": "https://www.plannedparenthood.org/learn/pregnancy/how-pregnancy-happens",
+          "accessed_date": "2025-03-30"
+        },
+        {
+          "source": "Planned Parenthood",
+          "title": "Stds Birth Control Pregnancy",
+          "url": "https://www.plannedparenthood.org/learn/teens/stds-birth-control-pregnancy",
+          "accessed_date": "2025-03-30"
+        }
+      ]
+    },
+    {
+      "message_id": "7bb7d00c-2ded-4db5-be1c-a71bf359ff49",
+      "session_id": "e0acb294-f249-4d3b-afd3-0daf049bc958",
+      "role": "user",
+      "content": "where can i get an abortion in arkansas",
+      "timestamp": 1743397824.506374
+    },
+    {
+      "message_id": "996ec97b-e1b9-41b1-88db-bafc08e70a3f",
+      "session_id": "e0acb294-f249-4d3b-afd3-0daf049bc958",
+      "role": "assistant",
+      "content": "Here's abortion policy information for Arkansas:\n\n\u2022 There is a required waiting period of 72 hours.\n\u2022 Insurance Coverage: Private insurance must cover abortion services; Medicaid provides coverage for abortion in certain circumstances.\n\u2022 Abortion is prohibited after 0 weeks since last menstrual period.\n\u2022 Exceptions are allowed to save the life of the pregnant person.\n\u2022 Minors: Parental consent is required.\n\nThis information is based on the most recent data available, but laws may have changed. For the most up-to-date information, please contact Planned Parenthood or visit abortionfinder.org.",
+      "timestamp": 1743397827.686487,
+      "citations": [],
+      "citation_objects": []
+    },
+    {
+      "message_id": "996ec97b-e1b9-41b1-88db-bafc08e70a3f",
+      "session_id": "e0acb294-f249-4d3b-afd3-0daf049bc958",
+      "role": "assistant",
+      "content": "Here's abortion policy information for Arkansas:\n\n\u2022 There is a required waiting period of 72 hours.\n\u2022 Insurance Coverage: Private insurance must cover abortion services; Medicaid provides coverage for abortion in certain circumstances.\n\u2022 Abortion is prohibited after 0 weeks since last menstrual period.\n\u2022 Exceptions are allowed to save the life of the pregnant person.\n\u2022 Minors: Parental consent is required.\n\nThis information is based on the most recent data available, but laws may have changed. For the most up-to-date information, please contact Planned Parenthood or visit abortionfinder.org.",
+      "timestamp": 1743397827.68855,
+      "citations": [],
+      "citation_objects": []
+    },
+    {
+      "message_id": "42744170-15c0-4a5b-968b-eed5fb640944",
+      "session_id": "e0acb294-f249-4d3b-afd3-0daf049bc958",
+      "role": "user",
+      "content": "what's the policy for mississippi",
+      "timestamp": 1743397854.1366458
+    },
+    {
+      "message_id": "fda7c77b-79f4-4100-87df-069c79129151",
+      "session_id": "e0acb294-f249-4d3b-afd3-0daf049bc958",
+      "role": "assistant",
+      "content": "Here's abortion policy information for Mississippi:\n\n\u2022 There is a required waiting period of 24 hours.\n\u2022 Insurance Coverage: Private insurance must cover abortion services; Medicaid provides coverage for abortion in certain circumstances.\n\u2022 Abortion is prohibited after 0 weeks since last menstrual period.\n\u2022 Exceptions are allowed to save the life of the pregnant person, in cases of rape or incest.\n\u2022 Minors: Parental consent is required.\n\nThis information is based on the most recent data available, but laws may have changed. For the most up-to-date information, please contact Planned Parenthood or visit abortionfinder.org.",
+      "timestamp": 1743397856.666795,
+      "citations": [],
+      "citation_objects": []
+    },
+    {
+      "message_id": "fda7c77b-79f4-4100-87df-069c79129151",
+      "session_id": "e0acb294-f249-4d3b-afd3-0daf049bc958",
+      "role": "assistant",
+      "content": "Here's abortion policy information for Mississippi:\n\n\u2022 There is a required waiting period of 24 hours.\n\u2022 Insurance Coverage: Private insurance must cover abortion services; Medicaid provides coverage for abortion in certain circumstances.\n\u2022 Abortion is prohibited after 0 weeks since last menstrual period.\n\u2022 Exceptions are allowed to save the life of the pregnant person, in cases of rape or incest.\n\u2022 Minors: Parental consent is required.\n\nThis information is based on the most recent data available, but laws may have changed. For the most up-to-date information, please contact Planned Parenthood or visit abortionfinder.org.",
+      "timestamp": 1743397856.667416,
+      "citations": [],
+      "citation_objects": []
+    },
+    {
+      "message_id": "9faa7ac9-b7f2-46c0-bc8c-90be594b0144",
+      "session_id": "e0acb294-f249-4d3b-afd3-0daf049bc958",
+      "role": "user",
+      "content": "I am stressed about getting an abortion, what do i do",
+      "timestamp": 1743397871.7855139
+    },
+    {
+      "message_id": "d284109d-00de-4c09-bd70-360e68fd0e6b",
+      "session_id": "e0acb294-f249-4d3b-afd3-0daf049bc958",
+      "role": "assistant",
+      "content": "I want to acknowledge how stressful and overwhelming this situation can be for you. It's completely normal to feel anxious when facing such a significant decision. Your feelings are valid, and it's important to take the time to process them. First, remember that you are not alone in this. Many people go through similar experiences, and there are supportive resources available to help you. It\u2019s okay to reach out to trusted friends, family members, or a counselor who can provide a listening ear and support during this time. If you feel comfortable, consider speaking with a healthcare professional who can provide you with information about the procedure, what to expect, and address any concerns you may have. They can help ensure you feel informed and supported as you make your decision. Take a moment to breathe and give yourself the space to reflect on what you truly want. It's okay to take your time. If it feels right, writing down your thoughts and feelings can also be a helpful way to clarify your emotions. If you need more resources or someone to talk to, organizations like Planned Parenthood or local reproductive health clinics can provide confidential support and guidance. You're not alone, and there are people who care and want to help you through this.",
+      "timestamp": 1743397884.2140741,
+      "citations": [],
+      "citation_objects": []
+    },
+    {
+      "message_id": "d284109d-00de-4c09-bd70-360e68fd0e6b",
+      "session_id": "e0acb294-f249-4d3b-afd3-0daf049bc958",
+      "role": "assistant",
+      "content": "I want to acknowledge how stressful and overwhelming this situation can be for you. It's completely normal to feel anxious when facing such a significant decision. Your feelings are valid, and it's important to take the time to process them. First, remember that you are not alone in this. Many people go through similar experiences, and there are supportive resources available to help you. It\u2019s okay to reach out to trusted friends, family members, or a counselor who can provide a listening ear and support during this time. If you feel comfortable, consider speaking with a healthcare professional who can provide you with information about the procedure, what to expect, and address any concerns you may have. They can help ensure you feel informed and supported as you make your decision. Take a moment to breathe and give yourself the space to reflect on what you truly want. It's okay to take your time. If it feels right, writing down your thoughts and feelings can also be a helpful way to clarify your emotions. If you need more resources or someone to talk to, organizations like Planned Parenthood or local reproductive health clinics can provide confidential support and guidance. You're not alone, and there are people who care and want to help you through this.",
+      "timestamp": 1743397884.2150521,
+      "citations": [],
+      "citation_objects": []
+    },
+    {
+      "message_id": "34f3c6b4-60f2-417b-b57a-6fe5a58e2993",
+      "session_id": "e0acb294-f249-4d3b-afd3-0daf049bc958",
+      "role": "user",
+      "content": "i dont think anyone cares",
+      "timestamp": 1743397955.608583
+    },
+    {
+      "message_id": "6dec9317-6f25-468d-a999-1c4cd624da92",
+      "session_id": "e0acb294-f249-4d3b-afd3-0daf049bc958",
+      "role": "assistant",
+      "content": "I\u2019m really sorry to hear that you\u2019re feeling this way. It can be incredibly isolating to feel like no one cares, and I want you to know that your feelings are completely valid. Life can sometimes feel overwhelming, and it's natural to feel this way, especially during difficult times. While it may seem like no one is paying attention, there are people and resources out there who do care and want to support you. It can be helpful to share what you\u2019re going through with someone you trust, whether that\u2019s a friend, a family member, or a professional who can provide support. You deserve to be heard and understood. If you\u2019re open to it, reaching out to a counselor or a support group can also be a powerful way to connect with others who may be feeling similarly. They can provide a space where you can express yourself without fear of judgment. Please remember, you\u2019re not alone in this, and there are people who want to help you through what you\u2019re feeling. If you need further assistance or resources, I\u2019m here to help guide you. Your feelings matter, and it\u2019s important to prioritize your well-being.",
+      "timestamp": 1743397962.0403352,
+      "citations": [],
+      "citation_objects": []
+    },
+    {
+      "message_id": "6dec9317-6f25-468d-a999-1c4cd624da92",
+      "session_id": "e0acb294-f249-4d3b-afd3-0daf049bc958",
+      "role": "assistant",
+      "content": "I\u2019m really sorry to hear that you\u2019re feeling this way. It can be incredibly isolating to feel like no one cares, and I want you to know that your feelings are completely valid. Life can sometimes feel overwhelming, and it's natural to feel this way, especially during difficult times. While it may seem like no one is paying attention, there are people and resources out there who do care and want to support you. It can be helpful to share what you\u2019re going through with someone you trust, whether that\u2019s a friend, a family member, or a professional who can provide support. You deserve to be heard and understood. If you\u2019re open to it, reaching out to a counselor or a support group can also be a powerful way to connect with others who may be feeling similarly. They can provide a space where you can express yourself without fear of judgment. Please remember, you\u2019re not alone in this, and there are people who want to help you through what you\u2019re feeling. If you need further assistance or resources, I\u2019m here to help guide you. Your feelings matter, and it\u2019s important to prioritize your well-being.",
+      "timestamp": 1743397962.041028,
+      "citations": [],
+      "citation_objects": []
+    },
+    {
+      "message_id": "05ac914e-de6d-4360-a2fd-93e8e9dcb1c4",
+      "session_id": "e0acb294-f249-4d3b-afd3-0daf049bc958",
+      "role": "user",
+      "content": "what is abortion like?",
+      "timestamp": 1743397988.8280761
+    },
+    {
+      "message_id": "2c437f81-0b64-4509-a2d8-035b1cd1ec81",
+      "session_id": "e0acb294-f249-4d3b-afd3-0daf049bc958",
+      "role": "assistant",
+      "content": "Abortion is a medical procedure that ends a pregnancy, and it can be done in two primary ways: in-clinic abortion and medication abortion. 1. **In-Clinic Abortion**: This procedure is typically performed by a trained doctor or nurse in a health center. It usually takes about 5 to 10 minutes, but the entire appointment may take longer due to pre-procedure exams and recovery time. During the procedure, you may receive pain medication to help with cramping. The healthcare provider will use instruments to gently remove the pregnancy tissue from your uterus through the vagina. A staff member will be present to support you throughout the process. After the procedure, you will spend some time in a recovery area before leaving. 2. **Medication Abortion**: Often referred to as the \"abortion pill,\" this method involves taking medications to end an early pregnancy (up to 11 weeks after the first day of your last period). It typically involves two medications: mifepristone and misoprostol. The process can cause cramping and bleeding, similar to an early miscarriage. Both methods are considered safe and effective, with in-clinic abortions having a success rate of over 99%, while medication abortions have a success rate of 87-99%, depending on various factors. It's important to discuss your options with a healthcare provider who can provide personalized information and support based on your individual circumstances. If you have more questions or need further assistance, don't hesitate to reach out to a reproductive health specialist or a clinic like Planned Parenthood.",
+      "timestamp": 1743397994.824472,
+      "citations": [
+        "Planned Parenthood",
+        "Planned Parenthood",
+        "Planned Parenthood"
+      ],
+      "citation_objects": [
+        {
+          "source": "Planned Parenthood",
+          "title": "In Clinic Abortion Procedures",
+          "url": "https://www.plannedparenthood.org/learn/abortion/in-clinic-abortion-procedures",
+          "accessed_date": "2025-03-30"
+        },
+        {
+          "source": "Planned Parenthood",
+          "title": "What Facts About Abortion Do I Need Know",
+          "url": "https://www.plannedparenthood.org/learn/abortion/considering-abortion/what-facts-about-abortion-do-i-need-know",
+          "accessed_date": "2025-03-30"
+        },
+        {
+          "source": "Planned Parenthood",
+          "title": "What Happens During An In Clinic Abortion",
+          "url": "https://www.plannedparenthood.org/learn/abortion/in-clinic-abortion-procedures/what-happens-during-an-in-clinic-abortion",
+          "accessed_date": "2025-03-30"
+        }
+      ]
+    },
+    {
+      "message_id": "2c437f81-0b64-4509-a2d8-035b1cd1ec81",
+      "session_id": "e0acb294-f249-4d3b-afd3-0daf049bc958",
+      "role": "assistant",
+      "content": "Abortion is a medical procedure that ends a pregnancy, and it can be done in two primary ways: in-clinic abortion and medication abortion. 1. **In-Clinic Abortion**: This procedure is typically performed by a trained doctor or nurse in a health center. It usually takes about 5 to 10 minutes, but the entire appointment may take longer due to pre-procedure exams and recovery time. During the procedure, you may receive pain medication to help with cramping. The healthcare provider will use instruments to gently remove the pregnancy tissue from your uterus through the vagina. A staff member will be present to support you throughout the process. After the procedure, you will spend some time in a recovery area before leaving. 2. **Medication Abortion**: Often referred to as the \"abortion pill,\" this method involves taking medications to end an early pregnancy (up to 11 weeks after the first day of your last period). It typically involves two medications: mifepristone and misoprostol. The process can cause cramping and bleeding, similar to an early miscarriage. Both methods are considered safe and effective, with in-clinic abortions having a success rate of over 99%, while medication abortions have a success rate of 87-99%, depending on various factors. It's important to discuss your options with a healthcare provider who can provide personalized information and support based on your individual circumstances. If you have more questions or need further assistance, don't hesitate to reach out to a reproductive health specialist or a clinic like Planned Parenthood.",
+      "timestamp": 1743397994.825255,
+      "citations": [
+        "Planned Parenthood",
+        "Planned Parenthood",
+        "Planned Parenthood"
+      ],
+      "citation_objects": [
+        {
+          "source": "Planned Parenthood",
+          "title": "In Clinic Abortion Procedures",
+          "url": "https://www.plannedparenthood.org/learn/abortion/in-clinic-abortion-procedures",
+          "accessed_date": "2025-03-30"
+        },
+        {
+          "source": "Planned Parenthood",
+          "title": "What Facts About Abortion Do I Need Know",
+          "url": "https://www.plannedparenthood.org/learn/abortion/considering-abortion/what-facts-about-abortion-do-i-need-know",
+          "accessed_date": "2025-03-30"
+        },
+        {
+          "source": "Planned Parenthood",
+          "title": "What Happens During An In Clinic Abortion",
+          "url": "https://www.plannedparenthood.org/learn/abortion/in-clinic-abortion-procedures/what-happens-during-an-in-clinic-abortion",
+          "accessed_date": "2025-03-30"
+        }
+      ]
+    }
+  ]
+}

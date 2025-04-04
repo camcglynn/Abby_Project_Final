@@ -1,0 +1,114 @@
+{
+  "session_id": "07e5a375-5a33-44db-8ea9-a9a520fcee05",
+  "created_at": 1743724240.9722629,
+  "last_active": 1743724426.4269388,
+  "messages": [
+    {
+      "message_id": "3881204e-d11a-4581-9feb-d7f849d19702",
+      "session_id": "07e5a375-5a33-44db-8ea9-a9a520fcee05",
+      "role": "user",
+      "content": "What are the signs of pregnancy?",
+      "timestamp": 1743724240.9723241
+    },
+    {
+      "message_id": "13d0b5f5-a5a8-4b35-9e20-da0493329743",
+      "session_id": "07e5a375-5a33-44db-8ea9-a9a520fcee05",
+      "role": "assistant",
+      "content": "The signs of pregnancy can vary from person to person, and some individuals may not experience any symptoms at all. Common early signs and symptoms include: 1. **Missed Period**: This is often the first indication that someone might be pregnant. 2. **Swollen or Tender Breasts**: Hormonal changes can cause breast tenderness or swelling. 3. **Nausea and/or Vomiting**: Often referred to as \"morning sickness,\" this can occur at any time of the day. 4. **Fatigue**: Increased tiredness is a common symptom due to hormonal changes. 5. **Bloating**: Some individuals may feel bloated early in pregnancy. 6. **Constipation**: Hormonal changes can slow down the digestive system. 7. **Frequent Urination**: Increased need to urinate can occur as the uterus expands. It's important to note that these symptoms can also be related to other conditions, such as premenstrual syndrome (PMS), so the only way to confirm pregnancy is through a pregnancy test. You can take a home pregnancy test or visit a healthcare provider for a test at a clinic (like Planned Parenthood) . If you suspect you might be pregnant, taking a test after your missed period is recommended for the most accurate result. If the test is positive, it's advisable to schedule an appointment with a healthcare provider to discuss your options and ensure your health .",
+      "timestamp": 1743724247.053292,
+      "citations": [
+        "Planned Parenthood",
+        "Planned Parenthood"
+      ],
+      "citation_objects": [
+        {
+          "source": "Planned Parenthood",
+          "title": "How Pregnancy Happens",
+          "url": "https://www.plannedparenthood.org/learn/pregnancy/how-pregnancy-happens",
+          "accessed_date": "2025-04-03"
+        },
+        {
+          "source": "Planned Parenthood",
+          "title": "I Think Im Pregnant Now What",
+          "url": "https://www.plannedparenthood.org/learn/teens/stds-birth-control-pregnancy/i-think-im-pregnant-now-what",
+          "accessed_date": "2025-04-03"
+        }
+      ]
+    },
+    {
+      "message_id": "13d0b5f5-a5a8-4b35-9e20-da0493329743",
+      "session_id": "07e5a375-5a33-44db-8ea9-a9a520fcee05",
+      "role": "assistant",
+      "content": "The signs of pregnancy can vary from person to person, and some individuals may not experience any symptoms at all. Common early signs and symptoms include: 1. **Missed Period**: This is often the first indication that someone might be pregnant. 2. **Swollen or Tender Breasts**: Hormonal changes can cause breast tenderness or swelling. 3. **Nausea and/or Vomiting**: Often referred to as \"morning sickness,\" this can occur at any time of the day. 4. **Fatigue**: Increased tiredness is a common symptom due to hormonal changes. 5. **Bloating**: Some individuals may feel bloated early in pregnancy. 6. **Constipation**: Hormonal changes can slow down the digestive system. 7. **Frequent Urination**: Increased need to urinate can occur as the uterus expands. It's important to note that these symptoms can also be related to other conditions, such as premenstrual syndrome (PMS), so the only way to confirm pregnancy is through a pregnancy test. You can take a home pregnancy test or visit a healthcare provider for a test at a clinic (like Planned Parenthood) . If you suspect you might be pregnant, taking a test after your missed period is recommended for the most accurate result. If the test is positive, it's advisable to schedule an appointment with a healthcare provider to discuss your options and ensure your health .",
+      "timestamp": 1743724247.068884,
+      "citations": [
+        "Planned Parenthood",
+        "Planned Parenthood"
+      ],
+      "citation_objects": [
+        {
+          "source": "Planned Parenthood",
+          "title": "How Pregnancy Happens",
+          "url": "https://www.plannedparenthood.org/learn/pregnancy/how-pregnancy-happens",
+          "accessed_date": "2025-04-03"
+        },
+        {
+          "source": "Planned Parenthood",
+          "title": "I Think Im Pregnant Now What",
+          "url": "https://www.plannedparenthood.org/learn/teens/stds-birth-control-pregnancy/i-think-im-pregnant-now-what",
+          "accessed_date": "2025-04-03"
+        }
+      ]
+    },
+    {
+      "message_id": "27c2bce7-234d-4376-af93-4ffdff5f260b",
+      "session_id": "07e5a375-5a33-44db-8ea9-a9a520fcee05",
+      "role": "user",
+      "content": "help me",
+      "timestamp": 1743724402.5176792
+    },
+    {
+      "message_id": "a96120f0-7c93-4175-916f-fdc6552bc971",
+      "session_id": "07e5a375-5a33-44db-8ea9-a9a520fcee05",
+      "role": "assistant",
+      "content": "I'm really glad you reached out, and I want you to know that it's completely okay to feel uncertain or overwhelmed right now. Whatever you're going through, it's important to talk about it and seek support, and I'm here for you. If you're feeling anxious or confused about a possible pregnancy or anything else related to your reproductive health, please know that your feelings are valid. It\u2019s normal to have a lot of questions, and it can be tough to navigate these emotions alone. If you're comfortable sharing a bit more about what's on your mind, I can help guide you through it. Whether you need information, resources, or just someone to listen, I'm here for you. You don't have to go through this alone.",
+      "timestamp": 1743724407.318472,
+      "citations": [],
+      "citation_objects": []
+    },
+    {
+      "message_id": "a96120f0-7c93-4175-916f-fdc6552bc971",
+      "session_id": "07e5a375-5a33-44db-8ea9-a9a520fcee05",
+      "role": "assistant",
+      "content": "I'm really glad you reached out, and I want you to know that it's completely okay to feel uncertain or overwhelmed right now. Whatever you're going through, it's important to talk about it and seek support, and I'm here for you. If you're feeling anxious or confused about a possible pregnancy or anything else related to your reproductive health, please know that your feelings are valid. It\u2019s normal to have a lot of questions, and it can be tough to navigate these emotions alone. If you're comfortable sharing a bit more about what's on your mind, I can help guide you through it. Whether you need information, resources, or just someone to listen, I'm here for you. You don't have to go through this alone.",
+      "timestamp": 1743724407.321734,
+      "citations": [],
+      "citation_objects": []
+    },
+    {
+      "message_id": "020f2981-d6a7-40bc-9fec-21385e724180",
+      "session_id": "07e5a375-5a33-44db-8ea9-a9a520fcee05",
+      "role": "user",
+      "content": "hey wait",
+      "timestamp": 1743724421.630742
+    },
+    {
+      "message_id": "0793b37a-fdd8-4aee-bf11-4b96a32000b0",
+      "session_id": "07e5a375-5a33-44db-8ea9-a9a520fcee05",
+      "role": "assistant",
+      "content": "It sounds like you might be feeling a bit overwhelmed or uncertain right now. That's completely understandable, and I want you to know that it's okay to take your time. If you have something specific on your mind that you'd like to share, I'm here to listen and support you without any judgment. Your feelings are important, and you deserve to have them acknowledged. Please feel free to express whatever you're comfortable with, and we can navigate this together.",
+      "timestamp": 1743724426.4255738,
+      "citations": [],
+      "citation_objects": []
+    },
+    {
+      "message_id": "0793b37a-fdd8-4aee-bf11-4b96a32000b0",
+      "session_id": "07e5a375-5a33-44db-8ea9-a9a520fcee05",
+      "role": "assistant",
+      "content": "It sounds like you might be feeling a bit overwhelmed or uncertain right now. That's completely understandable, and I want you to know that it's okay to take your time. If you have something specific on your mind that you'd like to share, I'm here to listen and support you without any judgment. Your feelings are important, and you deserve to have them acknowledged. Please feel free to express whatever you're comfortable with, and we can navigate this together.",
+      "timestamp": 1743724426.4269361,
+      "citations": [],
+      "citation_objects": []
+    }
+  ]
+}

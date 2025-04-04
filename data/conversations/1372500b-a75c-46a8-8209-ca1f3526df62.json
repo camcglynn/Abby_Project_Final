@@ -1,0 +1,100 @@
+{
+  "session_id": "1372500b-a75c-46a8-8209-ca1f3526df62",
+  "created_at": 1742543690.307963,
+  "last_active": 1742543713.112598,
+  "messages": [
+    {
+      "message_id": "bd1d9254-ff7d-44bb-8c0a-f0c311484170",
+      "session_id": "1372500b-a75c-46a8-8209-ca1f3526df62",
+      "role": "user",
+      "content": "What are the abortion laws in California?",
+      "timestamp": 1742543690.3079941
+    },
+    {
+      "message_id": "0856745a-c515-4728-88e2-b6adc6cdb3fa",
+      "session_id": "1372500b-a75c-46a8-8209-ca1f3526df62",
+      "role": "assistant",
+      "content": "In California, the abortion laws are as follows: 1. **Waiting Periods**: There are no specific waiting period requirements for obtaining an abortion in California. 2. **Insurance Coverage**: - **Exchange Coverage**: There are no restrictions on abortion coverage through health insurance exchanges. - **Medicaid Coverage**: Medicaid covers abortion services based on the provider and patient decision. - **Coverage Requirement**: Insurance plans are required to cover abortion services. 3. **Gestational Limits**: - Abortion is banned after 99 weeks since the last menstrual period (LMP), which effectively means there are no gestational limits. - Exceptions are allowed for the life and health of the pregnant person, with the health exception being broad (\"Any\"). 4. **Minors**: - Minors are allowed to consent to an abortion without parental involvement. This information is based on the latest update as of November 13, 2019.",
+      "timestamp": 1742543698.6598542,
+      "citations": [
+        {
+          "source": "Abortion Policy API",
+          "url": "https://www.abortionpolicyapi.com/",
+          "accessed_date": "2025-03-21"
+        },
+        {
+          "source": "Planned Parenthood",
+          "url": "https://www.plannedparenthood.org/learn/abortion/abortion-laws-by-state",
+          "accessed_date": "2025-03-21"
+        },
+        {
+          "source": "Abortion Finder",
+          "url": "https://www.abortionfinder.org/",
+          "accessed_date": "2025-03-21"
+        }
+      ]
+    },
+    {
+      "message_id": "c12d6e2b-9ea8-4468-a310-a62d02aff9fb",
+      "session_id": "1372500b-a75c-46a8-8209-ca1f3526df62",
+      "role": "user",
+      "content": "What are the abortion laws in TX?",
+      "timestamp": 1742543698.6638389
+    },
+    {
+      "message_id": "513f3e54-e63e-4344-bef5-2e3c0094e52d",
+      "session_id": "1372500b-a75c-46a8-8209-ca1f3526df62",
+      "role": "assistant",
+      "content": "Here is a summary of the abortion laws in Texas based on the provided data: 1. **Waiting Periods:** - There is a mandatory 24-hour waiting period before an abortion can be performed. - Two counseling visits are required. - The ultrasound must occur at least 24 hours before the abortion unless the patient lives more than 100 miles from a provider, or if the pregnancy is due to rape, incest, or involves a lethal fetal anomaly. 2. **Insurance Coverage:** - Private insurance and health exchange plans only cover abortions if the woman's life is at risk or if there is a major bodily function impairment. - Medicaid covers abortions if the woman's life is at risk or in cases of rape or incest. 3. **Gestational Limits:** - Abortions are banned at all stages of pregnancy (0 weeks since the last menstrual period). - Exceptions are made if the woman's life is at risk. 4. **Minors:** - Minors under the age of 18 require consent from one parent. - Parental notification is also required. - A judicial bypass is available, allowing minors to seek court approval to proceed without parental consent or notification. Please note that this information is based on the latest available data and may be subject to change. Always consult a legal expert or healthcare provider for the most current information.",
+      "timestamp": 1742543705.2115579,
+      "citations": [
+        {
+          "source": "Abortion Policy API",
+          "url": "https://www.abortionpolicyapi.com/",
+          "accessed_date": "2025-03-21"
+        },
+        {
+          "source": "Planned Parenthood",
+          "url": "https://www.plannedparenthood.org/learn/abortion/abortion-laws-by-state",
+          "accessed_date": "2025-03-21"
+        },
+        {
+          "source": "Abortion Finder",
+          "url": "https://www.abortionfinder.org/",
+          "accessed_date": "2025-03-21"
+        }
+      ]
+    },
+    {
+      "message_id": "e482aaa3-06ab-43ae-bff3-00da9b0b72a9",
+      "session_id": "1372500b-a75c-46a8-8209-ca1f3526df62",
+      "role": "user",
+      "content": "What are the abortion laws in 90210?",
+      "timestamp": 1742543705.224871
+    },
+    {
+      "message_id": "9c59440a-bf39-416e-8f31-cdf46b7a8e08",
+      "session_id": "1372500b-a75c-46a8-8209-ca1f3526df62",
+      "role": "assistant",
+      "content": "In California, which includes the area with the ZIP code 90210, the following abortion policies apply: 1. **Waiting Periods**: There are no specific waiting period requirements for obtaining an abortion in California. 2. **Insurance Coverage**: - Insurance plans available through the state exchange have no restrictions on abortion coverage. - Medicaid covers abortion when it is a decision made between the provider and the patient. - There is a requirement for insurance coverage of abortion services. 3. **Gestational Limits**: - Abortion is generally not banned at any specific gestational age, with a nominal limit set at 99 weeks since the last menstrual period (LMP), effectively allowing abortions throughout pregnancy. - Exceptions are made for abortions necessary to protect the life or health of the pregnant person, with health exceptions being broad and inclusive (\"Any\"). 4. **Minors**: - Minors in California are allowed to consent to an abortion without the need for parental consent or notification. These policies reflect the state's supportive stance on access to abortion services. If you have further questions or need more specific details, please let me know!",
+      "timestamp": 1742543713.112597,
+      "citations": [
+        {
+          "source": "Abortion Policy API",
+          "url": "https://www.abortionpolicyapi.com/",
+          "accessed_date": "2025-03-21"
+        },
+        {
+          "source": "Planned Parenthood",
+          "url": "https://www.plannedparenthood.org/learn/abortion/abortion-laws-by-state",
+          "accessed_date": "2025-03-21"
+        },
+        {
+          "source": "Abortion Finder",
+          "url": "https://www.abortionfinder.org/",
+          "accessed_date": "2025-03-21"
+        }
+      ]
+    }
+  ]
+}

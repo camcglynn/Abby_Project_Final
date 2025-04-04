@@ -1,0 +1,38 @@
+{
+  "session_id": "c5482b18-b332-4c80-9335-dce25944ce00",
+  "created_at": 1742543825.4166899,
+  "last_active": 1742543833.317641,
+  "messages": [
+    {
+      "message_id": "155125d4-af07-4763-ac99-ffc04e072715",
+      "session_id": "c5482b18-b332-4c80-9335-dce25944ce00",
+      "role": "user",
+      "content": "what is abortion policy in california",
+      "timestamp": 1742543825.4167051
+    },
+    {
+      "message_id": "2c1bfa90-dc33-4857-b16e-e2839c89c772",
+      "session_id": "c5482b18-b332-4c80-9335-dce25944ce00",
+      "role": "assistant",
+      "content": "Here is the abortion policy information for California based on the provided data: 1. **Waiting Periods:** - There are no specific waiting period requirements mentioned for obtaining an abortion in California. 2. **Insurance Coverage:** - Insurance plans available through the state exchange have no restrictions on covering abortion services. - Medicaid in California covers abortion services based on the provider and patient decision. - There is a requirement for insurance plans to cover abortion services. 3. **Gestational Limits:** - Abortion is generally permitted up to 99 weeks since the last menstrual period (LMP), which effectively means there are no gestational limits under normal circumstances. - Exceptions are made for abortions necessary to protect the life or health of the pregnant person, with \"health\" being broadly defined. 4. **Minors:** - Minors in California are allowed to consent to an abortion without needing parental permission. This information reflects the policies as of the last update on November 13, 2019.",
+      "timestamp": 1742543833.3176398,
+      "citations": [
+        {
+          "source": "Abortion Policy API",
+          "url": "https://www.abortionpolicyapi.com/",
+          "accessed_date": "2025-03-21"
+        },
+        {
+          "source": "Planned Parenthood",
+          "url": "https://www.plannedparenthood.org/learn/abortion/abortion-laws-by-state",
+          "accessed_date": "2025-03-21"
+        },
+        {
+          "source": "Abortion Finder",
+          "url": "https://www.abortionfinder.org/",
+          "accessed_date": "2025-03-21"
+        }
+      ]
+    }
+  ]
+}
